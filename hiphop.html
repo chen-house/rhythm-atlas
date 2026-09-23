@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hip-hop · Boom-bap / Trap · 节奏图鉴</title>
+<meta name="description" content="Hip-hop 的鼓：boom(底鼓)-bap(军鼓)的骨架、让你点头的 swing 摇摆、boom-bap 与 trap 两代打法的分层交互讲解，历史文化与四档歌曲推荐(唱片翻面卡)。">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root{--vio:#6B5BD6;--vio-soft:#ECE9FB;--vio-deep:#463C9E;
+        --gold:#E0A32C;--gold-soft:#FBEED0;--gold-deep:#9C6A12;
+        --coral:#E0662E;--coral-soft:#FBE7D8;--coral-deep:#A6431B;
+        --teal:#1F8A79;--teal-soft:#DBF1ED;
+        --plum:#B4478A;--plum-soft:#F6DEEE;--plum-deep:#823063;
+        --sand:#F4EAD6;--ink:#2E2748;}
+  .seclabel .num{background:var(--vio);}
+  .seclabel .t{color:var(--vio-deep);}
+
+  .cover{position:relative;border-radius:16px;overflow:hidden;background:var(--sand);padding:46px 34px 0;margin:8px 0 6px;}
+  .cover h1{font-size:38px;margin:0 0 6px;color:#463C9E;letter-spacing:-.5px;}
+  .cover .csub{color:#6E5AA6;font-size:15px;margin:0 0 44px;max-width:560px;position:relative;z-index:2;}
+  .cover .disc{position:absolute;top:26px;right:44px;width:64px;height:64px;border-radius:50%;
+     background:radial-gradient(circle,#2E2748 0 20%,var(--gold) 20% 26%,#2E2748 26% 100%);
+     box-shadow:0 0 0 6px rgba(107,91,214,.16);}
+  .cover .disc::after{content:"";position:absolute;inset:44%;border-radius:50%;background:var(--sand);}
+  .cover .eqband{display:flex;align-items:flex-end;gap:5px;height:40px;position:relative;z-index:1;}
+  .cover .eqband i{flex:1;border-radius:3px 3px 0 0;background:var(--vio);}
+  .cover .eqband i:nth-child(2n){background:var(--gold);}
+  .cover .eqband i:nth-child(3n){background:var(--coral);}
+  @media(max-width:560px){.cover h1{font-size:28px;}.cover .disc{right:20px;top:18px;width:46px;height:46px;}}
+
+  .builder{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;}
+  .gtabs{display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap;}
+  .gt{border:1.5px solid var(--vio);background:transparent;color:var(--vio-deep);border-radius:999px;padding:7px 18px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+  .gt.on{background:var(--vio);color:#fff;}
+  .gtnote{font-size:12px;color:var(--hint);}
+  .lyrow{display:grid;grid-template-columns:162px 1fr;gap:12px;align-items:center;padding:9px 0;border-top:1px dashed var(--line);}
+  .lyrow:first-of-type{border-top:none;}
+  .lybtn{display:flex;flex-direction:column;gap:2px;text-align:left;border:1.5px solid var(--line2);background:var(--bg);border-radius:10px;padding:7px 11px;cursor:pointer;font-family:inherit;transition:.15s;}
+  .lybtn .nm{font-size:13.5px;font-weight:600;color:var(--muted);}
+  .lybtn .rl{font-size:10.5px;color:var(--hint);}
+  .lybtn.on{border-color:var(--lc);background:var(--lsoft);}
+  .lybtn.on .nm{color:var(--lc);}
+  .steps{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;}
+  .st{height:24px;border:1px solid var(--line);border-radius:5px;background:transparent;position:relative;transition:transform .18s;}
+  .st.bar{box-shadow:inset 2px 0 0 var(--line2);}
+  .st.hit{background:var(--lc);border-color:var(--lc);}
+  .st.hit.soft{opacity:.40;}
+  .st.now{outline:2px solid var(--ink);outline-offset:0;}
+  .st.swung{transform:translateX(5px);}
+  .st.diff{box-shadow:0 0 0 3px var(--gold);animation:diffglow 1.1s ease-in-out 3;}
+  @keyframes diffglow{50%{box-shadow:0 0 0 6px rgba(224,163,44,.4);}}
+  .offrow .st{opacity:.28;}
+  .beathead{display:grid;grid-template-columns:162px 1fr;gap:12px;margin-bottom:2px;}
+  .beatnums{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;font-size:10px;color:var(--hint);text-align:center;}
+  .beatnums b{color:var(--text);font-weight:600;}
+  .abwrap{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap;}
+  .ab{display:inline-flex;border:1.5px solid var(--vio);border-radius:999px;overflow:hidden;}
+  .ab button{border:none;background:transparent;padding:7px 16px;font-size:13.5px;cursor:pointer;font-family:inherit;color:var(--vio-deep);}
+  .ab button.on{background:var(--vio);color:#fff;}
+  .abnote{font-size:12.5px;color:var(--muted);}
+
+  .box{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--vio);border-radius:0 10px 10px 0;padding:14px 18px;margin:20px 0;font-size:13.5px;line-height:1.72;max-width:840px;}
+  .src{font-size:11.5px;color:var(--hint);}
+  .src a{color:var(--vio-deep);text-decoration:none;}
+  .src a:hover{text-decoration:underline;}
+
+  .metro{position:fixed;right:18px;bottom:18px;width:44px;height:58px;z-index:30;opacity:0;transition:opacity .3s;pointer-events:none;}
+  .metro.show{opacity:.9;}
+  .metro .body{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:38px;height:46px;background:var(--ink);border-radius:7px 7px 4px 4px;clip-path:polygon(28% 0,72% 0,100% 100%,0 100%);}
+  .metro .arm{position:absolute;bottom:8px;left:50%;width:2.5px;height:40px;background:var(--gold);border-radius:2px;transform-origin:bottom center;animation:tick 1s ease-in-out infinite alternate;animation-play-state:paused;}
+  .metro.show .arm{animation-play-state:running;}
+  @keyframes tick{from{transform:rotate(-24deg);}to{transform:rotate(24deg);}}
+
+  .timeline{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;}
+  .tl{flex:1 1 150px;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;}
+  .tl .yr{font-size:12px;font-weight:600;color:var(--vio-deep);}
+  .tl p{font-size:12.5px;color:var(--muted);margin:4px 0 0;line-height:1.55;}
+  .hl{background:var(--gold-soft);padding:1px 5px;border-radius:5px;}
+
+  .bin{margin:26px 0 4px;}
+  .bin h3{font-size:16px;margin:0 0 3px;display:flex;align-items:center;gap:8px;}
+  .bin .bintag{font-size:11px;font-weight:600;color:#fff;background:var(--bc);padding:2px 9px;border-radius:999px;}
+  .bin .binnote{font-size:12.5px;color:var(--muted);margin:0 0 12px;}
+  .sleeves{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
+  .sleeve{perspective:900px;cursor:pointer;height:212px;}
+  .inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+  .sleeve.flip .inner{transform:rotateY(180deg);}
+  .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;border:1px solid rgba(46,39,72,.18);padding:14px;display:flex;flex-direction:column;}
+  .front{background:var(--sc);}
+  .front .hole{width:34px;height:34px;border-radius:50%;background:var(--ink);align-self:center;margin:6px 0 10px;position:relative;}
+  .front .hole::after{content:"";position:absolute;inset:38%;border-radius:50%;background:var(--sc);}
+  .front .ttl{font-size:15px;font-weight:700;color:var(--tc);line-height:1.3;}
+  .front .art{font-size:12px;color:var(--tc);opacity:.75;margin-top:3px;}
+  .front .yr{margin-top:auto;font-size:11px;color:var(--tc);opacity:.6;}
+  .front .fliphint{position:absolute;top:10px;right:12px;font-size:10px;color:var(--tc);opacity:.5;}
+  .back{background:var(--surface);transform:rotateY(180deg);}
+  .back .bt{font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--text);}
+  .back p{font-size:12px;color:var(--muted);margin:0 0 6px;line-height:1.6;flex:1;overflow:auto;}
+  .back a{font-size:12px;color:var(--vio-deep);font-weight:500;text-decoration:none;}
+  .back a:hover{text-decoration:underline;}
+  @media(max-width:560px){.lyrow{grid-template-columns:114px 1fr;}.beathead{grid-template-columns:114px 1fr;}}
+</style>
+</head>
+<body style="--accent:#6B5BD6;--accent-soft:#ECE9FB">
+
+<header class="topbar"><div class="wrap"><a class="brand" href="index.html"><span class="dot" style="background:var(--vio);"></span>Rhythm</a><a class="navlink" href="directory.html">← 返回目录</a></div></header>
+
+<div class="metro" id="metro" aria-hidden="true"><span class="arm"></span><span class="body"></span></div>
+
+<main class="wrap">
+
+  <section style="padding:34px 0 10px;">
+    <div class="cover">
+      <span class="disc"></span>
+      <h1>Hip-hop · Boom-bap / Trap</h1>
+      <p class="csub">Bronx · 1973 · 一切从"把唱片里最好的那几秒鼓单独抠出来循环"开始——hip-hop 的核心从来是鼓，不是旋律。</p>
+      <div class="eqband"><i style="height:40%"></i><i style="height:70%"></i><i style="height:30%"></i><i style="height:85%"></i><i style="height:55%"></i><i style="height:100%"></i><i style="height:45%"></i><i style="height:75%"></i><i style="height:35%"></i><i style="height:90%"></i><i style="height:50%"></i><i style="height:65%"></i><i style="height:28%"></i><i style="height:80%"></i><i style="height:48%"></i><i style="height:60%"></i></div>
+    </div>
+    <p style="color:var(--muted);font-size:14px;max-width:700px;">让你不自觉<span class="hl">点头</span>的那一下，不是旋律勾的，是鼓勾的。名字本身就是拟声：<b>boom</b> 是底鼓、<b>bap</b> 是军鼓 <span class="src">(<a href="https://en.wikipedia.org/wiki/Boom_bap" target="_blank" rel="noopener">Wikipedia: Boom bap</a>)</span>。下面三章：先把这套 boom-bap 骨架一层层搭出来、再拨一下让它"上头"的 <b>swing 摇摆</b>；然后看 hip-hop 从哪来、boom-bap 与 trap 两代打法差在哪；最后按四档听歌。</p>
+  </section>
+
+  <section class="section poster" id="listen">
+    <div class="rail"><div class="tab"><span class="no">1</span><span class="kind">听</span></div></div>
+    <div class="main">
+    
+    <h2>boom + bap + 一点 swing = 会点头的鼓</h2>
+    <p class="lead">骨架极简：<b>底鼓</b>踩重拍(boom)、<b>军鼓</b>钉在 2、4 的反拍上(bap)、<b>踩镲</b>铺连续八分。真正让它"活"起来、让脖子跟着动的，是把每个反拍<b>往后拖一点点</b>的 swing——不改音符位置，只改时机。<b>Boom-bap 版</b>是 90 年代东岸的采样打法；切到 <b>Trap 版</b>，同一套 kick/snare/hat，军鼓挪到半拍感(只落拍 3)、底鼓换成拖长的 808 低音、踩镲加密成 16 分与三连音滚奏。格子是 1 小节 4/4 的 <b>16 分音网格</b>。</p>
+
+    <div class="builder">
+      <div class="gtabs">
+        <button id="tabB" class="gt on">Boom-bap · 90s</button>
+        <button id="tabT" class="gt">Trap · 现代</button>
+        <span class="gtnote">同一套 kick/snare/hat 骨架，两代不同打法</span>
+      </div>
+      <div class="beathead"><div></div>
+        <div class="beatnums"><b>1</b><span>e</span><span>&amp;</span><span>a</span><b>2</b><span>e</span><span>&amp;</span><span>a</span><b>3</b><span>e</span><span>&amp;</span><span>a</span><b>4</b><span>e</span><span>&amp;</span><span>a</span></div>
+      </div>
+      <div id="rows"></div>
+
+      <div class="controls" style="margin-top:16px;">
+        <button class="play-btn" id="play" style="background:var(--vio);"><span id="pic">▶</span><span id="plbl">播放</span></button>
+        <div class="tempo"><span>速度</span><input id="bpm" type="range" min="70" max="150" value="90"><span id="bpmval">90</span> BPM</div>
+      </div>
+
+      <div class="abwrap">
+        <span style="font-size:13px;font-weight:600;">上头开关：</span>
+        <span class="ab"><button id="abW" class="on">Swing 摇摆</button><button id="abS">Straight 对齐</button></span>
+        <span class="abnote" id="abnote">把每个反拍(16 分的后半格)往后推一点点——机械网格立刻有了人味、开始"点头"。这正是 MPC 的 swing 量化，也是 J&nbsp;Dilla 让鼓"醉"起来的原理。右移的格子就是被推后的那些。</span>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--hint);margin-top:12px;">以上是抓特征的简化范式，不是逐音符扒带。Boom-bap 骨架取教材标准型：踩镲走八分、军鼓落 2 与 4、底鼓落第 1／4／6 个八分位 <span class="src">(<a href="https://blog.native-instruments.com/what-is-boom-bap/" target="_blank" rel="noopener">Native Instruments: What is boom bap</a> / <a href="https://en.wikipedia.org/wiki/Boom_bap" target="_blank" rel="noopener">Wikipedia: Boom bap</a>)</span>；Trap 版取 808 长低音、军鼓半拍感、16 分与三连滚奏的镲 <span class="src">(<a href="https://en.wikipedia.org/wiki/Trap_music" target="_blank" rel="noopener">Wikipedia: Trap music</a> / <a href="https://splice.com/blog/the-sound-atl-trap/" target="_blank" rel="noopener">Splice: The Sound — ATL Trap</a>)</span>。真实录音里花样远比这丰富。</p>
+    <div class="box">
+      <b>为什么会"上头点头"？</b>三个可迁移的机关：<br>
+      <b>① boom↔bap 的对话</b>——底鼓(低、闷)与军鼓(脆、亮)一低一高地问答，2、4 上那记 backbeat 就是身体打拍子的锚。<br>
+      <b>② swing 让机器有人味</b>——把反拍往后拖一点(上面的开关)，节奏从"方格纸"变成"会呼吸"。90 年代靠 MPC 的 swing 量化做，J&nbsp;Dilla 干脆<b>关掉量化</b>用手指弹，让鼓听起来像"喝醉的鼓手" <span class="src">(<a href="https://en.wikipedia.org/wiki/J_Dilla" target="_blank" rel="noopener">Wikipedia: J Dilla</a>)</span>。<br>
+      <b>③ 留白给人声</b>——beat 故意做得稀疏，是为了把空间让给 rap。鼓不是主角，是给嘴皮子铺的地板。这三条换到 pop、R&B 的编曲里同样成立。
+    </div>
+  
+    </div>
+  </section>
+
+  <section class="section poster" id="know">
+    <div class="rail"><div class="tab"><span class="no">2</span><span class="kind">懂</span></div></div>
+    <div class="main">
+    
+    <h2>从一台唱机的"抠鼓"开始</h2>
+    <div class="prose">
+      <p>1973 年 8 月 11 日，Bronx 一场为姐姐凑开学置装费的派对上，16 岁的 <b>DJ Kool Herc</b> 发现：跳舞的人只等一首歌里那几秒纯鼓的"break"(过门)。于是他用两台唱机、两张同样的唱片，在 break 之间来回切换，把这几秒<b>无限延长</b>——他管这叫"merry-go-round"(旋转木马)。hip-hop 就此诞生 <span class="src">(<a href="https://en.wikipedia.org/wiki/DJ_Kool_Herc" target="_blank" rel="noopener">Wikipedia: DJ Kool Herc</a>)</span>。所以 hip-hop 的第一件乐器，其实是"别人唱片里的鼓"。</p>
+      <div class="timeline">
+        <div class="tl"><span class="yr">1973 · Bronx</span><p>DJ Kool Herc 用两台唱机循环 break，hip-hop 与 breakbeat 诞生</p></div>
+        <div class="tl"><span class="yr">1969 / 1970 · 母带</span><p>The Winstons《Amen, Brother》与 James Brown《Funky Drummer》的鼓 break，日后成最常被采样的两段鼓</p></div>
+        <div class="tl"><span class="yr">1984 · 命名</span><p>T La Rock《It's Yours》用"boom bap"拟声 kick 与 snare，第一次把这声音写进歌里</p></div>
+        <div class="tl"><span class="yr">1988–96 · 黄金时代</span><p>SP-1200 / MPC 采样机普及，DJ Premier、Pete Rock、RZA 把 soul/jazz 切成 boom-bap</p></div>
+        <div class="tl"><span class="yr">2003–10 · 亚特兰大</span><p>Shawty Redd、Lex Luger 等把 808 低音 + 快速镲滚奏做成 trap，南方接棒东岸</p></div>
+        <div class="tl"><span class="yr">2006 · Detroit</span><p>J Dilla《Donuts》把"关掉量化"的醉步 swing 立成一门美学，影响至今</p></div>
+      </div>
+      <h3>Boom-bap：把唱片切碎，再拼成鼓</h3>
+      <p>boom-bap 是 80 年代末到 90 年代<b>东岸黄金时代</b>的打法：拟声词 boom(底鼓)+ bap(军鼓)，底鼓落 1、3 附近的正拍、军鼓钉死 2、4 的反拍，配上采样机切出来的 soul/jazz 唱片碎片 <span class="src">(<a href="https://en.wikipedia.org/wiki/Boom_bap" target="_blank" rel="noopener">Wikipedia: Boom bap</a>)</span>。KRS-One 1993 年的专辑《Return of the Boom Bap》让这个词彻底流行。气质是<b>粗粝、硬核、以词为王</b>——beat 越简单，越是把舞台让给 MC 的嘴。</p>
+      <h3>那两段"被抠了一千次"的鼓</h3>
+      <p>整个采样文化的地基，是两段真人鼓 break：Winstons 乐队 1969 年 B 面曲《Amen, Brother》里 Gregory Coleman 打的七秒鼓(<b>Amen break</b>)，被用在成千上万首歌里，是史上被采样最多的录音之一——而乐队几乎没拿到过版税 <span class="src">(<a href="https://en.wikipedia.org/wiki/Amen_break" target="_blank" rel="noopener">Wikipedia: Amen break</a>)</span>；另一段是 James Brown 的《Funky Drummer》。hip-hop 的原创性，恰恰长在"如何重新组织别人的鼓"上。</p>
+      <h3>Trap：808 换掉了真人鼓</h3>
+      <p>2000 年代亚特兰大把重心从"采样真人鼓"移到<b>合成鼓机</b>：核心是 Roland <b>TR-808</b> 那颗调到很长、当低音用的底鼓(所以叫"808") <span class="src">(<a href="https://en.wikipedia.org/wiki/Roland_TR-808" target="_blank" rel="noopener">Wikipedia: Roland TR-808</a>)</span>。名字来自"trap house"(毒品屋)。听感上三件事最扎眼：<b>拖长轰鸣的 808 低音</b>、<b>只落拍 3 的半拍感军鼓</b>、以及<b>快到"哒哒哒"的三连音踩镲滚奏</b> <span class="src">(<a href="https://en.wikipedia.org/wiki/Trap_music" target="_blank" rel="noopener">Wikipedia: Trap music</a> / <a href="https://splice.com/blog/the-sound-atl-trap/" target="_blank" rel="noopener">Splice: ATL Trap</a>)</span>。谱面常记成约 140 BPM，但军鼓落在半拍网格上，体感更接近 70——那种又慢又重的晃动，才是 trap 的心跳。</p>
+      <h3>Boom-bap 与 trap：一个"点头"，一个"晃身"</h3>
+      <p><b>boom-bap</b> 是中速(约 85–95 BPM)、真人鼓采样、swing 摇摆带来的<b>颈部点头</b>；<b>trap</b> 是半拍感、808 合成低音、三连镲带来的<b>全身慢晃</b>。一个偏"听词"，一个偏"上头氛围"。它们不是取代关系——今天的主流 hip-hop、乃至 pop 与 R&B，往往两套配方掺着用。</p>
+      <h3>怎么用在音乐里</h3>
+      <p>想要"会点头"的律动，记三步：军鼓钉死 <b>2、4</b> 立骨架；把反拍<b>往后拖一点</b>(swing / 关量化)造人味；beat <b>留白</b>、别填满，把空间让给主唱或 rap。想要"trap 感"就再加一条：底鼓换成<b>拖长的 808 低音</b>、军鼓改成<b>半拍只落拍 3</b>、踩镲加一段<b>三连滚奏</b>。这套逻辑搬进任何现代流行编曲都成立。</p>
+    </div>
+  
+    </div>
+  </section>
+
+  <section class="section poster" id="more">
+    <div class="rail"><div class="tab"><span class="no">3</span><span class="kind">听更多</span></div></div>
+    <div class="main">
+    
+    <h2>点一张唱片，翻过来看节奏</h2>
+    <p class="lead">正面是歌和作者，点击翻面看这首歌里节奏怎么用。按四档淘：被采样的根 → boom-bap 黄金时代 → 亚特兰大 trap → 你的入口与跨界。</p>
+    <div id="bins"></div>
+  
+    </div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">鼓点为抓特征的简化范式。想看 hip-hop 在整张节奏地图里的位置 → <a href="map.html" style="color:var(--vio-deep);">节奏地图</a> · <a href="directory.html" style="color:var(--vio-deep);">返回目录</a></div></footer>
+
+<script>
+const STEPS=16;
+const LAYERS=[
+ // —— Boom-bap ——
+ {id:"kick",nm:"底鼓 · boom",rl:"落第 1／4／6 个八分位",c:"#463C9E",soft:"#ECE9FB",g:"bap",
+  pat:[2,0,1,0,0,0,2,0,0,0,2,0,0,0,0,0],on:true},
+ {id:"snare",nm:"军鼓 · bap",rl:"钉死 2、4 的 backbeat",c:"#E0662E",soft:"#FBE7D8",g:"bap",
+  pat:[0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0],on:true},
+ {id:"hat",nm:"踩镲 · 连续八分",rl:"铺满的底噪引擎",c:"#9C6A12",soft:"#FBEED0",g:"bap",
+  pat:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],on:true},
+ {id:"samp",nm:"采样 · soul/jazz 碎片",rl:"切碎的唱片和弦(变化层)",c:"#1F8A79",soft:"#DBF1ED",g:"bap",
+  pat:[2,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0],on:false},
+ // —— Trap ——
+ {id:"t808",nm:"808 · 低音底鼓",rl:"拖长轰鸣当低音",c:"#463C9E",soft:"#ECE9FB",g:"trap",
+  pat:[2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0],on:true},
+ {id:"tsnare",nm:"军鼓/拍手 · 半拍感",rl:"只落拍 3",c:"#E0662E",soft:"#FBE7D8",g:"trap",
+  pat:[0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],on:true},
+ {id:"that",nm:"踩镲 · 连续16分",rl:"trap 的沙沙引擎",c:"#9C6A12",soft:"#FBEED0",g:"trap",
+  pat:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],on:true},
+ {id:"troll",nm:"镲滚奏 · 三连音",rl:"'哒哒哒'的加速滚奏",c:"#B4478A",soft:"#F6DEEE",g:"trap",
+  pat:[0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1],on:false}
+];
+let mode="swing", grp="bap", playing=false, timer=null, col=0;
+
+function rows(){
+ const R=document.getElementById('rows'); R.innerHTML='';
+ document.getElementById('tabB').classList.toggle('on',grp==="bap");
+ document.getElementById('tabT').classList.toggle('on',grp!=="bap");
+ LAYERS.forEach((L,li)=>{
+  if(L.g!==grp) return;
+  const row=document.createElement('div'); row.className='lyrow';
+  row.style.setProperty('--lc',L.c); row.style.setProperty('--lsoft',L.soft);
+  const btn=document.createElement('button');
+  btn.className='lybtn'+(L.on?' on':'');
+  btn.innerHTML='<span class="nm">'+L.nm+'</span><span class="rl">'+L.rl+'</span>';
+  btn.onclick=()=>{L.on=!L.on;rows();};
+  const grid=document.createElement('div'); grid.className='steps'+(L.on?'':' offrow');
+  for(let i=0;i<16;i++){
+    const v=L.pat[i]; const d=document.createElement('div');
+    d.className='st'+(i%4===0?' bar':'')+(v? (v===1?' hit soft':' hit'):'')+((mode==="swing"&&i%2===1)?' swung':'');
+    d.dataset.col=i; d.dataset.layer=li;
+    grid.appendChild(d);
+  }
+  row.appendChild(btn); row.appendChild(grid); R.appendChild(row);
+ });
+}
+function setMode(m){
+ mode=m;
+ document.getElementById('abW').classList.toggle('on',m==="swing");
+ document.getElementById('abS').classList.toggle('on',m!=="swing");
+ rows();
+ document.getElementById('abnote').innerHTML = m==="swing"
+  ? "把每个反拍(16 分的后半格)往后推一点点——机械网格立刻有了人味、开始“点头”。这正是 MPC 的 swing 量化，也是 J&nbsp;Dilla 让鼓“醉”起来的原理。右移的格子就是被推后的那些。"
+  : "所有音符对齐网格——精准、方正，但那股让你不自觉点头的“黏”劲儿也没了，听起来偏硬、偏机械。";
+}
+let actx;
+function AC(){actx=actx||new (window.AudioContext||window.webkitAudioContext)();return actx;}
+function pluck(t,f,v,dur,type){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type=type||"triangle";o.frequency.value=f;o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);o.start(t);o.stop(t+dur+0.02);}
+function noise(t,v,fq,dur,hp){const c=AC(),b=c.createBuffer(1,Math.floor(c.sampleRate*dur),c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type=hp?"highpass":"bandpass";f.frequency.value=fq;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);s.start(t);s.stop(t+dur+0.02);}
+function hatS(t,v){noise(t,v,8000,0.03,true);}
+function kickBoom(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(50,t+0.09);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.18);o.start(t);o.stop(t+0.19);}
+function kick808(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type="sine";o.frequency.setValueAtTime(120,t);o.frequency.exponentialRampToValueAtTime(38,t+0.12);o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.5);o.start(t);o.stop(t+0.52);}
+function snareS(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type="triangle";o.frequency.setValueAtTime(190,t);o.frequency.exponentialRampToValueAtTime(150,t+0.05);o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v*0.5,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.08);o.start(t);o.stop(t+0.09);noise(t,v*0.8,1900,0.14,true);}
+function chordJazz(t,v){[174.6,220,261.6,329.6].forEach(f=>pluck(t,f,v/4,0.30,"sawtooth"));noise(t,v*0.14,3500,0.05,true);}
+function step(){
+ const c=AC(), bpm=+document.getElementById('bpm').value;
+ const int16=60/bpm/4;                              // 16 分音时长(秒)
+ const sw=(mode==="swing"&&col%2===1)?int16*0.34:0; // 反拍往后拖一点
+ const t=c.currentTime+0.02+sw;
+ LAYERS.forEach(L=>{ if(L.g!==grp||!L.on||!L.pat[col]) return; const v=L.pat[col];
+  if(L.id==="kick") kickBoom(t,v===2?0.95:0.55);
+  else if(L.id==="snare") snareS(t,v===2?0.6:0.35);
+  else if(L.id==="hat") hatS(t,v===2?0.18:0.12);
+  else if(L.id==="samp") chordJazz(t,v===2?0.5:0.32);
+  else if(L.id==="t808") kick808(t,v===2?0.95:0.6);
+  else if(L.id==="tsnare"){ noise(t,v*0.5,1800,0.12,true); snareS(t,v===2?0.55:0.32); }
+  else if(L.id==="that") hatS(t,v===2?0.16:0.10);
+  else if(L.id==="troll"){ for(let k=0;k<3;k++) hatS(t+k*int16/3,0.12); }
+ });
+ document.querySelectorAll('.st').forEach(e=>e.classList.toggle('now',+e.dataset.col===col));
+ col=(col+1)%STEPS;
+}
+function loop(){const bpm=+document.getElementById('bpm').value;clearInterval(timer);step();timer=setInterval(step,60000/bpm/4);
+ document.querySelector('#metro .arm').style.animationDuration=(60/bpm)+'s';}
+function toggle(){
+ playing=!playing;
+ document.getElementById('plbl').textContent=playing?'停止':'播放';
+ document.getElementById('pic').textContent=playing?'■':'▶';
+ document.getElementById('metro').classList.toggle('show',playing);
+ if(playing){col=0;const c=AC();c.resume&&c.resume();loop();}
+ else{clearInterval(timer);document.querySelectorAll('.st').forEach(e=>e.classList.remove('now'));}
+}
+document.getElementById('play').onclick=toggle;
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmval').textContent=this.value;if(playing)loop();};
+document.getElementById('tabB').onclick=()=>{grp="bap";rows();};
+document.getElementById('tabT').onclick=()=>{grp="trap";rows();};
+document.getElementById('abW').onclick=()=>setMode("swing");
+document.getElementById('abS').onclick=()=>setMode("straight");
+
+const BINS=[
+ {tag:"被采样的根",c:"#9C6A12",note:"hip-hop 的鼓，最早都是从这些唱片里“抠”出来的。",songs:[
+  {t:"Amen, Brother",a:"The Winstons",yr:"1969",sc:"#FBEED0",tc:"#8A5A0E",
+   rn:"史上被采样最多的鼓之一：一段七秒的“Amen break”。听清楚它，再去听 90 年代无数首歌，你会发现同一段鼓反复出现。",
+   au:"B 面曲，鼓手 Gregory Coleman；乐队几乎没拿到版税。这就是采样文化的原罪与地基。"},
+  {t:"Funky Drummer",a:"James Brown",yr:"1970",sc:"#DBF1ED",tc:"#1F8A79",
+   rn:"Clyde Stubblefield 打的那段放克鼓 break，是 hip-hop 采样库里另一根顶梁柱。boom-bap 的“人味 swing”就源自这种真人鼓。",
+   au:"James Brown 在录音里喊“give the drummer some”，鼓手独走的那几小节被抠了无数次。"},
+  {t:"Apache",a:"Incredible Bongo Band",yr:"1973",sc:"#ECE9FB",tc:"#463C9E",
+   rn:"被称作“hip-hop 的国歌”：DJ 们最爱在派对上循环它的鼓 break，正是 Kool Herc“旋转木马”手法的经典素材。",
+   au:"一支翻奏乐队的器乐曲，却因那段 break 成了早期 b-boy 舞的必备。"}]},
+ {tag:"boom-bap 黄金时代",c:"#463C9E",note:"东岸 90 年代，采样机把 soul/jazz 切成鼓的巅峰。",songs:[
+  {t:"They Reminisce Over You (T.R.O.Y.)",a:"Pete Rock & CL Smooth",yr:"1992",sc:"#ECE9FB",tc:"#463C9E",
+   rn:"公认的 boom-bap 范本：Pete Rock 用 Tom Scott 一段两小节的样本铺底，配上闷底鼓与脆军鼓，暖到化不开。",
+   au:"Pete Rock，与 DJ Premier 并称 boom-bap 制作双璧。"},
+  {t:"N.Y. State of Mind",a:"Nas · prod. DJ Premier",yr:"1994",sc:"#FBE7D8",tc:"#A6431B",
+   rn:"《Illmatic》里的标杆：DJ Premier 稀疏、硬核的鼓 + 阴郁钢琴 loop，把舞台完全让给 Nas 的叙事。这就是“beat 越简，词越大”。",
+   au:"DJ Premier(Gang Starr)，boom-bap 制作的定义者之一。"},
+  {t:"C.R.E.A.M.",a:"Wu-Tang Clan · prod. RZA",yr:"1993",sc:"#FBEED0",tc:"#8A5A0E",
+   rn:"RZA 那种粗粝、发灰的采样美学：底鼓军鼓打得又闷又脏，正是 boom-bap“不打磨、要硬边”的气质代表。",
+   au:"RZA，Wu-Tang 的制作核心，把 lo-fi 采样做成了流派符号。"}]},
+ {tag:"亚特兰大 trap",c:"#B4478A",note:"808 换掉真人鼓，南方接棒的现代打法。",songs:[
+  {t:"Hard in da Paint",a:"Waka Flocka Flame · prod. Lex Luger",yr:"2010",sc:"#F6DEEE",tc:"#823063",
+   rn:"Lex Luger 式 trap 的爆点：轰鸣 808 + 交响感合成器 + 快速镲滚奏，把 trap 的“又重又猛”定了型。",
+   au:"Lex Luger，把现代 trap 编曲模板推广开来的关键制作人之一。"},
+  {t:"Versace",a:"Migos",yr:"2013",sc:"#ECE9FB",tc:"#463C9E",
+   rn:"“三连音 flow”的引爆点：人声像三连镲一样“哒-哒-哒”地滚，和 trap 的三连滚奏踩镲互相咬合，听感极度上头。",
+   au:"Migos 让三连音说唱成为 trap 的标志性节奏语言。"},
+  {t:"Mask Off",a:"Future",yr:"2017",sc:"#FBE7D8",tc:"#A6431B",
+   rn:"教科书级 trap：拖长的 808 低音 + 只落拍 3 的半拍军鼓 + 一段长笛 loop。把上面搭建器的 Trap 版三层听清楚，就是它。",
+   au:"Future，亚特兰大 trap 的旗帜性人物。"}]},
+ {tag:"你的入口 & 跨界",c:"#1F8A79",note:"boom-bap 与 trap 长到今天的样子。",songs:[
+  {t:"Donuts (专辑)",a:"J Dilla",yr:"2006",sc:"#DBF1ED",tc:"#1F8A79",
+   rn:"“醉步 swing”的圣经：Dilla 关掉量化、用手指弹鼓，让每一拍都轻微地抢或拖。想听懂上面的 Swing 开关，就听这张。",
+   au:"J Dilla 在病榻上用采样机做完这张，成为 hip-hop 律动的一座分水岭。"},
+  {t:"lofi hip hop radio (beats to relax/study to)",a:"Lofi Girl",yr:"2020",sc:"#ECE9FB",tc:"#463C9E",
+   rn:"boom-bap 的当代后裔：慢速、发糊、带 vinyl 噪点的循环鼓，把“留白 + swing”做成了全球学习/放松的背景音。",
+   au:"从 boom-bap 的采样美学直接长出来的 lo-fi 分支，24 小时不间断直播。"},
+  {t:"Old Town Road",a:"Lil Nas X",yr:"2019",sc:"#FBEED0",tc:"#8A5A0E",
+   rn:"trap 的跨界证明：把 808 低音与半拍军鼓塞进乡村民谣，成了破纪录的全球爆款。trap 的节奏配方，已经渗进整个流行乐。",
+   au:"trap × country 的意外组合，说明这套鼓的骨架能嫁接到任何风格。"}]}
+];
+const binsEl=document.getElementById('bins');
+BINS.forEach(b=>{
+ const d=document.createElement('div');d.className='bin';d.style.setProperty('--bc',b.c);
+ d.innerHTML='<h3><span class="bintag">'+b.tag+'</span></h3><p class="binnote">'+b.note+'</p>';
+ const g=document.createElement('div');g.className='songs';
+ b.songs.forEach(s=>{
+  const q=encodeURIComponent(s.t+' '+s.a);
+  const el=document.createElement('div');el.className='song';
+  el.innerHTML='<span class="yr">'+s.yr+'</span><h4>'+s.t+'</h4><p class="artist">'+s.a+'</p>'
+   +'<p>'+s.rn+'</p>'
+   +'<p style="color:var(--ink3);font-size:12.5px;">'+s.au+'</p>'
+   +'<a class="listen" href="https://www.youtube.com/results?search_query='+q+'" target="_blank" rel="noopener">▶ 试听</a>';
+  g.appendChild(el);
+ });
+ d.appendChild(g);binsEl.appendChild(d);
+});
+rows();
+setMode("swing");
+</script>
+</body>
+</html>

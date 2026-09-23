@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blues · 节奏图鉴</title>
+<meta name="description" content="Blues 节奏：shuffle 与 12/8 的可播放演示、12 小节曲式讲解，以及历史与现代代表作。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="--accent:#A32D2D;--accent-soft:#FCEBEB">
+
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Rhythm · 节奏图鉴</a>
+  <nav class="tnav">
+    <a href="map.html">节奏地图</a>
+    <a href="method.html">怎么学</a>
+    <a href="directory.html">← 返回目录</a>
+  </nav>
+</div></header>
+
+<section class="hero"><div class="wrap"><div class="frame"></div></div></section>
+
+<main class="wrap">
+
+  <div class="pagehead">
+    <div class="attr">1900s · Mississippi Delta</div>
+    <h1>Blues</h1>
+  </div>
+
+  <section class="section poster" id="demo">
+    <div class="rail"><div class="tab"><span class="no">01</span><span class="kind">听</span></div></div>
+    <div class="main">
+    <h2>四种律动，点开就能听</h2>
+    
+<p class="lead">前三种是三连音底盘（每拍 3 格），最后一种是"直八"——blues 摇滚化之后把时间拉直的样子。对比着听,"弯"和"直"的差别一耳朵就出来。</p>
+
+    <div class="player">
+      <div class="chips" id="chips"></div>
+      <div class="controls">
+        <button class="play-btn" id="play"><span id="pic">▶</span><span id="plbl">播放</span></button>
+        <div class="tempo">
+          <span>速度</span>
+          <input id="bpm" type="range" min="50" max="160" value="100">
+          <span id="bpmval">100</span> BPM
+        </div>
+      </div>
+      <div class="gdesc" id="gdesc"></div>
+      <div class="gridrows" id="grid"></div>
+      <div class="legend">
+        <span><i style="background:#A32D2D;"></i>镲 重</span>
+        <span><i style="background:#F09595;"></i>镲 轻</span>
+        <span><i style="background:#D85A30;"></i>军鼓 重</span>
+        <span><i style="background:#F0997B;"></i>军鼓 轻</span>
+        <span><i style="background:#6B5BD6;"></i>底鼓</span>
+      </div>
+      </div>
+  
+    </div>
+  </section>
+  <section class="section poster" id="learn">
+    <div class="rail"><div class="tab"><span class="no">02</span><span class="kind">读</span></div></div>
+    <div class="main">
+    <h2>Shuffle 是律动，12 小节是地图</h2>
+    
+<p>学 blues 要抓两个骨架：横向的 shuffle（时间怎么走），纵向的 12 小节（和声怎么转）。</p>
+
+      <h3>① Shuffle：swing 的蓝领兄弟</h3>
+      <p>和 swing 一样,shuffle 的每拍是<span class="hl">三连音,只奏第 1、3 格</span>——长-短、长-短的跛行。区别在气质:swing 把时间放在 ride 上流动、军鼓只是插话;shuffle 把三连音填得更密,军鼓 2、4 拍<span class="hl">砸实</span>,底鼓一步步踩——它不流动,它<b>行走</b>。所以同一个三连音底盘,swing 听着像对话,blues 听着像脚步。</p>
+
+      <h3>② 12 小节：blues 的地图</h3>
+      <p>blues 首先是一张<b>和声地图</b>:12 个小节、三个和弦(I、IV、V),走完一圈回到起点,循环往复。歌词也按它组织——AAB:说一句,重复一句,第三句给答案。</p>
+      <div class="mono">小节:  1    2    3    4    5    6    7    8    9    10   11   12
+和弦:  I    I    I    I    IV   IV   I    I    V    IV   I    V(turnaround)
+歌词:  └──── A(陈述) ────┘  └── A(重复) ──┘  └──── B(回答) ─────┘</div>
+      <p>第 11-12 小节叫 <b>turnaround</b>(回头处)——和声从落定又抬起,把你送回第 1 小节。乐手之间不用对谱,只要喊一句"C 调 blues",全场就知道路怎么走。这也是你练曲式感最好的沙盘:C Jam Blues、Bag's Groove(你百首清单里的两首)都是最干净的 12 小节。</p>
+
+      <h3>③ 一呼一应与 stop-time</h3>
+      <p>blues 的对话感比 swing 更直白:唱一句,吉他<span class="hl">应一句</span>(call and response),节奏组在人声乐句时守拍、在空隙处让乐器说话。极端形式是 <b>stop-time</b>:全队在重拍上齐奏一记然后集体沉默,把整条街让给人声——《Hoochie Coochie Man》那个著名的开头就是。留白当音符,blues 是祖师爷。</p>
+
+      <h3>变体的来路</h3>
+      <p><strong>标准 shuffle</strong>:芝加哥酒吧的走路律动,blues 的默认档。<strong>Double shuffle</strong>:军鼓也跟着三连音刷起来、2/4 拍再加重音——Stevie Ray Vaughan《Pride and Joy》把它打成了个人签名,费腿但推背感十足。<strong>12/8 慢布鲁斯</strong>:把三连音全部填满,镲上一格不落,慢到每一格都滴着感情——《The Thrill Is Gone》这一路。<strong>直八 blues-rock</strong>:blues 遇上摇滚,三连音拉直成等长八分音,力量代替摇摆——Black Keys 这一路,也是 blues 通往摇滚的那扇门。</p>
+  
+    </div>
+  </section>
+  <section class="section poster" id="modern">
+    <div class="rail"><div class="tab"><span class="no">03</span><span class="kind">再听</span></div></div>
+    <div class="main">
+    <h2>从三角洲到当代</h2>
+    
+<p class="lead">历史一列是 blues 的迁徙史——三角洲原声、北上芝加哥通电、进入主流;现代一列是它今天的活法。每张卡先介绍音乐家,再说听点。</p>
+
+    <div class="grouptitle">历史典型</div>
+    <div class="songs" id="hist"></div>
+
+    <div class="grouptitle">现代典型</div>
+    <div class="songs" id="modernlist"></div>
+  
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot"><div class="wrap">本页鼓点为抓特征的简化范式，非逐音符扒带——真实 shuffle 的三连音比例随速度与乐手而变。</div></footer>
+
+<script>
+/* ---------- grooves (div = 每拍格数) ---------- */
+const G={
+ shuffle:{name:"标准 shuffle",bpm:100,steps:12,div:3,
+   desc:"芝加哥酒吧的走路律动 · 镲刷三连音 1、3 格，军鼓 2/4 砸实",
+   H:[2,0,1,2,0,1,2,0,1,2,0,1],
+   S:[0,0,0,2,0,0,0,0,0,2,0,0],
+   K:[2,0,0,1,0,0,2,0,0,1,0,0]},
+ dbl:{name:"Double shuffle (SRV)",bpm:116,steps:12,div:3,
+   desc:"军鼓也跟着三连音刷、2/4 再加重音 ·《Pride and Joy》的推背感（示意）",
+   H:[2,0,1,2,0,1,2,0,1,2,0,1],
+   S:[1,0,1,2,0,1,1,0,1,2,0,1],
+   K:[1,0,0,1,0,0,1,0,0,1,0,0]},
+ slow:{name:"12/8 慢布鲁斯",bpm:56,steps:12,div:3,
+   desc:"三连音全填满、慢到每格滴感情 ·《The Thrill Is Gone》这一路",
+   H:[2,1,1,2,1,1,2,1,1,2,1,1],
+   S:[0,0,0,2,0,0,0,0,0,2,0,1],
+   K:[2,0,0,0,0,0,2,0,1,0,0,0]},
+ str8:{name:"直八 blues-rock",bpm:132,steps:8,div:2,
+   desc:"三连音拉直成等长八分 · 力量代替摇摆，blues 通往摇滚的门",
+   H:[2,1,2,1,2,1,2,1],
+   S:[0,0,2,0,0,0,2,0],
+   K:[2,0,0,1,2,0,0,0]}
+};
+const ROWS=[["H","镲","#A32D2D","#F09595"],["S","军鼓","#D85A30","#F0997B"],["K","底鼓","#6B5BD6","#AFA9EC"]];
+function labels(steps,div){const beats=steps/div;const out=[];for(let b=1;b<=beats;b++){if(div===3){out.push(String(b),"t","l");}else{out.push(String(b),"&");}}return out;}
+let cur="shuffle", playing=false, timer=null, col=0;
+
+function chips(){const c=document.getElementById('chips');c.innerHTML='';Object.keys(G).forEach(k=>{const b=document.createElement('button');b.className='chip'+(k===cur?' on':'');b.textContent=G[k].name;b.onclick=()=>{cur=k;document.getElementById('bpm').value=G[k].bpm;document.getElementById('bpmval').textContent=G[k].bpm;col=0;chips();render();if(playing)loop();};c.appendChild(b);});}
+
+function render(){
+ const g=G[cur];document.getElementById('gdesc').textContent=g.desc;
+ const grid=document.getElementById('grid');grid.innerHTML='';
+ const cols=`54px repeat(${g.steps},minmax(16px,1fr))`;
+ const head=document.createElement('div');head.className='grow';head.style.gridTemplateColumns=cols;
+ head.innerHTML='<div></div>'+labels(g.steps,g.div).map((n,i)=>`<div class="beatnum${i%g.div===0?' strong':''}">${n}</div>`).join('');
+ grid.appendChild(head);
+ ROWS.forEach(([key,label,acc,ghost])=>{
+   const row=document.createElement('div');row.className='grow';row.style.gridTemplateColumns=cols;
+   let html=`<div class="glabel">${label}</div>`;
+   for(let i=0;i<g.steps;i++){const v=g[key][i];const beat=i%g.div===0;let st='';if(v===2)st=`background:${acc};border-color:${acc};`;else if(v===1)st=`background:${ghost};border-color:${ghost};`;
+     html+=`<div class="cell${beat&&!v?' beat':''}" data-col="${i}" style="${st}"></div>`;}
+   row.innerHTML=html;grid.appendChild(row);
+ });
+}
+
+/* ---------- audio ---------- */
+let actx;
+function AC(){actx=actx||new (window.AudioContext||window.webkitAudioContext)();return actx;}
+function kick(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.setValueAtTime(140,t);o.frequency.exponentialRampToValueAtTime(50,t+0.1);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.16);o.start(t);o.stop(t+0.17);}
+function noise(t,v,freq,dur){const c=AC(),b=c.createBuffer(1,Math.floor(c.sampleRate*dur),c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type='highpass';f.frequency.value=freq;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);s.start(t);s.stop(t+dur+0.02);}
+function step(){const g=G[cur],c=AC(),t=c.currentTime+0.02;
+ if(g.H[col]) noise(t,g.H[col]===2?0.4:0.22,6500,0.06);
+ if(g.S[col]) noise(t,g.S[col]===2?0.75:0.25,1600,0.15);
+ if(g.K[col]) kick(t,g.K[col]===2?0.9:0.45);
+ document.querySelectorAll('.cell').forEach(e=>{e.classList.toggle('play',+e.dataset.col===col);});
+ col=(col+1)%g.steps;}
+function loop(){const g=G[cur];const bpm=+document.getElementById('bpm').value;const ms=60000/bpm/g.div;clearInterval(timer);step();timer=setInterval(step,ms);}
+function toggle(){playing=!playing;const lbl=document.getElementById('plbl'),ic=document.getElementById('pic');if(playing){col=0;const c=AC();c.resume&&c.resume();loop();lbl.textContent='停止';ic.textContent='■';}else{clearInterval(timer);lbl.textContent='播放';ic.textContent='▶';document.querySelectorAll('.cell').forEach(e=>e.classList.remove('play'));}}
+document.getElementById('play').onclick=toggle;
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmval').textContent=this.value;if(playing)loop();};
+
+/* ---------- recommendations ---------- */
+const HIST=[
+ {yr:"1936",t:"Sweet Home Chicago",a:"Robert Johnson",d:"三角洲布鲁斯的传奇原点：一把木吉他 + 一条人声，27 岁早逝，留下 29 首录音和'十字路口卖灵魂'的传说。听他一个人怎么同时当歌手、节奏组和应答乐手——blues 的全部基因都在这。"},
+ {yr:"1954",t:"Hoochie Coochie Man",a:"Muddy Waters",d:"把三角洲 blues 带到芝加哥、插上电的人。这首的开头是 stop-time 的教科书：全队齐奏一记然后集体闭嘴，把街道整条让给人声——讲解区说的'留白当音符'，就听这里。"},
+ {yr:"1956",t:"Smokestack Lightnin'",a:"Howlin' Wolf",d:"芝加哥双雄的另一位，嗓子像从烟囱里冒出来。全曲只有一个和弦，却靠律动的催眠感走完全程——证明 blues 的魂在节奏不在和声。"},
+ {yr:"1969",t:"The Thrill Is Gone",a:"B.B. King",d:"'blues 之王'，一把 Lucille、一手单弦揉音说尽千言。这首是 12/8 慢布鲁斯的范本——对应演示区第 3 种律动，听镲上填满的三连音怎么托住他的吉他哭腔。"},
+ {yr:"1962",t:"C Jam Blues",a:"Oscar Peterson Trio",d:"从 jazz 页借来串门：两个音的旋律 + 最干净的 12 小节，正适合边听边数'I-IV-V'的地图（你百首清单里的曲目，blues 和 swing 在这首里握手）。"},
+];
+const MODERN=[
+ {yr:"1983",t:"Pride and Joy",a:"Stevie Ray Vaughan",d:"80 年代把 blues 从低谷里拽回主流的德州人。这首是 double shuffle 的签名之作——军鼓跟着三连音整条刷起来，对应演示区第 2 种律动，费腿但推背感无可替代。"},
+ {yr:"1991",t:"Damn Right, I've Got the Blues",a:"Buddy Guy",d:"芝加哥 blues 的活化石，Muddy Waters 的传人、又是 SRV 们的偶像——一个人串起 blues 的三代。听他人琴对话时那种突然的爆发与收束。"},
+ {yr:"2011",t:"Lonely Boy",a:"The Black Keys",d:"车库二人组，把 blues 拉直、加脏、提速成当代摇滚电台的常客。直八 blues-rock（演示区第 4 种）最好懂的样本——三连音没了，脚步变成了引擎。"},
+ {yr:"2011",t:"Bright Lights",a:"Gary Clark Jr.",d:"奥斯汀出身，被称为这一代的 blues 旗手——把 fuzz 音墙、hip-hop 味的律动都揉进 blues。听他怎么在传统 12 小节骨架上盖新房子。"},
+ {yr:"2019",t:"Fresh Out",a:"Christone “Kingfish” Ingram (feat. Buddy Guy)",d:"1999 年生于三角洲腹地 Clarksdale 的新生代第一人，和 Buddy Guy 同台完成三代同框。blues 传承到 Z 世代的现在进行时——技术凶猛，根子极正。"},
+];
+function card(list,el){
+ const sc=document.getElementById(el);
+ list.forEach(s=>{
+  const q=encodeURIComponent(s.t+' '+s.a);
+  const d=document.createElement('div');d.className='song';
+  d.innerHTML=`<span class="yr">${s.yr}</span><h4>${s.t}</h4><p class="artist">${s.a}</p><p>${s.d}</p>
+    <span style="display:flex;gap:16px;flex-wrap:wrap;"><a class="listen" href="https://music.163.com/#/search/m/?s=${q}" target="_blank" rel="noopener">☁ 网易云</a><a class="listen" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">● Spotify</a></span>`;
+  sc.appendChild(d);
+ });
+}
+card(HIST,'hist');card(MODERN,'modernlist');
+
+chips();render();
+</script>
+</body>
+</html>

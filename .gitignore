@@ -1,0 +1,5 @@
+backup/
+del/
+node_modules/
+.DS_Store
+*.asd

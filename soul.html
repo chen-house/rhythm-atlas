@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soul · 节奏图鉴</title>
+<meta name="description" content="灵魂乐节奏：Detroit / Memphis / Philadelphia 三城三种节奏性格的可播放演示与讲解，以及历史与现代代表作。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="--accent:#993C1D;--accent-soft:#FAECE7">
+
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Rhythm · 节奏图鉴</a>
+  <nav class="tnav">
+    <a href="map.html">节奏地图</a>
+    <a href="method.html">怎么学</a>
+    <a href="directory.html">← 返回目录</a>
+  </nav>
+</div></header>
+
+<section class="hero"><div class="wrap"><div class="frame"></div></div></section>
+
+<main class="wrap">
+
+  <div class="pagehead">
+    <div class="attr">1960s · Memphis / Detroit</div>
+    <h1>Soul</h1>
+  </div>
+
+  <section class="section poster" id="demo">
+    <div class="rail"><div class="tab"><span class="no">01</span><span class="kind">听</span></div></div>
+    <div class="main">
+    <h2>四种律动，点开就能听</h2>
+    
+<p class="lead">三座城市各一种性格，外加 soul 通往 funk 的那座桥。军鼓永远在 2、4——变的是干湿、松紧和细分。</p>
+
+    <div class="player">
+      <div class="chips" id="chips"></div>
+      <div class="controls">
+        <button class="play-btn" id="play"><span id="pic">▶</span><span id="plbl">播放</span></button>
+        <div class="tempo">
+          <span>速度</span>
+          <input id="bpm" type="range" min="48" max="130" value="96">
+          <span id="bpmval">96</span> BPM
+        </div>
+      </div>
+      <div class="gdesc" id="gdesc"></div>
+      <div class="gridrows" id="grid"></div>
+      <div class="legend">
+        <span><i style="background:#993C1D;"></i>镲 重</span>
+        <span><i style="background:#F0997B;"></i>镲 轻</span>
+        <span><i style="background:#D85A30;"></i>军鼓 重</span>
+        <span><i style="background:#F5C4B3;"></i>军鼓 轻</span>
+        <span><i style="background:#6B5BD6;"></i>底鼓</span>
+      </div>
+      </div>
+  
+    </div>
+  </section>
+  <section class="section poster" id="learn">
+    <div class="rail"><div class="tab"><span class="no">02</span><span class="kind">读</span></div></div>
+    <div class="main">
+    <h2>三座城市，三种打法</h2>
+    
+<p>soul 的黄金期（60 年代到 70 年代初）正好赶上美国唱片业「一座城、一个厂牌、一种声音」的格局。所以听 soul，第一步是认出它来自哪座城——同一套 gospel 血统，三座城市的节奏组做出了三种打法。</p>
+
+      <div class="citygrid">
+        <div class="citycard" style="--cc:#185FA5">
+          <div class="ct-h"><span class="ct-name">底特律</span><span class="ct-en">Motown · 摩城之声 Motown Sound</span></div>
+          <p class="ct-band">节奏组：The Funk Brothers（James Jamerson 贝斯）</p>
+          <p>流水线的精密：铃鼓叠军鼓、常常四拍全砸，清亮向前，专为电台和舞池设计。表面欢快好记，底下是 Jamerson 那条不断切分、暗涌的贝斯在推。</p>
+          <p class="move"><b>招牌</b>：把 soul 做成人人能跟唱的流行金曲机器。</p>
+        </div>
+        <div class="citycard" style="--cc:#993C1D">
+          <div class="ct-h"><span class="ct-name">孟菲斯</span><span class="ct-en">Stax · 干拍 Dry Beat</span></div>
+          <p class="ct-band">节奏组：Booker T. &amp; the M.G.'s（Al Jackson Jr. 鼓）</p>
+          <p>干、准、少。军鼓像钉子一颗颗敲进木头，铜管当第二节奏组，透着南方的土地感。鼓手 Al Jackson Jr. 几乎不加花，靠位置和力度说话——「歌手的心在唱，地板不许晃」。</p>
+          <p class="move"><b>招牌 · 靠后 backbeat</b>：2、4 拍军鼓故意「晚到一丝」，整首歌往后坐、变得从容深情。《In the Midnight Hour》录音时，制作人 Jerry Wexler 现场跳舞示范让全队把重拍延后——这一「懒」成了南方 soul 的签名，也是 neo-soul 醉拍（见 R&amp;B 页）的祖父。</p>
+        </div>
+        <div class="citycard" style="--cc:#1D9E75">
+          <div class="ct-h"><span class="ct-name">费城</span><span class="ct-en">PIR · 丝滑之声 Silk Sound</span></div>
+          <p class="ct-band">节奏组：MFSB</p>
+          <p>丝滑：16 分 hi-hat 织成细网、弦乐铺满整个背景、底鼓一步步走向四整拍。华丽、顺滑、为大编制而生。</p>
+          <p class="move"><b>招牌</b>：底鼓踩成四整拍的那一刻，soul 就滑进了 disco。</p>
+        </div>
+      </div>
+
+      <h3>三城共通的慢歌路子：6/8 深情谣</h3>
+      <p>不分城市，soul 的慢歌都爱用 <span class="hl">6/8（12/8）</span>：三连音像摇篮一样晃，《When a Man Loves a Woman》就是典型。它和 gospel 的 12/8 同一个底盘，但用途反过来——教堂用它把众人往上抬，soul 用它替一个人做告白。</p>
+
+      <h3>两个出口：soul 裂变成 funk 与 disco</h3>
+      <p>soul 没有停在原地，它朝两个方向裂开。往<b>紧</b>走：James Brown 把最重的一下从 2、4 拍搬到第 1 拍、再把 8 分细分挤成 16 分——soul 拧成了 <b>funk</b>（1965 年《Papa's Got a Brand New Bag》名义上还是 soul 冠军，骨子里已是 funk 前夜；演示区第 4 种「proto-funk 桥」就站在这扇门口）。往<b>滑</b>走：费城把 hi-hat 织密、底鼓踩满四拍——soul 淌成了 <b>disco</b>。你站里的 funk 页，接的就是左边这扇门。</p>
+
+      <div class="callout"><strong>给鼓手的一句话:</strong>soul 是"位置的艺术"——同样的 2、4 拍,靠前一丝是流行,居中是摇滚,靠后一丝就是 soul。练法:节拍器开着,故意把军鼓打在"晚到但不迟到"的位置,录下来对比;能自由控制这"一丝"的人,funk 的炸和 R&B 的浸都在你手里了。</div>
+  
+    </div>
+  </section>
+  <section class="section poster" id="modern">
+    <div class="rail"><div class="tab"><span class="no">03</span><span class="kind">再听</span></div></div>
+    <div class="main">
+    <h2>从三座城到复古潮</h2>
+    
+<p class="lead">每张唱片贴了产地标签——先按颜色认出它来自哪座城，再听那座城的节奏性格。现代一列是 2000 年后的复古 soul 浪潮：老配方，新录音。</p>
+
+    <div class="grouptitle">历史典型</div>
+    <div class="songs" id="hist"></div>
+
+    <div class="grouptitle">现代典型</div>
+    <div class="songs" id="modernlist"></div>
+  
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot"><div class="wrap">本页鼓点为抓特征的简化范式，非逐音符扒带——"靠后一丝"的位置感网格无法表达，去原曲里用耳朵找。</div></footer>
+
+<script>
+/* ---------- grooves ---------- */
+const G={
+ stax:{name:"孟菲斯干拍（Stax）",bpm:96,steps:8,div:2,
+   desc:"Al Jackson Jr. 式:干、准、少 · 真实演奏 backbeat 微靠后,网格画不出那'一丝'",
+   H:[2,1,2,1,2,1,2,1],
+   S:[0,0,2,0,0,0,2,0],
+   K:[2,0,0,1,2,0,0,0]},
+ ballad:{name:"6/8 深情谣",bpm:54,steps:12,div:3,
+   desc:"三连音摇篮 ·《When a Man Loves a Woman》这一路,一个人的告白",
+   H:[2,1,1,2,1,1,2,1,1,2,1,1],
+   S:[0,0,0,2,0,0,0,0,0,2,0,0],
+   K:[2,0,0,0,0,1,2,0,0,0,0,0]},
+ philly:{name:"费城丝滑之声",bpm:112,steps:16,div:4,
+   desc:"16 分 hi-hat 细网 + 底鼓走向四踩 · disco 前夜的滑行感",
+   H:[2,1,1,1,2,1,1,1,2,1,1,1,2,1,1,1],
+   S:[0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0],
+   K:[2,0,0,0,2,0,0,0,2,0,0,0,2,0,0,0]},
+ protofunk:{name:"Proto-funk 桥",bpm:104,steps:16,div:4,
+   desc:"重心开始滑向第 1 拍、16 分挤进来 · soul 拧紧成 funk 的门口（示意）",
+   H:[2,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1],
+   S:[0,0,0,0,2,0,0,1,0,0,0,0,2,0,0,0],
+   K:[2,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0]}
+};
+const ROWS=[["H","镲/铃鼓","#993C1D","#F0997B"],["S","军鼓","#D85A30","#F5C4B3"],["K","底鼓","#6B5BD6","#AFA9EC"]];
+function labels(steps,div){const beats=steps/div;const out=[];for(let b=1;b<=beats;b++){if(div===3){out.push(String(b),"t","l");}else if(div===4){out.push(String(b),"e","&","a");}else{out.push(String(b),"&");}}return out;}
+let cur="stax", playing=false, timer=null, col=0;
+
+function chips(){const c=document.getElementById('chips');c.innerHTML='';Object.keys(G).forEach(k=>{const b=document.createElement('button');b.className='chip'+(k===cur?' on':'');b.textContent=G[k].name;b.onclick=()=>{cur=k;document.getElementById('bpm').value=G[k].bpm;document.getElementById('bpmval').textContent=G[k].bpm;col=0;chips();render();if(playing)loop();};c.appendChild(b);});}
+
+function render(){
+ const g=G[cur];document.getElementById('gdesc').textContent=g.desc;
+ const grid=document.getElementById('grid');grid.innerHTML='';
+ const cols=`54px repeat(${g.steps},minmax(16px,1fr))`;
+ const head=document.createElement('div');head.className='grow';head.style.gridTemplateColumns=cols;
+ head.innerHTML='<div></div>'+labels(g.steps,g.div).map((n,i)=>`<div class="beatnum${i%g.div===0?' strong':''}">${n}</div>`).join('');
+ grid.appendChild(head);
+ ROWS.forEach(([key,label,acc,ghost])=>{
+   const row=document.createElement('div');row.className='grow';row.style.gridTemplateColumns=cols;
+   let html=`<div class="glabel">${label}</div>`;
+   for(let i=0;i<g.steps;i++){const v=g[key][i];const beat=i%g.div===0;let st='';if(v===2)st=`background:${acc};border-color:${acc};`;else if(v===1)st=`background:${ghost};border-color:${ghost};`;
+     html+=`<div class="cell${beat&&!v?' beat':''}" data-col="${i}" style="${st}"></div>`;}
+   row.innerHTML=html;grid.appendChild(row);
+ });
+}
+
+/* ---------- audio ---------- */
+let actx;
+function AC(){actx=actx||new (window.AudioContext||window.webkitAudioContext)();return actx;}
+function kick(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.setValueAtTime(125,t);o.frequency.exponentialRampToValueAtTime(48,t+0.11);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.18);o.start(t);o.stop(t+0.19);}
+function noise(t,v,freq,dur){const c=AC(),b=c.createBuffer(1,Math.floor(c.sampleRate*dur),c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type='highpass';f.frequency.value=freq;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);s.start(t);s.stop(t+dur+0.02);}
+function step(){const g=G[cur],c=AC(),t=c.currentTime+0.02;
+ if(g.H[col]) noise(t,g.H[col]===2?0.32:0.18,7000,0.05);
+ if(g.S[col]) noise(t,g.S[col]===2?0.68:0.22,1500,0.15);
+ if(g.K[col]) kick(t,g.K[col]===2?0.9:0.45);
+ document.querySelectorAll('.cell').forEach(e=>{e.classList.toggle('play',+e.dataset.col===col);});
+ col=(col+1)%g.steps;}
+function loop(){const g=G[cur];const bpm=+document.getElementById('bpm').value;const ms=60000/bpm/g.div;clearInterval(timer);step();timer=setInterval(step,ms);}
+function toggle(){playing=!playing;const lbl=document.getElementById('plbl'),ic=document.getElementById('pic');if(playing){col=0;const c=AC();c.resume&&c.resume();loop();lbl.textContent='停止';ic.textContent='■';}else{clearInterval(timer);lbl.textContent='播放';ic.textContent='▶';document.querySelectorAll('.cell').forEach(e=>e.classList.remove('play'));}}
+document.getElementById('play').onclick=toggle;
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmval').textContent=this.value;if(playing)loop();};
+
+/* ---------- recommendations ---------- */
+const CITY={'孟菲斯':'#993C1D','底特律':'#185FA5','费城':'#1D9E75','南方':'#854F0B','复古':'#5F5E5A'};
+const HIST=[
+ {yr:"1962",city:"孟菲斯",t:"Green Onions",a:"Booker T. & the M.G.'s",d:"Stax 御用节奏组自己的名片。风琴 + 吉他 + Al Jackson Jr. 的鼓——孟菲斯「干、准、少」性格最纯的样本，整个南方 soul 的地基就这四个人。"},
+ {yr:"1964",city:"底特律",t:"My Girl",a:"The Temptations",d:"摩城之声的门面。Smokey Robinson 写、The Funk Brothers 伴奏——那条上行的贝斯前奏加铃鼓叠军鼓，就是「为电台设计」的流水线精密，一听就会跟唱。"},
+ {yr:"1965",city:"孟菲斯",t:"In the Midnight Hour",a:"Wilson Pickett",d:"「靠后 backbeat」的诞生现场：制作人 Jerry Wexler 在录音室跳舞示范，让全队把 2、4 拍集体延后一丝。听军鼓那种「晚到但不迟到」的从容。"},
+ {yr:"1966",city:"南方",t:"When a Man Loves a Woman",a:"Percy Sledge",d:"6/8 深情谣的巅峰、soul 慢歌的原型（录于阿拉巴马的南方工作室）。三连音摇篮 + 风琴 + 一条豁出去的嗓子——对应演示区第 2 种律动。"},
+ {yr:"1967",city:"南方",t:"Respect",a:"Aretha Franklin",d:"牧师女儿把 Otis 的歌唱成了女性与民权的宣言。教堂练出的嗓子 + Muscle Shoals 节奏组——gospel 血统在通俗巅峰的样子，soul 女王的加冕曲。"},
+ {yr:"1972",city:"费城",t:"Love Train",a:"The O'Jays",d:"费城丝滑之声的招牌：MFSB 的弦乐、16 分 hi-hat 细网、底鼓滑向四踩。把它和任何一首早期 disco 连着听，你会听到 soul 滑进舞池的那一瞬。"},
+];
+const MODERN=[
+ {yr:"2006",city:"复古",t:"Rehab",a:"Amy Winehouse",d:"复古 soul 浪潮的引爆点。Mark Ronson 制作、Dap-Kings 乐队伴奏——用 60 年代的干拍配置录 21 世纪的歌，证明老配方不需要修改。"},
+ {yr:"2007",city:"复古",t:"100 Days, 100 Nights",a:"Sharon Jones & the Dap-Kings",d:"复古厂牌 Daptone 的台柱——模拟设备、一次成型的录法，比「像 60 年代」更进一步：就是 60 年代的做法。Al Jackson Jr. 那种克制活在这支乐队里。"},
+ {yr:"2015",city:"复古",t:"Coming Home",a:"Leon Bridges",d:"新生代复古派的温柔面，常被比作 Sam Cooke。极简鼓组 + 干净吉他，靠「位置感」而不是音符数量撑起整首歌——soul 美学给当代听众的入门课。"},
+ {yr:"2019",city:"复古",t:"Colors",a:"Black Pumas",d:"德州奥斯汀的迷幻 soul 组合，格莱美常客。复古底盘上叠迷幻吉他与现代低频——soul 的第三代活法：根子是老的，声场是新的。"},
+ {yr:"2021",city:"复古",t:"Smokin Out the Window",a:"Silk Sonic",d:"Bruno Mars × Anderson .Paak 的复古计划（他们的 funk 面在你 funk 页）。70s soul 的显微镜级复刻——听 .Paak 边打鼓边唱，位置感松弛得像老唱片。"},
+];
+function vinyl(c){return `<svg class="disc" viewBox="0 0 48 48" width="46" height="46" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#2A2622"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#524c46" stroke-width=".6"/><circle cx="24" cy="24" r="13.5" fill="none" stroke="#524c46" stroke-width=".6"/><circle cx="24" cy="24" r="9" fill="${c}"/><circle cx="24" cy="24" r="1.7" fill="#2A2622"/></svg>`;}
+function card(list,el){
+ const sc=document.getElementById(el);
+ list.forEach(s=>{
+  const q=encodeURIComponent(s.t+' '+s.a.split('/')[0].split('feat.')[0].trim());
+  const cc=CITY[s.city]||'#5F5E5A';
+  const d=document.createElement('div');d.className='rec';d.style.setProperty('--cc',cc);
+  d.innerHTML=`<div class="rec-head">${vinyl(cc)}<div class="rec-meta"><span class="city">${s.city}</span><span class="yr">${s.yr}</span></div></div>`+
+    `<h4>${s.t}</h4><p class="artist">${s.a}</p><p class="desc">${s.d}</p>`+
+    `<span class="links"><a class="listen" href="https://music.163.com/#/search/m/?s=${q}" target="_blank" rel="noopener">☁ 网易云</a><a class="listen" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">● Spotify</a></span>`;
+  sc.appendChild(d);
+ });
+}
+card(HIST,'hist');card(MODERN,'modernlist');
+
+chips();render();
+</script>
+</body>
+</html>

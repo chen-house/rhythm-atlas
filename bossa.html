@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bossa nova · 节奏图鉴</title>
+<meta name="description" content="Bossa nova：分层搭出律动的交互讲解、历史与文化、四档歌曲推荐(唱片翻面卡)。">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root{--sea:#1FA096;--sea-soft:#DFF3F0;--sea-deep:#0C6B63;--coral:#F0704A;--coral-soft:#FDE4DA;--sun:#F2B234;--sand:#F7E9D0;--ink:#4A3B2A;}
+  .seclabel .num{background:var(--sea);}
+  .seclabel .t{color:var(--sea-deep);}
+  .kicker.sea{color:var(--sea-deep);background:var(--sea-soft);}
+  .cover{position:relative;border-radius:16px;overflow:hidden;background:var(--sand);padding:46px 34px 0;margin:8px 0 6px;}
+  .cover h1{font-size:38px;margin:0 0 6px;color:#7A4A21;letter-spacing:-.5px;}
+  .cover .csub{color:#9C6B3C;font-size:15px;margin:0 0 34px;max-width:560px;position:relative;z-index:2;}
+  .cover .sun{position:absolute;top:30px;right:56px;width:58px;height:58px;border-radius:50%;background:var(--sun);}
+  .cover .sea1{height:46px;background:var(--sea);border-radius:55% 45% 0 0/16px 12px 0 0;position:relative;z-index:1;}
+  .cover .sea2{position:absolute;left:0;right:0;bottom:38px;height:22px;background:#7ECBC4;border-radius:50% 60% 0 0/12px 14px 0 0;}
+  @media(max-width:560px){.cover h1{font-size:28px;}.cover .sun{right:22px;top:20px;width:42px;height:42px;}}
+
+  .builder{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;}
+  .gtabs{display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap;}
+  .gt{border:1.5px solid var(--sea);background:transparent;color:var(--sea-deep);border-radius:999px;padding:7px 18px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+  .gt.on{background:var(--sea);color:#fff;}
+  .gtnote{font-size:12px;color:var(--hint);}
+  .lyrow{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;padding:9px 0;border-top:1px dashed var(--line);}
+  .lyrow:first-of-type{border-top:none;}
+  .lybtn{display:flex;flex-direction:column;gap:2px;text-align:left;border:1.5px solid var(--line2);background:var(--bg);border-radius:10px;padding:7px 11px;cursor:pointer;font-family:inherit;transition:.15s;}
+  .lybtn .nm{font-size:13.5px;font-weight:600;color:var(--muted);}
+  .lybtn .rl{font-size:10.5px;color:var(--hint);}
+  .lybtn.on{border-color:var(--lc);background:var(--lsoft);}
+  .lybtn.on .nm{color:var(--lc);}
+  .steps{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;}
+  .st{height:24px;border:1px solid var(--line);border-radius:5px;background:transparent;position:relative;}
+  .st.bar{box-shadow:inset 2px 0 0 var(--line2);}
+  .st.hit{background:var(--lc);border-color:var(--lc);}
+  .st.hit.soft{opacity:.42;}
+  .st.now{outline:2px solid var(--ink);outline-offset:0;}
+  .st.diff{box-shadow:0 0 0 3px var(--sun);animation:diffglow 1.1s ease-in-out 3;}
+  @keyframes diffglow{50%{box-shadow:0 0 0 6px rgba(242,178,52,.35);}}
+  .offrow .st{opacity:.28;}
+  .beathead{display:grid;grid-template-columns:150px 1fr;gap:12px;margin-bottom:2px;}
+  .beatnums{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;font-size:10.5px;color:var(--hint);text-align:center;}
+  .beatnums b{color:var(--text);font-weight:600;}
+  .abwrap{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap;}
+  .ab{display:inline-flex;border:1.5px solid var(--sea);border-radius:999px;overflow:hidden;}
+  .ab button{border:none;background:transparent;padding:7px 16px;font-size:13.5px;cursor:pointer;font-family:inherit;color:var(--sea-deep);}
+  .ab button.on{background:var(--sea);color:#fff;}
+  .abnote{font-size:12.5px;color:var(--muted);}
+
+  .metro{position:fixed;right:18px;bottom:18px;width:44px;height:58px;z-index:30;opacity:0;transition:opacity .3s;pointer-events:none;}
+  .metro.show{opacity:.9;}
+  .metro .body{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:38px;height:46px;background:var(--ink);border-radius:7px 7px 4px 4px;clip-path:polygon(28% 0,72% 0,100% 100%,0 100%);}
+  .metro .arm{position:absolute;bottom:8px;left:50%;width:2.5px;height:40px;background:var(--sun);border-radius:2px;transform-origin:bottom center;animation:tick 1s ease-in-out infinite alternate;animation-play-state:paused;}
+  .metro.show .arm{animation-play-state:running;}
+  @keyframes tick{from{transform:rotate(-24deg);}to{transform:rotate(24deg);}}
+
+  .timeline{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;}
+  .tl{flex:1 1 150px;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;}
+  .tl .yr{font-size:12px;font-weight:600;color:var(--sea-deep);}
+  .tl p{font-size:12.5px;color:var(--muted);margin:4px 0 0;line-height:1.55;}
+  .wavy{background-image:linear-gradient(45deg,transparent 45%,var(--coral) 45%,var(--coral) 55%,transparent 55%);background-size:8px 4px;background-repeat:repeat-x;background-position:0 100%;padding-bottom:4px;}
+
+  .bin{margin:26px 0 4px;}
+  .bin h3{font-size:16px;margin:0 0 3px;display:flex;align-items:center;gap:8px;}
+  .bin .bintag{font-size:11px;font-weight:600;color:#fff;background:var(--bc);padding:2px 9px;border-radius:999px;}
+  .bin .binnote{font-size:12.5px;color:var(--muted);margin:0 0 12px;}
+  .sleeves{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
+  .sleeve{perspective:900px;cursor:pointer;height:200px;}
+  .inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+  .sleeve.flip .inner{transform:rotateY(180deg);}
+  .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;border:1px solid rgba(74,59,42,.18);padding:14px;display:flex;flex-direction:column;}
+  .front{background:var(--sc);}
+  .front .hole{width:34px;height:34px;border-radius:50%;background:var(--ink);align-self:center;margin:6px 0 10px;position:relative;}
+  .front .hole::after{content:"";position:absolute;inset:38%;border-radius:50%;background:var(--sc);}
+  .front .ttl{font-size:15px;font-weight:700;color:var(--tc);line-height:1.3;}
+  .front .art{font-size:12px;color:var(--tc);opacity:.75;margin-top:3px;}
+  .front .yr{margin-top:auto;font-size:11px;color:var(--tc);opacity:.6;}
+  .front .fliphint{position:absolute;top:10px;right:12px;font-size:10px;color:var(--tc);opacity:.5;}
+  .back{background:var(--surface);transform:rotateY(180deg);}
+  .back .bt{font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--text);}
+  .back p{font-size:12px;color:var(--muted);margin:0 0 6px;line-height:1.6;flex:1;overflow:auto;}
+  .back a{font-size:12px;color:var(--sea-deep);font-weight:500;text-decoration:none;}
+  .back a:hover{text-decoration:underline;}
+  @media(max-width:560px){.lyrow{grid-template-columns:110px 1fr;}.beathead{grid-template-columns:110px 1fr;}}
+</style>
+</head>
+<body style="--accent:#1D9E75;--accent-soft:#E1F5EE">
+
+<header class="topbar"><div class="wrap"><a class="brand" href="index.html"><span class="dot" style="background:var(--sea);"></span>Rhythm</a><a class="navlink" href="directory.html">← 返回目录</a></div></header>
+
+<div class="metro" id="metro" aria-hidden="true"><span class="arm"></span><span class="body"></span></div>
+
+<main class="wrap">
+
+  <section style="padding:34px 0 10px;">
+    <div class="cover">
+      <span class="sun"></span>
+      <h1>Bossa nova</h1>
+      <p class="csub">Rio de Janeiro · 1958 · 把一整支桑巴乐队，浓缩进一把轻声的吉他。</p>
+      <div class="sea2"></div><div class="sea1"></div>
+    </div>
+    <p style="color:var(--muted);font-size:14px;max-width:680px;">葡语里 bossa 是"派头、劲儿"，bossa nova 就是"新派头"。它是 samba 的<span class="wavy">轻声版</span>——鼓点还在，只是全部收进指尖。下面三章：先把律动一层层搭出来听懂，再看它从哪来、是什么气质，最后按四档听歌。</p>
+  </section>
+
+  <section class="section poster" id="listen">
+    <div class="rail"><div class="tab"><span class="no">1</span><span class="kind">听</span></div></div>
+    <div class="main">
+    
+    <h2>一把吉他 = 一支缩小的 bateria</h2>
+    <p class="lead">João Gilberto 的发明：拇指负责 surdo 大鼓的心跳，手指的和弦"嗒"负责 tamborim 的切分。点亮/熄灭每一层，听 groove 怎么长出来。<b>吉他版</b>是 João 的发明；切到<b>架子鼓版</b>，同一套分工搬回鼓上单独演奏：底鼓踩 surdo 的"单-双"型(1 · &amp;2 · 3 · &amp;4)、rim 边击打 tamborim 的切分线、踩镲走连续八分。格子是 2 小节 8 分音网格。</p>
+
+    <div class="builder">
+      <div class="gtabs">
+        <button id="tabG" class="gt on">吉他版</button>
+        <button id="tabD" class="gt">架子鼓版</button>
+        <span class="gtnote">同一套分工、两种乐器，切换后各自单独演奏</span>
+      </div>
+      <div class="beathead"><div></div>
+        <div class="beatnums"><b>1</b><span>&amp;</span><span>2</span><span>&amp;</span><span>3</span><span>&amp;</span><span>4</span><span>&amp;</span><b>1</b><span>&amp;</span><span>2</span><span>&amp;</span><span>3</span><span>&amp;</span><span>4</span><span>&amp;</span></div>
+      </div>
+      <div id="rows"></div>
+
+      <div class="controls" style="margin-top:16px;">
+        <button class="play-btn" id="play" style="background:var(--sea);"><span id="pic">▶</span><span id="plbl">播放</span></button>
+        <div class="tempo"><span>速度</span><input id="bpm" type="range" min="104" max="150" value="126"><span id="bpmval">126</span> BPM</div>
+      </div>
+
+      <div class="abwrap">
+        <span style="font-size:13px;font-weight:600;">一格之差：</span>
+        <span class="ab"><button id="abB" class="on">Bossa</button><button id="abS">Son clave</button></span>
+        <span class="abnote" id="abnote">把切分层的末击挪一格，bossa 的"漂"就变回古巴 son 的"方正"。挪动的格子会发光。</span>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--hint);">以上是抓特征的简化范式，不是逐音符扒带；bossa 的吉他花样极多，鼓版取的是教材标准型：镲=ganzá、rim=tamborim、底鼓=surdo 的鼓组改编，那条 rim 切分线在巴西体系里叫 <b>partido alto</b>——巴西并没有古巴那种 clave 铁律 <span class="src">(<a href="https://rhythmnotes.net/bossa-nova-drum-beats/" target="_blank" rel="noopener">Rhythm Notes: Bossa Nova Beat For Drum Set</a> / <a href="https://www.thejazzpianosite.com/jazz-piano-lessons/jazz-genres/how-to-play-bossa-nova/" target="_blank" rel="noopener">The Jazz Piano Site</a>)</span>。实际录音里鼓手常用刷子、变化很多。</p>
+    <div class="box" style="border-left-color:var(--sea);max-width:840px;">
+      <b>8 分还是 16 分？</b>两层意思要分开。<b>①记谱</b>：同一条 bossa 律动，巴西习惯记成 2/4 拍 + 16 分音符，爵士圈习惯 4/4 拍 + 8 分音符——写法不同，<b>声音完全一样</b>(本页格子取后者) <span class="src">(<a href="https://rhythmnotes.net/bossa-nova-drum-beats/" target="_blank" rel="noopener">Rhythm Notes</a>)</span>。<b>②密度</b>：真把 16 分填满的是 <b>samba</b>——沙筒和镲走连续 16 分、重音抢在拍前；bossa 是 samba 放慢、减薄后的"轻声版"，细分密度落回 8 分。所以想练"16 分版"，练的其实是 samba(见<a href="map.html" style="color:var(--sea-deep);">节奏地图</a>)。<br>
+      <span style="font-size:12.5px;color:var(--muted);">另两条核实结论：开合镲是<b>变化型</b>不是基础型——开在 1、3 的反拍、2、4 闭紧 <span class="src">(<a href="https://drumhelper.com/learning-drums/bossa-nova-drum-beats-and-patterns/" target="_blank" rel="noopener">Drum Helper</a>)</span>；底鼓一开始踩不顺可以先只踩 1、3 起步，教材认可的入门简化 <span class="src">(<a href="https://jazznightschool.org/pages/basic-bossa-nova-groove-for-drummers" target="_blank" rel="noopener">Jazz Night School</a>)</span>。</span>
+    </div>
+  
+    </div>
+  </section>
+
+  <section class="section poster" id="know">
+    <div class="rail"><div class="tab"><span class="no">2</span><span class="kind">懂</span></div></div>
+    <div class="main">
+    
+    <h2>公寓楼里长出来的音乐</h2>
+    <div class="prose">
+      <p>1950 年代末，里约南区(Copacabana、Ipanema)的中产年轻人迷恋 samba，也迷恋美国的酷派爵士。但他们住公寓——不能像街头狂欢那样敲鼓。于是 João Gilberto 把整支 bateria 收进一把尼龙弦吉他，人声贴着麦克风轻声唱，像说悄悄话。1958 年《Chega de Saudade》录音问世，媒体管这股新潮流叫 bossa nova <span class="src">(<a href="https://en.wikipedia.org/wiki/Bossa_nova" target="_blank" rel="noopener">Wikipedia: Bossa nova</a>)</span>。</p>
+      <div class="timeline">
+        <div class="tl"><span class="yr">1958 · 里约</span><p>João Gilberto 录《Chega de Saudade》，轻声美学定型</p></div>
+        <div class="tl"><span class="yr">1959</span><p>电影《黑人奥菲》配乐把 bossa 带出巴西</p></div>
+        <div class="tl"><span class="yr">1962 · 美国</span><p>Stan Getz &amp; Charlie Byrd《Jazz Samba》登顶，掀起美国热</p></div>
+        <div class="tl"><span class="yr">1964</span><p>《Getz/Gilberto》与 The Girl from Ipanema 拿下格莱美年度专辑</p></div>
+        <div class="tl"><span class="yr">1964 后</span><p>巴西政局突变，bossa 一代散入 MPB 与世界各地</p></div>
+      </div>
+      <h3>铁三角</h3>
+      <p><b>João Gilberto</b>(吉他与唱法的发明者)、<b>Antônio Carlos Jobim</b>(作曲，把德彪西式和声写进歌里)、<b>Vinicius de Moraes</b>(词，外交官诗人)。三个人几乎定义了整个曲库。</p>
+      <h3>节奏特点</h3>
+      <p>锚点是 <b>in 2</b> 的心跳(拇指低音走 1、3)；切分线飘在心跳上面，故意躲开正拍；<b>密度低、留白多</b>——samba 的每件乐器都还在，但都退成了一个手指动作；音量天花板极低，所以每个音的位置必须极准。</p>
+      <h3>给人的感觉</h3>
+      <p>清冷、私密、微苦回甘——葡语叫 <b>saudade</b>(甜蜜的怅惘)。samba 是白天的人群，bossa 是深夜的一个人。</p>
+      <h3>怎么用在音乐里</h3>
+      <p>适合内省的歌、深夜场景、人声突出的编曲。要点就一句：<b>别加 backbeat、别填满</b>。把切分交给吉他或键盘的"嗒"，鼓手用刷子和 rim 轻点，低音乐器锁住 1、3——空出来的部分让和声与人声呼吸。写歌想"洋气一点"时，把副歌的伴奏换成 bossa 切分，往往立刻成立。</p>
+    </div>
+  
+    </div>
+  </section>
+
+  <section class="section poster" id="more">
+    <div class="rail"><div class="tab"><span class="no">3</span><span class="kind">听更多</span></div></div>
+    <div class="main">
+    
+    <h2>点一张唱片，翻过来看节奏</h2>
+    <p class="lead">正面是歌和作者，点击翻面看这首歌里节奏是怎么用的。按四档淘：鼻祖起源 → 经典 → 当下流行 → 跨界融合。</p>
+    <div id="bins"></div>
+  
+    </div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">鼓点为抓特征的简化范式。想看 bossa 在整个拉丁家族里的位置 → <a href="map.html" style="color:var(--sea-deep);">节奏地图</a> · <a href="directory.html" style="color:var(--sea-deep);">返回目录</a></div></footer>
+
+<script>
+const STEPS=16;
+const LAYERS=[
+ {id:"bass",nm:"拇指 · 低音心跳",rl:"= surdo 大鼓",c:"#0C6B63",soft:"#DFF3F0",g:"gtr",
+  pat:[2,0,0,0,1,0,0,0,2,0,0,0,1,0,0,0],on:true},
+ {id:"chord",nm:"手指 · 和弦切分",rl:"= tamborim",c:"#F0704A",soft:"#FDE4DA",g:"gtr",
+  pat:[2,0,0,2,0,0,2,0,0,0,2,0,0,2,0,0],on:true},
+ {id:"shk",nm:"刷 · 连续八分",rl:"= ganzá 沙筒",c:"#B98A2E",soft:"#FAEEDA",g:"gtr",
+  pat:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],on:false},
+ {id:"pad",nm:"和声 · 呼吸垫",rl:"留白里的颜色",c:"#7F77DD",soft:"#EEEDFE",g:"gtr",
+  pat:[2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],on:false},
+ {id:"kick",nm:"底鼓 · surdo 型",rl:"1 · &2 · 3 · &4，重心在 3",c:"#0C6B63",soft:"#DFF3F0",g:"drm",
+  pat:[1,0,0,1,2,0,0,1,1,0,0,1,2,0,0,1],on:true},
+ {id:"rim",nm:"边击 rim · partido alto",rl:"= tamborim 的切分线",c:"#F0704A",soft:"#FDE4DA",g:"drm",
+  pat:[2,0,0,2,0,0,2,0,0,0,2,0,0,2,0,0],on:true},
+ {id:"hh",nm:"踩镲 · 连续八分(闭)",rl:"= ganzá 沙筒 · 基础型",c:"#B98A2E",soft:"#FAEEDA",g:"drm",
+  pat:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],on:true},
+ {id:"hho",nm:"踩镲 · 开合变化",rl:"反拍开 · 2、4 闭紧",c:"#8A6FD0",soft:"#EEEDFE",g:"drm",
+  pat:[1,2,1,1,1,2,1,1,1,2,1,1,1,2,1,1],on:false}
+];
+const CHORD_BOSSA=[2,0,0,2,0,0,2,0,0,0,2,0,0,2,0,0];
+const CHORD_SON  =[2,0,0,2,0,0,2,0,0,0,2,0,2,0,0,0];
+let mode="bossa", grp="gtr", playing=false, timer=null, col=0;
+
+function rows(){
+ const R=document.getElementById('rows'); R.innerHTML='';
+ document.getElementById('tabG').classList.toggle('on',grp==="gtr");
+ document.getElementById('tabD').classList.toggle('on',grp!=="gtr");
+ LAYERS.forEach((L,li)=>{
+  if(L.g!==grp) return;
+  const row=document.createElement('div'); row.className='lyrow';
+  row.style.setProperty('--lc',L.c); row.style.setProperty('--lsoft',L.soft);
+  const btn=document.createElement('button');
+  btn.className='lybtn'+(L.on?' on':'');
+  btn.innerHTML='<span class="nm">'+L.nm+'</span><span class="rl">'+L.rl+'</span>';
+  btn.onclick=()=>{L.on=!L.on;
+    if(L.on&&L.id==="hh"){const o=LAYERS.find(x=>x.id==="hho");if(o)o.on=false;}
+    if(L.on&&L.id==="hho"){const o=LAYERS.find(x=>x.id==="hh");if(o)o.on=false;}
+    rows();};
+  const grid=document.createElement('div'); grid.className='steps'+(L.on?'':' offrow');
+  for(let i=0;i<16;i++){
+    const v=L.pat[i]; const d=document.createElement('div');
+    d.className='st'+(i%8===0?' bar':'')+(v? (v===1?' hit soft':' hit'):'');
+    d.dataset.col=i; d.dataset.layer=li;
+    grid.appendChild(d);
+  }
+  row.appendChild(btn); row.appendChild(grid); R.appendChild(row);
+ });
+}
+function setMode(m){
+ mode=m;
+ LAYERS[1].pat=(m==="bossa"?CHORD_BOSSA:CHORD_SON).slice();
+ const rim=LAYERS.find(l=>l.id==="rim"); if(rim) rim.pat=(m==="bossa"?CHORD_BOSSA:CHORD_SON).slice();
+ document.getElementById('abB').classList.toggle('on',m==="bossa");
+ document.getElementById('abS').classList.toggle('on',m!=="bossa");
+ rows();
+ const ri=LAYERS.findIndex(l=>l.id==="rim");
+ [1,ri].forEach(li=>[12,13].forEach(i=>{const el=document.querySelector('.st[data-layer="'+li+'"][data-col="'+i+'"]');if(el)el.classList.add('diff');}));
+ document.getElementById('abnote').textContent = m==="bossa"
+  ? "末击落在第 2 小节「3 的反拍」——不落正拍，所以整条线是漂的。"
+  : "末击回到第 2 小节的正拍 3——这就是古巴 son clave，立刻方正起来。";
+}
+let actx;
+function AC(){actx=actx||new (window.AudioContext||window.webkitAudioContext)();return actx;}
+function pluck(t,f,v,dur){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type="triangle";o.frequency.value=f;o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);o.start(t);o.stop(t+dur+0.02);}
+function noise(t,v,fq,dur){const c=AC(),b=c.createBuffer(1,Math.floor(c.sampleRate*dur),c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type="highpass";f.frequency.value=fq;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);s.start(t);s.stop(t+dur+0.02);}
+function kickS(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.setValueAtTime(120,t);o.frequency.exponentialRampToValueAtTime(48,t+0.1);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.16);o.start(t);o.stop(t+0.17);}
+function rimS(t){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type="square";o.frequency.value=1700;o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(0.22,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.035);o.start(t);o.stop(t+0.04);noise(t,0.12,3000,0.03);}
+function chordHit(t,v){[196,247,294].forEach(f=>pluck(t,f,v/3,0.14));}
+function padHit(t,bar2){const ns=bar2?[174.6,220,261.6,329.6]:[196,246.9,293.7,349.2];ns.forEach(f=>pluck(t,f,0.05,1.1));}
+function step(){
+ const c=AC(),t=c.currentTime+0.02;
+ LAYERS.forEach(L=>{ if(L.g!==grp||!L.on||!L.pat[col]) return; const v=L.pat[col];
+  if(L.id==="bass") pluck(t,(col%8===0?82.4:110),v===2?0.5:0.34,0.28);
+  else if(L.id==="chord") chordHit(t,0.5);
+  else if(L.id==="shk") noise(t,col%2===0?0.14:0.09,6500,0.05);
+  else if(L.id==="pad") padHit(t,col>=8);
+  else if(L.id==="kick") kickS(t,v===2?0.9:0.62);
+  else if(L.id==="rim") rimS(t);
+  else if(L.id==="hh") noise(t,col%2===0?0.16:0.1,7500,0.04);
+  else if(L.id==="hho") { if(v===2) noise(t,0.2,5200,0.17); else noise(t,0.11,7500,0.04); }
+ });
+ document.querySelectorAll('.st').forEach(e=>e.classList.toggle('now',+e.dataset.col===col));
+ col=(col+1)%STEPS;
+}
+function loop(){const bpm=+document.getElementById('bpm').value;clearInterval(timer);step();timer=setInterval(step,60000/bpm/2);
+ document.querySelector('#metro .arm').style.animationDuration=(60/bpm)+'s';}
+function toggle(){
+ playing=!playing;
+ document.getElementById('plbl').textContent=playing?'停止':'播放';
+ document.getElementById('pic').textContent=playing?'■':'▶';
+ document.getElementById('metro').classList.toggle('show',playing);
+ if(playing){col=0;const c=AC();c.resume&&c.resume();loop();}
+ else{clearInterval(timer);document.querySelectorAll('.st').forEach(e=>e.classList.remove('now'));}
+}
+document.getElementById('play').onclick=toggle;
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmval').textContent=this.value;if(playing)loop();};
+document.getElementById('tabG').onclick=()=>{grp="gtr";rows();};
+document.getElementById('tabD').onclick=()=>{grp="drm";rows();};
+document.getElementById('abB').onclick=()=>setMode("bossa");
+document.getElementById('abS').onclick=()=>setMode("son");
+
+const BINS=[
+ {tag:"鼻祖起源",c:"#0C6B63",note:"一切从这两张录音开始。",songs:[
+  {t:"Chega de Saudade",a:"João Gilberto",yr:"1958",sc:"#F7E9D0",tc:"#7A4A21",
+   rn:"史上第一声 bossa：拇指低音走 1、3，和弦嗒躲开正拍，人声几乎不振动。整套美学在这三分钟里一次成型。",
+   au:"João Gilberto，巴伊亚人，公认在浴室里磨出这套吉他与唱法。"},
+  {t:"Desafinado",a:"João Gilberto / Jobim 曲",yr:"1959",sc:"#DFF3F0",tc:"#0C6B63",
+   rn:"歌名意为「走音」——写给嘲笑轻声唱法的人的宣言。切分线极稳，人声故意懒半拍。",
+   au:"曲 Antônio Carlos Jobim，bossa 的首席作曲家。"}]},
+ {tag:"经典",c:"#B98A2E",note:"黄金年代的必听三张。",songs:[
+  {t:"The Girl from Ipanema",a:"Getz/Gilberto · Astrud",yr:"1964",sc:"#FAEEDA",tc:"#7A5A16",
+   rn:"把 bossa 推向全世界的一首。注意鼓刷的连续八分和 rim 的切分——就是上面搭建器的第 2、3 层。",
+   au:"Stan Getz(萨克斯) × João & Astrud Gilberto，格莱美年度专辑。"},
+  {t:"Corcovado",a:"Jobim / João Gilberto",yr:"1963",sc:"#DFF3F0",tc:"#0C6B63",
+   rn:"Quiet nights of quiet stars——bossa「留白多」的极致示范，伴奏稀到几乎透明。",
+   au:"Jobim 作曲，写给里约的耶稣山。"},
+  {t:"Águas de Março",a:"Elis Regina & Tom Jobim",yr:"1974",sc:"#FDE4DA",tc:"#8A3A1E",
+   rn:"对唱经典：节奏像小溪往下淌，两人抢着接句却谁都不抢拍——切分感全在人声里。",
+   au:"Elis Regina，巴西国民歌手；常被评为巴西史上最佳歌曲。"}]},
+ {tag:"当下流行",c:"#F0704A",note:"bossa 活在今天的样子。",songs:[
+  {t:"From the Start",a:"Laufey",yr:"2023",sc:"#FDE4DA",tc:"#8A3A1E",
+   rn:"bossa-pop：切分吉他 + jazz 和声 + 现代录音的贴耳人声，Z 世代重新爱上 bossa 的入口。",
+   au:"Laufey，冰岛-华裔创作人，把爵士歌本美学带回流行榜。"},
+  {t:"Garota de Ipanema (翻唱)",a:"小野リサ Lisa Ono",yr:"1990s",sc:"#F7E9D0",tc:"#7A4A21",
+   rn:"日式 bossa 的温柔样本：速度放慢、颗粒感更软，证明这套律动换语言也成立。",
+   au:"小野丽莎，生于巴西的日本歌手，把 bossa 唱成了亚洲的咖啡馆标配。"}]},
+ {tag:"跨界融合",c:"#7F77DD",note:"bossa 和别的类型握手。",songs:[
+  {t:"Jazz Samba (专辑)",a:"Stan Getz & Charlie Byrd",yr:"1962",sc:"#EEEDFE",tc:"#3C3489",
+   rn:"爵士 × bossa 的第一次正式握手：美国爵士乐手照着巴西唱片学切分，登上榜首。",
+   au:"Charlie Byrd 从巴西巡演带回整箱唱片，改变了美国爵士。"},
+  {t:"Sinatra & Jobim (专辑)",a:"Frank Sinatra & Jobim",yr:"1967",sc:"#DFF3F0",tc:"#0C6B63",
+   rn:"传统流行天王把音量降到耳语来迁就 bossa——backbeat 全撤，只剩切分和弦垫底。",
+   au:"Sinatra 自称这是他唱得最轻的一张专辑。"},
+  {t:"Tanto Tempo (专辑)",a:"Bebel Gilberto",yr:"2000",sc:"#FDE4DA",tc:"#8A3A1E",
+   rn:"电子 × bossa：采样和合成器铺底，切分线还是祖传的那条。",
+   au:"Bebel 是 João Gilberto 的女儿，家学直传。"},
+  {t:"In a Manner of Speaking",a:"Nouvelle Vague",yr:"2004",sc:"#F7E9D0",tc:"#7A4A21",
+   rn:"乐队名就是法语的「bossa nova」：专门把后朋克/新浪潮老歌翻成 bossa，一格切分治愈所有阴郁。",
+   au:"法国制作人组合，翻唱概念乐队。"}]}
+];
+const binsEl=document.getElementById('bins');
+BINS.forEach(b=>{
+ const d=document.createElement('div');d.className='bin';d.style.setProperty('--bc',b.c);
+ d.innerHTML='<h3><span class="bintag">'+b.tag+'</span></h3><p class="binnote">'+b.note+'</p>';
+ const g=document.createElement('div');g.className='songs';
+ b.songs.forEach(s=>{
+  const q=encodeURIComponent(s.t+' '+s.a);
+  const el=document.createElement('div');el.className='song';
+  el.innerHTML='<span class="yr">'+s.yr+'</span><h4>'+s.t+'</h4><p class="artist">'+s.a+'</p>'
+   +'<p>'+s.rn+'</p>'
+   +'<p style="color:var(--ink3);font-size:12.5px;">'+s.au+'</p>'
+   +'<a class="listen" href="https://www.youtube.com/results?search_query='+q+'" target="_blank" rel="noopener">▶ 试听</a>';
+  g.appendChild(el);
+ });
+ d.appendChild(g);binsEl.appendChild(d);
+});
+rows();
+setTimeout(()=>{document.querySelectorAll('.diff').forEach(e=>e.classList.remove('diff'));},100);
+</script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cumbia · Vallenato · 节奏图鉴</title>
+<meta name="description" content="哥伦比亚加勒比节奏：连续16分的瓜查拉卡永动机、caja 的抢拍推动、手风琴切分；三件乐器三个大陆的历史，四档歌曲推荐(唱片翻面卡)。">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root{--gold:#E8A32C;--gold-soft:#FBEED0;--gold-deep:#9C6A12;
+        --terra:#D9553C;--terra-soft:#F7DDD3;--terra-deep:#A63A25;
+        --leaf:#3FA66A;--leaf-soft:#DDF1E6;--leaf-deep:#1F7A47;
+        --plum:#B4478A;--plum-soft:#F6DEEE;--plum-deep:#823063;
+        --sand:#F7EAD2;--ink:#3E2E22;}
+  .seclabel .num{background:var(--terra);}
+  .seclabel .t{color:var(--terra-deep);}
+
+  .cover{position:relative;border-radius:16px;overflow:hidden;background:var(--sand);padding:46px 34px 0;margin:8px 0 6px;}
+  .cover h1{font-size:38px;margin:0 0 6px;color:#8A4A14;letter-spacing:-.5px;}
+  .cover .csub{color:#A5691F;font-size:15px;margin:0 0 40px;max-width:560px;position:relative;z-index:2;}
+  .cover .sun{position:absolute;top:30px;right:52px;width:56px;height:56px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 8px rgba(232,163,44,.18);}
+  .cover .bellows{height:34px;background:
+     repeating-linear-gradient(90deg,var(--terra) 0 10px,#E8794F 10px 20px);
+     -webkit-mask:repeating-linear-gradient(90deg,#000 0 2px,transparent 2px 4px);
+             mask:repeating-linear-gradient(90deg,#000 0 2px,transparent 2px 4px);
+     position:relative;z-index:1;}
+  .cover .leafband{height:16px;background:var(--leaf);position:absolute;left:0;right:0;bottom:34px;
+     border-radius:50% 55% 0 0/14px 12px 0 0;opacity:.85;}
+  @media(max-width:560px){.cover h1{font-size:28px;}.cover .sun{right:22px;top:20px;width:42px;height:42px;}}
+
+  .builder{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;}
+  .gtabs{display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap;}
+  .gt{border:1.5px solid var(--terra);background:transparent;color:var(--terra-deep);border-radius:999px;padding:7px 18px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+  .gt.on{background:var(--terra);color:#fff;}
+  .gtnote{font-size:12px;color:var(--hint);}
+  .lyrow{display:grid;grid-template-columns:158px 1fr;gap:12px;align-items:center;padding:9px 0;border-top:1px dashed var(--line);}
+  .lyrow:first-of-type{border-top:none;}
+  .lybtn{display:flex;flex-direction:column;gap:2px;text-align:left;border:1.5px solid var(--line2);background:var(--bg);border-radius:10px;padding:7px 11px;cursor:pointer;font-family:inherit;transition:.15s;}
+  .lybtn .nm{font-size:13.5px;font-weight:600;color:var(--muted);}
+  .lybtn .rl{font-size:10.5px;color:var(--hint);}
+  .lybtn.on{border-color:var(--lc);background:var(--lsoft);}
+  .lybtn.on .nm{color:var(--lc);}
+  .steps{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;}
+  .st{height:24px;border:1px solid var(--line);border-radius:5px;background:transparent;position:relative;}
+  .st.bar{box-shadow:inset 2px 0 0 var(--line2);}
+  .st.hit{background:var(--lc);border-color:var(--lc);}
+  .st.hit.soft{opacity:.40;}
+  .st.now{outline:2px solid var(--ink);outline-offset:0;}
+  .st.diff{box-shadow:0 0 0 3px var(--gold);animation:diffglow 1.1s ease-in-out 3;}
+  @keyframes diffglow{50%{box-shadow:0 0 0 6px rgba(232,163,44,.4);}}
+  .offrow .st{opacity:.28;}
+  .beathead{display:grid;grid-template-columns:158px 1fr;gap:12px;margin-bottom:2px;}
+  .beatnums{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;font-size:10px;color:var(--hint);text-align:center;}
+  .beatnums b{color:var(--text);font-weight:600;}
+  .abwrap{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap;}
+  .ab{display:inline-flex;border:1.5px solid var(--terra);border-radius:999px;overflow:hidden;}
+  .ab button{border:none;background:transparent;padding:7px 16px;font-size:13.5px;cursor:pointer;font-family:inherit;color:var(--terra-deep);}
+  .ab button.on{background:var(--terra);color:#fff;}
+  .abnote{font-size:12.5px;color:var(--muted);}
+
+  .box{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--terra);border-radius:0 10px 10px 0;padding:14px 18px;margin:20px 0;font-size:13.5px;line-height:1.72;max-width:840px;}
+  .src{font-size:11.5px;color:var(--hint);}
+  .src a{color:var(--terra-deep);text-decoration:none;}
+  .src a:hover{text-decoration:underline;}
+
+  .metro{position:fixed;right:18px;bottom:18px;width:44px;height:58px;z-index:30;opacity:0;transition:opacity .3s;pointer-events:none;}
+  .metro.show{opacity:.9;}
+  .metro .body{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:38px;height:46px;background:var(--ink);border-radius:7px 7px 4px 4px;clip-path:polygon(28% 0,72% 0,100% 100%,0 100%);}
+  .metro .arm{position:absolute;bottom:8px;left:50%;width:2.5px;height:40px;background:var(--gold);border-radius:2px;transform-origin:bottom center;animation:tick 1s ease-in-out infinite alternate;animation-play-state:paused;}
+  .metro.show .arm{animation-play-state:running;}
+  @keyframes tick{from{transform:rotate(-24deg);}to{transform:rotate(24deg);}}
+
+  .timeline{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;}
+  .tl{flex:1 1 150px;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;}
+  .tl .yr{font-size:12px;font-weight:600;color:var(--terra-deep);}
+  .tl p{font-size:12.5px;color:var(--muted);margin:4px 0 0;line-height:1.55;}
+  .hl{background:var(--gold-soft);padding:1px 5px;border-radius:5px;}
+
+  .bin{margin:26px 0 4px;}
+  .bin h3{font-size:16px;margin:0 0 3px;display:flex;align-items:center;gap:8px;}
+  .bin .bintag{font-size:11px;font-weight:600;color:#fff;background:var(--bc);padding:2px 9px;border-radius:999px;}
+  .bin .binnote{font-size:12.5px;color:var(--muted);margin:0 0 12px;}
+  .sleeves{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
+  .sleeve{perspective:900px;cursor:pointer;height:208px;}
+  .inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+  .sleeve.flip .inner{transform:rotateY(180deg);}
+  .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;border:1px solid rgba(62,46,34,.18);padding:14px;display:flex;flex-direction:column;}
+  .front{background:var(--sc);}
+  .front .hole{width:34px;height:34px;border-radius:50%;background:var(--ink);align-self:center;margin:6px 0 10px;position:relative;}
+  .front .hole::after{content:"";position:absolute;inset:38%;border-radius:50%;background:var(--sc);}
+  .front .ttl{font-size:15px;font-weight:700;color:var(--tc);line-height:1.3;}
+  .front .art{font-size:12px;color:var(--tc);opacity:.75;margin-top:3px;}
+  .front .yr{margin-top:auto;font-size:11px;color:var(--tc);opacity:.6;}
+  .front .fliphint{position:absolute;top:10px;right:12px;font-size:10px;color:var(--tc);opacity:.5;}
+  .back{background:var(--surface);transform:rotateY(180deg);}
+  .back .bt{font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--text);}
+  .back p{font-size:12px;color:var(--muted);margin:0 0 6px;line-height:1.6;flex:1;overflow:auto;}
+  .back a{font-size:12px;color:var(--terra-deep);font-weight:500;text-decoration:none;}
+  .back a:hover{text-decoration:underline;}
+  @media(max-width:560px){.lyrow{grid-template-columns:112px 1fr;}.beathead{grid-template-columns:112px 1fr;}}
+</style>
+</head>
+<body style="--accent:#D9553C;--accent-soft:#F7DDD3">
+
+<header class="topbar"><div class="wrap"><a class="brand" href="index.html"><span class="dot" style="background:var(--terra);"></span>Rhythm</a><a class="navlink" href="directory.html">← 返回目录</a></div></header>
+
+<div class="metro" id="metro" aria-hidden="true"><span class="arm"></span><span class="body"></span></div>
+
+<main class="wrap">
+
+  <section style="padding:34px 0 10px;">
+    <div class="cover">
+      <span class="sun"></span>
+      <h1>Cumbia · Vallenato</h1>
+      <p class="csub">哥伦比亚加勒比海岸 · 手风琴、鼓、刮棒 = 欧洲、非洲、原住民三个大陆合成的一台永动机。</p>
+      <div class="leafband"></div><div class="bellows"></div>
+    </div>
+    <p style="color:var(--muted);font-size:14px;max-width:700px;">你从《Colombia, Mi Encanto》一路听过来的那股"越听越有活力"，不是错觉——它是<span class="hl">一条永不停歇的连续 16 分刮奏</span>加上<span class="hl">抢在正拍前半格的推动</span>共同造出来的。下面三章：先把这台永动机一层层搭出来听懂，再看 cumbia 与 vallenato 从哪来、什么气质，最后按四档听歌。</p>
+  </section>
+
+  <section class="section poster" id="listen">
+    <div class="rail"><div class="tab"><span class="no">1</span><span class="kind">听</span></div></div>
+    <div class="main">
+    
+    <h2>三件套 = 一台停不下来的引擎</h2>
+    <p class="lead">活力的核心不是速度，是<b>密度</b>与<b>推动</b>：guacharaca(瓜查拉卡刮棒)铺满连续 16 分当引擎，caja(卡哈鼓)把重音抢在正拍<b>之前</b>半格往前拽，手风琴的切分再补一层。点亮/熄灭每一层，听活力怎么长出来。<b>传统三件套版</b>是原声乐队；切到<b>架子鼓版</b>，同一套分工搬到鼓上：踩镲=刮棒的连续 16 分、边击=caja、底鼓=直 8 分地基。格子是 1 小节 4/4 的 <b>16 分音网格</b>。</p>
+
+    <div class="builder">
+      <div class="gtabs">
+        <button id="tabT" class="gt on">传统三件套</button>
+        <button id="tabD" class="gt">架子鼓版</button>
+        <span class="gtnote">同一套分工、两种乐器，切换后各自演奏</span>
+      </div>
+      <div class="beathead"><div></div>
+        <div class="beatnums"><b>1</b><span>e</span><span>&amp;</span><span>a</span><b>2</b><span>e</span><span>&amp;</span><span>a</span><b>3</b><span>e</span><span>&amp;</span><span>a</span><b>4</b><span>e</span><span>&amp;</span><span>a</span></div>
+      </div>
+      <div id="rows"></div>
+
+      <div class="controls" style="margin-top:16px;">
+        <button class="play-btn" id="play" style="background:var(--terra);"><span id="pic">▶</span><span id="plbl">播放</span></button>
+        <div class="tempo"><span>速度</span><input id="bpm" type="range" min="80" max="140" value="100"><span id="bpmval">100</span> BPM</div>
+      </div>
+
+      <div class="abwrap">
+        <span style="font-size:13px;font-weight:600;">一格之差：</span>
+        <span class="ab"><button id="abP" class="on">推动 push</button><button id="abS">方正 straight</button></span>
+        <span class="abnote" id="abnote">caja 的重音落在「&amp;」上、抢在下一拍前半格——这半格的抢拍，就是"上头"的来源。切到方正版对比听。</span>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--hint);margin-top:12px;">以上是抓特征的简化范式，不是逐音符扒带。传统 caja 有 “los tres golpes”“el rodado”“el adominicao” 等多种打法，此处取最能体现「抢拍推动」的骨架 <span class="src">(<a href="https://en.wikipedia.org/wiki/Vallenato" target="_blank" rel="noopener">Wikipedia: Vallenato</a>)</span>；架子鼓改编(踩镲=güiro/瓜查拉卡、边击+嗵=conga/caja、底鼓走直 8 分)依 <span class="src"><a href="https://www.moderndrummer.com/article/september-2015-cumbia-drumset-adaptations-traditional-colombianpanamanian-rhythm/" target="_blank" rel="noopener">Modern Drummer: Cumbia Drumset Adaptations</a> / <a href="https://reverb.com/news/latin-beats-how-to-play-the-cumbia-style" target="_blank" rel="noopener">Reverb: How to Play Cumbia</a></span>。实际录音里花样远比这丰富。</p>
+    <div class="box">
+      <b>为什么"越听越有活力"？</b>三个可迁移的机关：<br>
+      <b>① 永动机</b>——guacharaca 从头到尾不停刮 16 分，铺满整个节奏格子，是这股"往前冲"的底噪引擎。对应到鼓上就是踩镲/沙锤的连续 16 分。<br>
+      <b>② 抢拍推动</b>——caja 与手风琴的重音故意落在正拍<b>前半格</b>(切分/anticipation)，身体被一次次往前拽。上面的 push↔方正 开关就是拆这一条。<br>
+      <b>③ 加法造能量</b>——全程速度基本不变，靠乐器一层层<b>叠加、加密</b>把能量堆上去，而不是靠加速。这三条也正是你可以直接扒进自己节奏图鉴的东西。
+    </div>
+  
+    </div>
+  </section>
+
+  <section class="section poster" id="know">
+    <div class="rail"><div class="tab"><span class="no">2</span><span class="kind">懂</span></div></div>
+    <div class="main">
+    
+    <h2>手风琴、鼓、刮棒——三件乐器，三个大陆</h2>
+    <div class="prose">
+      <p>cumbia 与 vallenato 都长在哥伦比亚加勒比海岸。vallenato 最有意思的是<b>三件核心乐器正好来自三个族群</b>：<b>手风琴</b>(欧洲/德国来的按键手风琴，负责旋律与炫技)、<b>caja</b>(非洲黑奴带来的手拍小鼓，负责切分重音)、<b>guacharaca</b>(原住民 Tairona 人的木制刮棒，负责那条永不停的沙沙律动)。三件合起来，就是一部殖民史的声音标本。2015 年被 UNESCO 列入"急需保护的非物质文化遗产" <span class="src">(<a href="https://en.wikipedia.org/wiki/Vallenato" target="_blank" rel="noopener">Wikipedia: Vallenato</a>)</span>。</p>
+      <div class="timeline">
+        <div class="tl"><span class="yr">19 世纪 · 马格达莱纳河谷</span><p>三族群音乐在集市与放牛路上相遇，vallenato 雏形出现</p></div>
+        <div class="tl"><span class="yr">1940s–50s · 游吟诗人</span><p>Escalona、Alejo Durán 等 juglar 把新闻、情事编成歌，走村串寨地唱</p></div>
+        <div class="tl"><span class="yr">1968 · Valledupar</span><p>首届 Festival de la Leyenda Vallenata，四大 aire 与手风琴之王评选成型</p></div>
+        <div class="tl"><span class="yr">1993 · Carlos Vives</span><p>《Clásicos de la Provincia》给传统曲加摇滚编曲，vallenato-pop 引爆全球</p></div>
+        <div class="tl"><span class="yr">2015 · UNESCO</span><p>传统 vallenato 列入急需保护的非物质文化遗产</p></div>
+        <div class="tl"><span class="yr">2021 · 迪士尼</span><p>Vives 唱《Colombia, Mi Encanto》，把 cumbia-vallenato 送进《魔法满屋》</p></div>
+      </div>
+      <h3>cumbia 与 vallenato：一个是"舞"，一个是"歌"</h3>
+      <p><b>cumbia</b> 是以鼓与刮棒为主的求偶圆圈舞，节奏优先、遍及全拉美(墨西哥、秘鲁、阿根廷都有自己的 cumbia)；<b>vallenato</b> 是以手风琴叙事为核心的"会唱歌的民间文学"，歌词优先。你反复听的《Colombia, Mi Encanto》正是两者的融合(cumbia-vallenato)——所以它既好动、又在讲故事 <span class="src">(<a href="https://www.smithsonianmag.com/arts-culture/celebrating-viral-encanto-soundtracks-colombian-roots-180979435/" target="_blank" rel="noopener">Smithsonian</a>)</span>。</p>
+      <h3>vallenato 的四大 aire(节奏型)</h3>
+      <p><b>Paseo</b>：中速、抒情、最主流(《La Gota Fría》)；<b>Son</b>：最慢、最哀伤、最古老(《Alicia Adorada》)；<b>Merengue</b>：注意跟多米尼加的 merengue 无关，6/8 拍、非洲律动、叙事性强；<b>Puya</b>：速度最快、最炫技，6/8 拍，压轴用来把气氛推向高潮 <span class="src">(<a href="https://en.wikipedia.org/wiki/Vallenato" target="_blank" rel="noopener">Wikipedia: Vallenato</a>)</span>。</p>
+      <h3>它跳舞吗</h3>
+      <p>能跳，但不是"为跳而生"。paseo 是成对贴身摇摆，最好跳；puya 太快主要给乐手飙技；son 很慢基本是听歌。和 salsa、纯 cumbia 这类"舞池优先"的音乐比，传统 vallenato 更偏"歌词优先"——常常是一群人围着听手风琴手讲故事。</p>
+      <h3>和马尔克斯的关系</h3>
+      <p>这套"把真事与传说虚实混讲"的叙事，正是魔幻现实主义的土壤。马尔克斯自己说，《百年孤独》"不过是一首 400 多页的 vallenato" <span class="src">(<a href="https://theworld.org/stories/2016/05/05/gabriel-garc-m-rquez-and-his-connection-vallenatos" target="_blank" rel="noopener">PRX/The World</a>)</span>。音乐和文学，是同一个文化基因的两种长法。</p>
+      <h3>怎么用在音乐里</h3>
+      <p>想让编曲有"热带活力"，记住三步：铺一条<b>连续 16 分</b>的刮奏/沙锤当引擎；把关键重音<b>抢在正拍前半格</b>(别老落在正拍上)；用<b>加层加密</b>而不是加速来堆能量。这套逻辑换到 funk、pop 副歌里同样成立。</p>
+    </div>
+  
+    </div>
+  </section>
+
+  <section class="section poster" id="more">
+    <div class="rail"><div class="tab"><span class="no">3</span><span class="kind">听更多</span></div></div>
+    <div class="main">
+    
+    <h2>点一张唱片，翻过来看节奏</h2>
+    <p class="lead">正面是歌和作者，点击翻面看这首歌里节奏怎么用。按四档淘：源头游吟 → 黄金经典 → 当下 vallenato-pop → 你的入口与全球化。</p>
+    <div id="bins"></div>
+  
+    </div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">鼓点为抓特征的简化范式。想看 cumbia/vallenato 在整个拉丁家族里的位置 → <a href="map.html" style="color:var(--terra-deep);">节奏地图</a> · <a href="directory.html" style="color:var(--terra-deep);">返回目录</a></div></footer>
+
+<script>
+const STEPS=16;
+const CAJA_PUSH    =[2,0,0,0,0,0,1,0,2,0,0,0,0,0,1,0];
+const CAJA_STRAIGHT=[2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0];
+const LAYERS=[
+ {id:"guab",nm:"瓜查拉卡 · 连续16分",rl:"= 引擎 · 永不停的刮奏",c:"#9C6A12",soft:"#FBEED0",g:"trad",
+  pat:[2,1,1,1,2,1,1,1,2,1,1,1,2,1,1,1],on:true},
+ {id:"caja",nm:"Caja · 抢拍推动",rl:"重音抢在正拍前半格",c:"#D9553C",soft:"#F7DDD3",g:"trad",
+  pat:CAJA_PUSH.slice(),on:true},
+ {id:"acor",nm:"手风琴 · 切分",rl:"落在拍前的 anticipation",c:"#B4478A",soft:"#F6DEEE",g:"trad",
+  pat:[0,0,0,2,0,0,0,1,0,0,0,2,0,0,0,1],on:false},
+ {id:"bajo",nm:"低音 · 锚点",rl:"1、3 拍站住重心",c:"#1F7A47",soft:"#DDF1E6",g:"trad",
+  pat:[2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],on:true},
+ {id:"hh",nm:"踩镲 · 连续16分",rl:"= guacharaca / güiro",c:"#9C6A12",soft:"#FBEED0",g:"drm",
+  pat:[2,1,1,1,2,1,1,1,2,1,1,1,2,1,1,1],on:true},
+ {id:"xst",nm:"边击 rim · 抢拍",rl:"= caja / conga 边击",c:"#D9553C",soft:"#F7DDD3",g:"drm",
+  pat:CAJA_PUSH.slice(),on:true},
+ {id:"kick",nm:"底鼓 · 直8分地基",rl:"cumbia 的方正地基",c:"#1F7A47",soft:"#DDF1E6",g:"drm",
+  pat:[2,0,1,0,2,0,1,0,2,0,1,0,2,0,1,0],on:true},
+ {id:"tom",nm:"落地嗵 · 开音",rl:"= caja 开音 · 变化层",c:"#B4478A",soft:"#F6DEEE",g:"drm",
+  pat:[0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0],on:false}
+];
+let mode="push", grp="trad", playing=false, timer=null, col=0;
+
+function rows(){
+ const R=document.getElementById('rows'); R.innerHTML='';
+ document.getElementById('tabT').classList.toggle('on',grp==="trad");
+ document.getElementById('tabD').classList.toggle('on',grp!=="trad");
+ LAYERS.forEach((L,li)=>{
+  if(L.g!==grp) return;
+  const row=document.createElement('div'); row.className='lyrow';
+  row.style.setProperty('--lc',L.c); row.style.setProperty('--lsoft',L.soft);
+  const btn=document.createElement('button');
+  btn.className='lybtn'+(L.on?' on':'');
+  btn.innerHTML='<span class="nm">'+L.nm+'</span><span class="rl">'+L.rl+'</span>';
+  btn.onclick=()=>{L.on=!L.on;rows();};
+  const grid=document.createElement('div'); grid.className='steps'+(L.on?'':' offrow');
+  for(let i=0;i<16;i++){
+    const v=L.pat[i]; const d=document.createElement('div');
+    d.className='st'+(i%4===0?' bar':'')+(v? (v===1?' hit soft':' hit'):'');
+    d.dataset.col=i; d.dataset.layer=li;
+    grid.appendChild(d);
+  }
+  row.appendChild(btn); row.appendChild(grid); R.appendChild(row);
+ });
+}
+function setMode(m){
+ mode=m;
+ const p=(m==="push"?CAJA_PUSH:CAJA_STRAIGHT);
+ LAYERS.find(l=>l.id==="caja").pat=p.slice();
+ LAYERS.find(l=>l.id==="xst").pat=p.slice();
+ document.getElementById('abP').classList.toggle('on',m==="push");
+ document.getElementById('abS').classList.toggle('on',m!=="push");
+ rows();
+ if(m==="push"){
+   const idc=LAYERS.findIndex(l=>l.id==="caja"), idx=LAYERS.findIndex(l=>l.id==="xst");
+   [idc,idx].forEach(li=>[6,14].forEach(i=>{const el=document.querySelector('.st[data-layer="'+li+'"][data-col="'+i+'"]');if(el)el.classList.add('diff');}));
+ }
+ document.getElementById('abnote').textContent = m==="push"
+  ? "caja 的重音落在「&」上、抢在下一拍前半格——这半格的抢拍，就是“上头”的来源。发光的两格就是被抢出来的推动。"
+  : "重音回到正拍 1、3——立刻变方正、变稳，但那股往前拽的劲儿也没了。";
+}
+let actx;
+function AC(){actx=actx||new (window.AudioContext||window.webkitAudioContext)();return actx;}
+function pluck(t,f,v,dur,type){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type=type||"triangle";o.frequency.value=f;o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);o.start(t);o.stop(t+dur+0.02);}
+function noise(t,v,fq,dur,hp){const c=AC(),b=c.createBuffer(1,Math.floor(c.sampleRate*dur),c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type=hp?"highpass":"bandpass";f.frequency.value=fq;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);s.start(t);s.stop(t+dur+0.02);}
+function scrape(t,v){noise(t,v,5200,0.045,true);}                          // guacharaca / hi-hat
+function kickS(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.setValueAtTime(125,t);o.frequency.exponentialRampToValueAtTime(48,t+0.1);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.16);o.start(t);o.stop(t+0.17);}
+function cajaS(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type="triangle";o.frequency.setValueAtTime(320,t);o.frequency.exponentialRampToValueAtTime(180,t+0.06);o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.09);o.start(t);o.stop(t+0.1);noise(t,v*0.5,2400,0.05,true);}
+function tomS(t){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type="sine";o.frequency.setValueAtTime(210,t);o.frequency.exponentialRampToValueAtTime(120,t+0.14);o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(0.5,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.18);o.start(t);o.stop(t+0.19);}
+function acorHit(t,v){[293.7,370,440].forEach(f=>pluck(t,f,v/3,0.22,"sawtooth"));}
+function step(){
+ const c=AC(),t=c.currentTime+0.02;
+ LAYERS.forEach(L=>{ if(L.g!==grp||!L.on||!L.pat[col]) return; const v=L.pat[col];
+  if(L.id==="guab") scrape(t,v===2?0.20:0.11);
+  else if(L.id==="caja") cajaS(t,v===2?0.5:0.3);
+  else if(L.id==="acor") acorHit(t,v===2?0.5:0.32);
+  else if(L.id==="bajo") pluck(t,(col<8?82.4:98),0.5,0.3);
+  else if(L.id==="hh") scrape(t,v===2?0.20:0.11);
+  else if(L.id==="xst") cajaS(t,v===2?0.5:0.3);
+  else if(L.id==="kick") kickS(t,v===2?0.9:0.6);
+  else if(L.id==="tom") tomS(t);
+ });
+ document.querySelectorAll('.st').forEach(e=>e.classList.toggle('now',+e.dataset.col===col));
+ col=(col+1)%STEPS;
+}
+function loop(){const bpm=+document.getElementById('bpm').value;clearInterval(timer);step();timer=setInterval(step,60000/bpm/4);
+ document.querySelector('#metro .arm').style.animationDuration=(60/bpm)+'s';}
+function toggle(){
+ playing=!playing;
+ document.getElementById('plbl').textContent=playing?'停止':'播放';
+ document.getElementById('pic').textContent=playing?'■':'▶';
+ document.getElementById('metro').classList.toggle('show',playing);
+ if(playing){col=0;const c=AC();c.resume&&c.resume();loop();}
+ else{clearInterval(timer);document.querySelectorAll('.st').forEach(e=>e.classList.remove('now'));}
+}
+document.getElementById('play').onclick=toggle;
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmval').textContent=this.value;if(playing)loop();};
+document.getElementById('tabT').onclick=()=>{grp="trad";rows();};
+document.getElementById('tabD').onclick=()=>{grp="drm";rows();};
+document.getElementById('abP').onclick=()=>setMode("push");
+document.getElementById('abS').onclick=()=>setMode("straight");
+
+const BINS=[
+ {tag:"源头 · 游吟诗人",c:"#9C6A12",note:"vallenato 与 cumbia 的老根，先听这三张。",songs:[
+  {t:"La Gota Fría",a:"Emiliano Zuleta",yr:"1938",sc:"#FBEED0",tc:"#8A5A0E",
+   rn:"paseo 的活化石：起因是两个手风琴手斗琴(piquería)，Zuleta 用这首把对手损到落荒而逃。听它就懂 vallenato 的“叙事+炫技+挑衅”内核。",
+   au:"找传统老录音版，别搜 Carlos Vives 版(那是后面的流行改编)。"},
+  {t:"Alicia Adorada",a:"Juancho Polo Valencia · Alejo Durán 唱红",yr:"1940s",sc:"#F7DDD3",tc:"#A63A25",
+   rn:"son 的标杆：作者写亡妻难产去世、自己却远在外村的真事。节奏最慢、几乎不跳舞，是“听歌流泪”那一档。",
+   au:"由手风琴之王 Alejo Durán 在 1968 年首届节庆上唱红。搜 Alejo Durán 版。"},
+  {t:"La Pollera Colorá",a:"Wilson Choperena / Juan Madera",yr:"1960",sc:"#DDF1E6",tc:"#1F7A47",
+   rn:"cumbia 那一支的国民曲：连续刮奏+鼓的圆圈舞律动，是“舞优先”的纯 cumbia 范本，跟 vallenato 对照着听。",
+   au:"哥伦比亚几乎的非官方 cumbia 国歌，版本极多。"}]},
+ {tag:"黄金经典",c:"#A63A25",note:"vallenato 最鼎盛年代的必听。",songs:[
+  {t:"Tú Eres La Reina",a:"Diomedes Díaz & Juancho Rois",yr:"1993",sc:"#F7DDD3",tc:"#A63A25",
+   rn:"“El Cacique” 迪奥梅德斯的招牌情歌之一：手风琴(Juancho Rois)与人声一唱一和，paseo 的抒情样板。",
+   au:"Diomedes Díaz，vallenato 史上最受爱戴的歌手，录过 600 多首。"},
+  {t:"La Casa en el Aire",a:"Rafael Escalona 作",yr:"1952",sc:"#FBEED0",tc:"#8A5A0E",
+   rn:"传奇词人 Escalona 为女儿写的：要在空中给她盖座房子、挡开追求者。歌词的比喻是 vallenato 文学性的顶点。",
+   au:"Escalona 不会乐器也几乎不唱，却写出最好的 vallenato；由 Carlos Vives 唱红。"},
+  {t:"Pedazo de Acordeón",a:"Alejo Durán",yr:"1970s",sc:"#F6DEEE",tc:"#823063",
+   rn:"puya 的炫技范例：飞驰的手风琴 + caja 与瓜查拉卡极速推进，听“最快那一档”长什么样。",
+   au:"Alejo Durán，首届手风琴之王，传统派的技术标杆。"}]},
+ {tag:"当下 · vallenato-pop",c:"#D9553C",note:"传统接上电、走向世界的样子。",songs:[
+  {t:"Clásicos de la Provincia (专辑)",a:"Carlos Vives",yr:"1993",sc:"#F7DDD3",tc:"#A63A25",
+   rn:"引爆点：把 Escalona、Zuleta 的老歌用摇滚乐队重编，“vallenato-pop”从此进全球电台。里面就有他翻的《La Gota Fría》。",
+   au:"Carlos Vives 靠这张专辑把 vallenato 带出哥伦比亚。"},
+  {t:"La Bicicleta",a:"Carlos Vives & Shakira",yr:"2016",sc:"#DDF1E6",tc:"#1F7A47",
+   rn:"vallenato × pop × reggaeton：两个哥伦比亚人写给家乡海岸的情书，手风琴切分还在，底下换成现代律动。",
+   au:"拿下拉丁格莱美，是 vallenato 当代跨界最成功的一首。"}]},
+ {tag:"你的入口 & 全球化",c:"#B4478A",note:"你就是从这里认识他们的。",songs:[
+  {t:"Colombia, Mi Encanto",a:"Carlos Vives · 《魔法满屋》",yr:"2021",sc:"#F6DEEE",tc:"#823063",
+   rn:"cumbia-vallenato：连续 16 分刮奏当引擎 + 手风琴切分 + 齐唱加层，就是你“越听越有活力”的那台永动机。曲子其实是 Lin-Manuel Miranda 仿 Vives 写的。",
+   au:"Carlos Vives 演唱，迪士尼《Encanto》原声。"},
+  {t:"Waka Waka",a:"Shakira",yr:"2010",sc:"#FBEED0",tc:"#8A5A0E",
+   rn:"不是 vallenato，是非洲 soca/afropop(副歌取自喀麦隆《Zangaléwa》)，但同为哥伦比亚人 Shakira 的“全世界大合唱”配方——和《Colombia, Mi Encanto》一脉相承。",
+   au:"2010 南非世界杯主题曲；《疯狂动物城2》那首其实是她的新歌《Zoo》，非本曲。"}]}
+];
+const binsEl=document.getElementById('bins');
+BINS.forEach(b=>{
+ const d=document.createElement('div');d.className='bin';d.style.setProperty('--bc',b.c);
+ d.innerHTML='<h3><span class="bintag">'+b.tag+'</span></h3><p class="binnote">'+b.note+'</p>';
+ const g=document.createElement('div');g.className='songs';
+ b.songs.forEach(s=>{
+  const q=encodeURIComponent(s.t+' '+s.a);
+  const el=document.createElement('div');el.className='song';
+  el.innerHTML='<span class="yr">'+s.yr+'</span><h4>'+s.t+'</h4><p class="artist">'+s.a+'</p>'
+   +'<p>'+s.rn+'</p>'
+   +'<p style="color:var(--ink3);font-size:12.5px;">'+s.au+'</p>'
+   +'<a class="listen" href="https://www.youtube.com/results?search_query='+q+'" target="_blank" rel="noopener">▶ 试听</a>';
+  g.appendChild(el);
+ });
+ d.appendChild(g);binsEl.appendChild(d);
+});
+rows();
+setMode("push");
+setTimeout(()=>{document.querySelectorAll('.diff').forEach(e=>e.classList.remove('diff'));},3600);
+</script>
+</body>
+</html>

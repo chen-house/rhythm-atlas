@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jazz Swing · 节奏图鉴</title>
+<meta name="description" content="Swing 节奏：三连音摇摆的可播放演示、与其他乐器的配合分工，以及历史与现代代表作。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="--accent:#378ADD;--accent-soft:#E6F1FB">
+
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Rhythm · 节奏图鉴</a>
+  <nav class="tnav">
+    <a href="map.html">节奏地图</a>
+    <a href="method.html">怎么学</a>
+    <a href="directory.html">← 返回目录</a>
+  </nav>
+</div></header>
+
+<section class="hero"><div class="wrap"><div class="frame"></div></div></section>
+
+<main class="wrap">
+
+  <div class="pagehead">
+    <div class="attr">1930s · Kansas City</div>
+    <h1>Swing</h1>
+  </div>
+
+  <section class="section poster" id="demo">
+    <div class="rail"><div class="tab"><span class="no">01</span><span class="kind">听</span></div></div>
+    <div class="main">
+    <h2>四种律动，点开就能听</h2>
+    
+<p class="lead">swing 的格子不是 16 分，是<strong>三连音</strong>：每拍切三格（1-t-l），"摇摆"就藏在长-短 2:1 的比例里。前三种是 4/4（12 格），jazz waltz 是 3/4（9 格）。</p>
+
+    <div class="player">
+      <div class="chips" id="chips"></div>
+      <div class="controls">
+        <button class="play-btn" id="play"><span id="pic">▶</span><span id="plbl">播放</span></button>
+        <div class="tempo">
+          <span>速度</span>
+          <input id="bpm" type="range" min="80" max="200" value="120">
+          <span id="bpmval">120</span> BPM
+        </div>
+      </div>
+      <div class="gdesc" id="gdesc"></div>
+      <div class="gridrows" id="grid"></div>
+      <div class="legend">
+        <span><i style="background:#378ADD;"></i>ride 叮叮镲</span>
+        <span><i style="background:#1D9E75;"></i>hi-hat 踩镲(脚)</span>
+        <span><i style="background:#D85A30;"></i>军鼓 重</span>
+        <span><i style="background:#F0997B;"></i>军鼓 轻</span>
+        <span><i style="background:#6B5BD6;"></i>底鼓</span>
+      </div>
+      </div>
+  
+    </div>
+  </section>
+  <section class="section poster" id="learn">
+    <div class="rail"><div class="tab"><span class="no">02</span><span class="kind">读</span></div></div>
+    <div class="main">
+    <h2>Swing 是一支乐队的分工</h2>
+    
+<p>理解 swing 要抓三件事：三连音底盘、ride 语法、乐队对话。</p>
+
+      <h3>① 三连音底盘：弯的时间</h3>
+      <p>摇滚和 funk 的 8 分/16 分是"直"的——每个音等长。swing 把每拍掰成<span class="hl">三连音</span>，实际只奏第 1 和第 3 格，形成"长-短、长-短"的跛行感。这就是谱面上写 8 分、耳朵里听到摇摆的原因。速度越快三连音越"拉直"，越慢越"弯"——所以 swing 的味道跟速度强相关。</p>
+
+      <h3>② Ride 语法：时间从底鼓搬到了镲片上</h3>
+      <p>早期爵士(大乐队时代)靠底鼓踩四分维持时间；到 bebop，鼓手把时间<span class="hl">搬到 ride 镲</span>上——那句经典的 "spang, spang-a-lang"（叮、叮-嘎-叮）。底鼓解放出来只轻踩"羽毛音"(feathering)或投"炸弹"(comping)，军鼓变成插话的嘴。左脚 hi-hat 固定踩 2、4 拍——它是 swing 世界的"路标"，作用类似拉丁家族里的 clave。</p>
+
+      <h3>③ 与其他乐器的配合：谁管时间，谁管对话</h3>
+      <p>swing 律动不是鼓手一个人的事，是节奏组(rhythm section)拼出来的。发动机是 <strong>ride × 贝斯</strong>这一对：贝斯 walking 四分音符踩地板，ride 的四分脉冲跟它锁死——这两条线咬合，时间就稳了。其余人都在这个地基上说话：</p>
+
+      <table class="roles">
+        <tr><th>乐器</th><th>管什么</th><th>怎么做</th></tr>
+        <tr><td>贝斯</td><td>时间的地板</td><td>walking bass 四分音符一步一格，和 ride 锁死；换 2-feel(二分音符)时全队能量立刻降半档</td></tr>
+        <tr><td>鼓 · ride/hi-hat</td><td>时间的天花板</td><td>ride 奏 spang-a-lang，hi-hat 脚踩 2、4；这两样尽量不动，是全队的参照系</td></tr>
+        <tr><td>鼓 · 军鼓/底鼓</td><td>对话</td><td>comping——在独奏乐句的空隙里插话、接尾巴；Art Blakey 式的"炸弹"就是往独奏者脚下扔能量</td></tr>
+        <tr><td>钢琴 / 吉他</td><td>和声 + 对话</td><td>钢琴 comping 用切分和弦回应独奏；大乐队里吉他走 Freddie Green 式一拍一刷，是"时间的胶水"</td></tr>
+        <tr><td>独奏者</td><td>提问</td><td>乐句是"问"，comping 是"答"——swing 合奏本质是一场轮流发言的对话</td></tr>
+      </table>
+
+      <div class="callout"><strong>给鼓手的一句话：</strong>swing 里你的军鼓底鼓不是"打拍子"的，是"说话"的。先把 ride + hi-hat 这个参照系练到雷打不动，再学着在别人乐句的缝隙里插话——听比打重要。</div>
+
+      <h3>变体的来路</h3>
+      <p><strong>基础 swing</strong>：bebop 之后的标准姿势，ride 管时间。<strong>Shuffle</strong>：swing 的蓝调亲戚，三连音填得更满、军鼓 2/4 拍砸实，从爵士流进 blues 和早期摇滚。<strong>Bebop comping</strong>：ride 不变，军鼓底鼓开始密集插话——鼓手从计时员变成对话者。<strong>Jazz waltz</strong>：3/4 拍的 swing，《My Favorite Things》《Someday My Prince Will Come》都在这条路上。</p>
+  
+    </div>
+  </section>
+  <section class="section poster" id="modern">
+    <div class="rail"><div class="tab"><span class="no">03</span><span class="kind">再听</span></div></div>
+    <div class="main">
+    <h2>从大乐队到新生代</h2>
+    
+<p class="lead">历史一列听"swing 怎么长成的"，现代一列听"它今天活成什么样"。每张卡先介绍音乐家，再说这首为什么值得听。</p>
+
+    <div class="grouptitle">历史典型</div>
+    <div class="songs" id="hist"></div>
+
+    <div class="grouptitle">现代典型</div>
+    <div class="songs" id="modernlist"></div>
+  
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot"><div class="wrap">本页鼓点为抓特征的简化范式，非逐音符扒带——真实演奏的 swing 比例随速度与乐手而变。</div></footer>
+
+<script>
+/* ---------- grooves (triplet grid) ---------- */
+const G={
+ basic:{name:"基础 swing（4-feel）",bpm:120,steps:12,
+   desc:"bebop 后的标准姿势 · ride 管时间，hi-hat 脚踩 2/4，底鼓只垫羽毛音",
+   R:[2,0,0,1,0,1,1,0,0,2,0,1],
+   H:[0,0,0,1,0,0,0,0,0,1,0,0],
+   S:[0,0,0,0,0,0,0,0,0,0,0,0],
+   K:[1,0,0,1,0,0,1,0,0,1,0,0]},
+ shuffle:{name:"Shuffle（蓝调亲戚）",bpm:112,
+   steps:12,
+   desc:"三连音填得更满、军鼓 2/4 砸实 · 从爵士流进 blues 与早期摇滚",
+   R:[2,0,1,2,0,1,2,0,1,2,0,1],
+   H:[0,0,0,0,0,0,0,0,0,0,0,0],
+   S:[0,0,0,2,0,0,0,0,0,2,0,0],
+   K:[2,0,0,0,0,0,2,0,0,0,0,0]},
+ bebop:{name:"Bebop comping",bpm:152,steps:12,
+   desc:"ride 不动，军鼓/底鼓在缝隙里插话——鼓手从计时员变成对话者（示意）",
+   R:[2,0,0,1,0,1,1,0,0,2,0,1],
+   H:[0,0,0,1,0,0,0,0,0,1,0,0],
+   S:[0,0,1,0,0,0,0,0,2,0,0,0],
+   K:[1,0,0,1,0,0,1,0,0,1,0,2]},
+ waltz:{name:"Jazz waltz（3/4）",bpm:132,steps:9,
+   desc:"三拍子的 swing ·《My Favorite Things》这条路 · 9 格 = 3 拍 × 三连音",
+   R:[2,0,0,1,0,1,1,0,0],
+   H:[0,0,0,1,0,0,1,0,0],
+   S:[0,0,0,0,0,0,0,0,1],
+   K:[1,0,0,0,0,0,0,0,0]}
+};
+const ROWS=[["R","ride","#378ADD","#85B7EB"],["H","hi-hat 脚","#1D9E75","#5DCAA5"],["S","军鼓","#D85A30","#F0997B"],["K","底鼓","#6B5BD6","#AFA9EC"]];
+function labels(steps){const beats=steps/3;const out=[];for(let b=1;b<=beats;b++){out.push(String(b),"t","l");}return out;}
+let cur="basic", playing=false, timer=null, col=0;
+
+function chips(){const c=document.getElementById('chips');c.innerHTML='';Object.keys(G).forEach(k=>{const b=document.createElement('button');b.className='chip'+(k===cur?' on':'');b.textContent=G[k].name;b.onclick=()=>{cur=k;document.getElementById('bpm').value=G[k].bpm;document.getElementById('bpmval').textContent=G[k].bpm;col=0;chips();render();if(playing)loop();};c.appendChild(b);});}
+
+function render(){
+ const g=G[cur];document.getElementById('gdesc').textContent=g.desc;
+ const grid=document.getElementById('grid');grid.innerHTML='';
+ const cols=`54px repeat(${g.steps},minmax(16px,1fr))`;
+ const head=document.createElement('div');head.className='grow';head.style.gridTemplateColumns=cols;
+ head.innerHTML='<div></div>'+labels(g.steps).map((n,i)=>`<div class="beatnum${i%3===0?' strong':''}">${n}</div>`).join('');
+ grid.appendChild(head);
+ ROWS.forEach(([key,label,acc,ghost])=>{
+   const row=document.createElement('div');row.className='grow';row.style.gridTemplateColumns=cols;
+   let html=`<div class="glabel">${label}</div>`;
+   for(let i=0;i<g.steps;i++){const v=g[key][i];const beat=i%3===0;let st='';if(v===2)st=`background:${acc};border-color:${acc};`;else if(v===1)st=`background:${ghost};border-color:${ghost};`;
+     html+=`<div class="cell${beat&&!v?' beat':''}" data-col="${i}" style="${st}"></div>`;}
+   row.innerHTML=html;grid.appendChild(row);
+ });
+}
+
+/* ---------- audio ---------- */
+let actx;
+function AC(){actx=actx||new (window.AudioContext||window.webkitAudioContext)();return actx;}
+function kick(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.setValueAtTime(120,t);o.frequency.exponentialRampToValueAtTime(48,t+0.1);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.16);o.start(t);o.stop(t+0.17);}
+function noise(t,v,freq,dur){const c=AC(),b=c.createBuffer(1,Math.floor(c.sampleRate*dur),c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type='highpass';f.frequency.value=freq;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);s.start(t);s.stop(t+dur+0.02);}
+function ride(t,v){noise(t,v,5200,0.28);const c=AC(),o=c.createOscillator(),g=c.createGain();o.type='triangle';o.frequency.value=940;o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v*0.25,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.12);o.start(t);o.stop(t+0.13);}
+function step(){const g=G[cur],c=AC(),t=c.currentTime+0.02;
+ if(g.R[col]) ride(t,g.R[col]===2?0.5:0.32);
+ if(g.H[col]) noise(t,0.3,7500,0.05);
+ if(g.S[col]) noise(t,g.S[col]===2?0.7:0.25,1600,0.15);
+ if(g.K[col]) kick(t,g.K[col]===2?0.85:0.28);
+ document.querySelectorAll('.cell').forEach(e=>{e.classList.toggle('play',+e.dataset.col===col);});
+ col=(col+1)%g.steps;}
+function loop(){const bpm=+document.getElementById('bpm').value;const ms=60000/bpm/3;clearInterval(timer);step();timer=setInterval(step,ms);}
+function toggle(){playing=!playing;const lbl=document.getElementById('plbl'),ic=document.getElementById('pic');if(playing){col=0;const c=AC();c.resume&&c.resume();loop();lbl.textContent='停止';ic.textContent='■';}else{clearInterval(timer);lbl.textContent='播放';ic.textContent='▶';document.querySelectorAll('.cell').forEach(e=>e.classList.remove('play'));}}
+document.getElementById('play').onclick=toggle;
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmval').textContent=this.value;if(playing)loop();};
+
+/* ---------- recommendations ---------- */
+const HIST=[
+ {yr:"1941",t:"Take the A Train",a:"Duke Ellington Orchestra",d:"作曲其实是 Billy Strayhorn——Ellington 一生的写作搭档。Ellington 乐团是大乐队 swing 的宫殿，这首团歌是 AABA 曲式和大乐队分句的教科书（也在你的标准曲百首名单里）。"},
+ {yr:"1937",t:"One O'Clock Jump",a:"Count Basie Orchestra",d:"Basie 的哲学是极简：钢琴只点几个音，把空间全让给节奏组。吉他手 Freddie Green 一拍一刷四十年，被称为大乐队时间的胶水——听 swing 的'地板'就听这支乐队。"},
+ {yr:"1937",t:"Sing, Sing, Sing",a:"Benny Goodman / Gene Krupa",d:"'摇摆之王'Goodman 的招牌曲。鼓手 Gene Krupa 用 tom-tom 长段独奏把鼓手第一次推到舞台正中央——鼓从伴奏变成主角，就是从这首开始的。"},
+ {yr:"1958",t:"Moanin'",a:"Art Blakey & The Jazz Messengers",d:"Blakey 是 hard bop 的火炉，也是史上最著名的'乐手学校'——从他乐队走出的名字能列一页纸。听他怎么往独奏者脚下'扔炸弹'，comping 的能量感无人能及。"},
+ {yr:"1959",t:"So What",a:"Miles Davis (Kind of Blue)",d:"史上最畅销的爵士专辑开场曲。鼓手 Jimmy Cobb 那片 ride 的音色与摆度被无数人模仿——想听'ride 管时间'最纯的样子，就是它（也在你的百首名单里，调式爵士入门）。"},
+ {yr:"1962",t:"C Jam Blues",a:"Oscar Peterson Trio (Night Train)",d:"Peterson 技术华丽，但这首听点在贝斯 Ray Brown——walking bass 四分音符怎么和鼓咬死、推着全曲走。最简单的两音旋律 + 12 小节 blues，正适合跟着数曲式。"},
+];
+const MODERN=[
+ {yr:"2022",t:"Guess Who I Saw Today",a:"Samara Joy",d:"新生代里最正统的人声爵士，直接唱标准曲，2023 年格莱美最佳新人。真 swing、即兴 scat——对照 Laufey 那种'作品型'唱法，能听出'即兴型'爵士的差别（你听歌清单里的先听位）。"},
+ {yr:"2020–",t:"Live from Emmet's Place",a:"Emmet Cohen Trio",yt:true,d:"钢琴家 Emmet Cohen 2020 年 3 月疫情停摆时在哈莱姆公寓开的每周直播，后来成为同类中观看量最大的爵士直播系列（137 期）；2025 年 10 月告别公寓、移师 Power Station 录音棚继续。从 stride 到 bebop 信手拈来，是'看见 swing 怎么运转'最好的窗口。注意：这是 YouTube 系列，流媒体上搜不到。"},
+ {yr:"2015",t:"My Favorite Things",a:"Joey Alexander",d:"印尼出身的钢琴神童，12 岁便以这首入围格莱美。曲子本身是 jazz waltz(3/4 摇摆)的名教材——正好对应演示区第 4 种律动。"},
+ {yr:"2013",t:"What a Little Moonlight Can Do",a:"Cécile McLorin Salvant",d:"当代最受乐评推崇的爵士唱将之一，多座格莱美。她的本事是叙事——一首老歌被她唱成一出戏。听她和钢琴三重奏之间的问答，就是'对话模型'的人声版。"},
+ {yr:"2013",t:"Cherokee",a:"Christian McBride Trio",d:"当今头号爵士贝斯手之一。超快速 swing 里 walking bass 和 ride 咬合的极限演示——听完这首再回去看'贝斯是地板'那句话，会更有体感。"},
+];
+function card(list,el){
+ const sc=document.getElementById(el);
+ list.forEach(s=>{
+  const q=encodeURIComponent(s.t+' '+s.a);
+  const links=s.yt
+    ?`<a class="listen" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">▶ YouTube（系列主场）</a>`
+    :`<a class="listen" href="https://music.163.com/#/search/m/?s=${q}" target="_blank" rel="noopener">☁ 网易云</a><a class="listen" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">● Spotify</a>`;
+  const d=document.createElement('div');d.className='song';
+  d.innerHTML=`<span class="yr">${s.yr}</span><h4>${s.t}</h4><p class="artist">${s.a}</p><p>${s.d}</p>
+    <span style="display:flex;gap:16px;flex-wrap:wrap;">${links}</span>`;
+  sc.appendChild(d);
+ });
+}
+card(HIST,'hist');card(MODERN,'modernlist');
+
+chips();render();
+</script>
+</body>
+</html>

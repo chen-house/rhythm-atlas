@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funk · 节奏图鉴</title>
+<meta name="description" content="Funk 节奏：可播放鼓点演示、内容讲解，以及现代典型代表作推荐。">
+<style>
+/* ===========================================================
+   节奏图鉴 · 全站样式
+   字阶与间距刻度照抄 IBM Carbon，不自创
+   字阶  12 14 16 18 20 24 28 32 36 42 48 54
+   间距  2 4 8 12 16 24 32 40 48 64 80 96 160
+   骨架  C 单栏（流派页 / 方法页）
+   =========================================================== */
+
+:root{
+  /* 中性色：全站一致，任何页面不得覆盖 */
+  --paper:#FAF7F0;
+  --surface:#FFFFFF;
+  --ink:#221E1A;
+  --ink2:#5E564B;
+  --ink3:#9A8F7E;
+  --line:#E4DCCB;
+  --line2:#D3C6AF;
+
+  /* 强调色：全站一个。每页可在 <body style="--accent:…"> 覆盖为该流派色 */
+  --accent:#8A4A22;
+  --accent-soft:#F4EAE1;
+  --marker:#CFC3AE;
+
+  /* 版心 */
+  --maxw:1040px;
+  --pad:40px;
+  --measure:38em;
+
+  --f:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --m:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;text-underline-offset:3px;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);}
+
+/* ── 全局条 ───────────────────────────── */
+.topbar{border-bottom:1px solid var(--line);background:var(--paper);}
+.topbar .wrap{height:56px;display:flex;align-items:center;}
+.brand{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.1px;}
+.brand:hover{text-decoration:none;}
+.brand .dot{display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:var(--accent);margin-right:10px;vertical-align:2px;}
+.tnav{margin-left:auto;display:flex;gap:32px;}
+.tnav a{font-size:14px;color:var(--ink3);}
+.tnav a:hover{color:var(--accent);text-decoration:none;}
+
+/* ── 通栏图 ───────────────────────────── */
+.hero{border-bottom:1px solid var(--line);}
+.hero .wrap{padding-top:40px;padding-bottom:40px;}
+.hero .frame{height:280px;background:var(--surface);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:14px;}
+
+/* ── 页头 ─────────────────────────────── */
+.pagehead{padding:64px 0;}
+.attr{font-family:var(--m);font-size:12px;line-height:1.33;letter-spacing:.16em;
+  color:var(--ink3);text-transform:uppercase;}
+h1{font-size:42px;line-height:1.19;font-weight:700;letter-spacing:-.8px;margin:8px 0 0;}
+
+/* ── 章节 ─────────────────────────────── */
+.section{padding-bottom:96px;}
+.sechead{display:flex;align-items:baseline;flex-wrap:wrap;}
+.sechead .no{font-family:var(--m);font-size:36px;line-height:1;font-weight:400;color:var(--marker);}
+.sechead .kind{font-size:36px;font-weight:400;color:var(--marker);margin-left:16px;}
+.sechead h2{margin-left:32px;}
+h2{font-size:28px;line-height:1.29;font-weight:700;letter-spacing:-.3px;margin:0;}
+h3{font-size:20px;line-height:1.4;font-weight:600;margin:32px 0 0;}
+.lead{font-size:16px;line-height:1.5;color:var(--ink2);margin:24px 0 0;max-width:var(--measure);}
+p{font-size:16px;line-height:1.5;color:var(--ink2);margin:8px 0 0;max-width:var(--measure);}
+strong{font-weight:600;color:var(--ink);}
+.hl{background:linear-gradient(transparent 62%,var(--accent-soft) 62%);}
+.callout{margin:24px 0 0;padding:16px 20px;background:var(--surface);
+  border-left:2px solid var(--accent);font-size:16px;line-height:1.5;
+  color:var(--ink2);max-width:var(--measure);}
+.callout strong{color:var(--ink);}
+.grouptitle{font-family:var(--m);font-size:12px;line-height:1.33;letter-spacing:.24em;
+  color:var(--ink3);margin:48px 0 0;}
+
+/* ── 互动块：分层鼓点 ─────────────────── */
+.player{margin-top:32px;background:var(--surface);border:1px solid var(--line);}
+.chips{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--line);}
+.chip{flex:1 1 0;min-width:120px;padding:14px 12px;font-family:inherit;font-size:14px;
+  color:var(--ink2);background:none;border:0;border-right:1px solid var(--line);
+  cursor:pointer;line-height:1.33;}
+.chip:last-child{border-right:0;}
+.chip:hover{color:var(--accent);}
+.chip.on{color:var(--accent);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent);}
+.gdesc{padding:16px 24px 0;font-size:14px;line-height:1.5;color:var(--ink3);}
+.gridrows{padding:16px 24px 24px;}
+.grow{display:grid;grid-template-columns:72px repeat(16,1fr);gap:4px;align-items:center;
+  margin-bottom:4px;}
+.glabel{font-size:12px;color:var(--ink3);letter-spacing:.04em;}
+.beatnum{font-family:var(--m);font-size:12px;color:var(--ink3);text-align:center;}
+.beatnum.strong{color:var(--ink2);}
+.cell{height:24px;background:#F2EDE3;border:1px solid transparent;}
+.cell.beat{background:#E9E1D2;}
+.cell.play{outline:2px solid var(--accent);outline-offset:-2px;}
+.controls{display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  padding:16px 24px;border-top:1px solid var(--line);}
+.play-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);
+  color:#fff;border:0;padding:12px 24px;font-family:inherit;font-size:14px;
+  font-weight:600;cursor:pointer;line-height:1;}
+.play-btn:hover{filter:brightness(1.08);}
+.tempo{display:flex;align-items:center;gap:8px;margin-left:auto;
+  font-family:var(--m);font-size:12px;color:var(--ink3);}
+.tempo input{width:120px;accent-color:var(--accent);}
+.legend{display:flex;flex-wrap:wrap;gap:24px;padding:0 24px 24px;
+  font-size:12px;color:var(--ink3);}
+.legend span{display:inline-flex;align-items:center;gap:8px;}
+.legend i{width:10px;height:10px;display:inline-block;}
+
+/* ── 卡片网格 ─────────────────────────── */
+.songs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
+.song{background:var(--surface);border:1px solid var(--line);padding:20px;}
+.song .yr{font-family:var(--m);font-size:12px;letter-spacing:.06em;color:var(--accent);}
+.song h4{font-size:18px;line-height:1.4;font-weight:600;margin:8px 0 0;color:var(--ink);}
+.song .artist{font-size:14px;color:var(--ink3);margin:4px 0 0;}
+.song p{font-size:14px;line-height:1.5;color:var(--ink2);margin:12px 0 0;}
+.song .listen{font-size:12px;color:var(--accent);border:1px solid var(--line2);
+  padding:6px 12px;display:inline-block;margin-top:16px;}
+.song .listen:hover{text-decoration:none;border-color:var(--accent);}
+
+/* ── 表格 ─────────────────────────────── */
+table{border-collapse:collapse;margin-top:24px;font-size:14px;width:100%;
+  max-width:var(--measure);}
+th,td{border-bottom:1px solid var(--line);padding:12px 16px 12px 0;text-align:left;
+  vertical-align:top;line-height:1.5;}
+th{font-size:12px;letter-spacing:.16em;color:var(--ink3);font-weight:400;
+  text-transform:uppercase;}
+
+/* ── 页脚 ─────────────────────────────── */
+.foot{border-top:1px solid var(--line);}
+.foot .wrap{padding:32px 0 96px;font-size:14px;line-height:1.5;color:var(--ink3);}
+
+/* ── 窄屏 ─────────────────────────────── */
+@media(max-width:900px){
+  .songs{grid-template-columns:1fr 1fr;}
+  .grow{grid-template-columns:56px repeat(16,1fr);gap:2px;}
+}
+@media(max-width:700px){
+  :root{--pad:20px;}
+  .topbar .wrap{height:auto;padding-top:12px;padding-bottom:12px;flex-wrap:wrap;gap:8px;}
+  .tnav{margin-left:0;width:100%;gap:20px;}
+  h1{font-size:32px;}
+  h2{font-size:24px;}
+  .sechead .no,.sechead .kind{font-size:28px;}
+  .sechead h2{margin-left:0;flex-basis:100%;margin-top:8px;}
+  .songs{grid-template-columns:1fr;}
+  .hero .frame{height:180px;}
+  .gridrows{padding:16px 16px 24px;}
+  .cell{height:18px;}
+  .section{padding-bottom:64px;}
+  .pagehead{padding:48px 0;}
+}
+
+/* ── 唱片卡（soul / hiphop / bossa / cumbia 共用，与曲目卡同规格） ── */
+.rec{background:var(--surface);border:1px solid var(--line);padding:20px;}
+.rec-head{display:flex;align-items:center;gap:12px;}
+.rec .disc{flex:0 0 auto;}
+.rec-meta{display:flex;flex-direction:column;gap:2px;}
+.rec .city,.rec .yr{font-family:var(--m);font-size:12px;letter-spacing:.06em;color:var(--ink3);}
+.rec .yr{color:var(--accent);}
+.rec h4{font-size:18px;line-height:1.4;font-weight:600;margin:16px 0 0;color:var(--ink);}
+.rec .artist{font-size:14px;color:var(--ink3);margin:4px 0 0;}
+.rec .desc{font-size:14px;line-height:1.5;color:var(--ink2);margin:12px 0 0;}
+.rec .links{display:flex;gap:12px;margin-top:16px;}
+.rec .listen{font-size:12px;color:var(--accent);border:1px solid var(--line2);padding:6px 12px;}
+.rec .listen:hover{text-decoration:none;border-color:var(--accent);}
+
+/* ── 信息卡三栏（soul 三城） ── */
+.citygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
+.citycard{background:var(--surface);border:1px solid var(--line);padding:20px;}
+.citycard .ct-h{display:flex;align-items:baseline;gap:8px;}
+.citycard .ct-name{font-size:18px;font-weight:600;color:var(--ink);}
+.citycard .ct-en{font-family:var(--m);font-size:12px;color:var(--ink3);}
+.citycard .ct-band{height:2px;background:var(--accent);margin:12px 0 0;}
+.citycard p{font-size:14px;line-height:1.5;margin:12px 0 0;}
+.citycard .move{font-size:14px;line-height:1.5;color:var(--ink2);margin:12px 0 0;}
+.citycard .move b{color:var(--ink);font-weight:600;}
+@media(max-width:900px){.citygrid{grid-template-columns:1fr;}}
+
+/* ── 边注栏：正文列右侧，放小图 / 名词 / 谱例 ── */
+@media(max-width:1100px){
+}
+
+</style>
+</head>
+<body>
+
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Rhythm · 节奏图鉴</a>
+  <nav class="tnav">
+    <a href="map.html">节奏地图</a>
+    <a href="method.html">怎么学</a>
+    <a href="directory.html">← 返回目录</a>
+  </nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="frame"></div>
+</div></section>
+
+<main class="wrap">
+
+  <div class="pagehead">
+    <div class="attr">1967 · United States</div>
+    <h1>Funk</h1>
+  </div>
+
+  <section class="section poster" id="demo">
+    <div class="rail"><div class="tab"><span class="no">01</span><span class="kind">听</span></div></div>
+    <div class="main">
+    <h2>四种律动，点开就能听</h2>
+    
+
+    <div class="player">
+      <div class="chips" id="chips"></div>
+      <div class="gdesc" id="gdesc"></div>
+      <div class="gridrows" id="grid"></div>
+      <div class="legend">
+        <span><i style="background:#1D9E75;"></i>hi-hat 镲</span>
+        <span><i style="background:#D85A30;"></i>军鼓 重拍</span>
+        <span><i style="background:#F0997B;"></i>军鼓 鬼音</span>
+        <span><i style="background:#6B5BD6;"></i>底鼓 kick</span>
+      </div>
+      <div class="controls">
+        <button class="play-btn" id="play"><span id="pic">▶</span><span id="plbl">播放</span></button>
+        <div class="tempo">
+          <span>速度</span>
+          <input id="bpm" type="range" min="70" max="118" value="96">
+          <span id="bpmval">96</span> BPM
+        </div>
+      </div>
+    </div>
+
+    <h3>四种变体的来路</h3>
+    <p><strong>On the one</strong>：最干净的母版，James Brown 范式。<strong>Funky drummer</strong>：来自 Clyde Stubblefield 在《Funky Drummer》(1970) 里那段鬼音密集的 break——后来成了嘻哈史上被采样最多的鼓点。<strong>New Orleans second line</strong>：源自新奥尔良街头游行鼓，切分更松、带摇摆，The Meters《Cissy Strut》是代表。<strong>现代放克</strong>：把这套收得更紧、更「录音室」，干净利落。</p>
+  
+    </div>
+  </section>
+
+  <section class="section poster" id="learn">
+    <div class="rail"><div class="tab"><span class="no">02</span><span class="kind">读</span></div></div>
+    <div class="main">
+    <h2>放克到底是怎么 funky 的</h2>
+    
+    <p class="lead">放克的 DNA 其实就三条，理解了这三条，上面四种律动的差别就全通了。</p>
+
+    <h3>The One——重拍砸在第 1 拍</h3>
+    <p>摇滚和早期 R&amp;B 把重音平均分给 2、4 拍；放克把整个律动的重量集中砸在每小节的<span class="hl">第 1 拍</span>。这是 James Brown 在 1967 年《Cold Sweat》里立下的规矩，也是 funk 区别于 soul 的分水岭。乐手们常说的「on the One」就是这个意思——所有人对齐那一下，groove 就立住了。</p>
+
+    <h3>16 分音符的切分</h3>
+    <p>摇滚是 8 分音符的世界，放克把格子细分成 <span class="hl">16 分</span>，再把重音故意躲开正拍，落在 e、a 这些反拍上，「勾」出往前拽的颗粒感。底鼓不再老实踩四下，而是和贝斯一起跳切分。</p>
+
+    <h3>Pocket 与留白</h3>
+    <p>乐器之间咬得极紧又互相让位：底鼓和贝斯锁死，吉他只刮 16 分的弱音 chop，军鼓在重拍之间填<span class="hl">鬼音</span>。空出来的拍子和敲出来的拍子一样重要——这就是「pocket」。</p>
+
+    <div class="callout"><strong>给鼓手的一句话：</strong>放克的功夫全在「少敲但敲得准」。鬼音和留白决定 groove，而不是填得多满。先把第 1 拍踩稳，再练 16 分鬼音的力度层次。</div>
+  
+    </div>
+  </section>
+
+  <section class="section poster" id="modern">
+    <div class="rail"><div class="tab"><span class="no">03</span><span class="kind">再听</span></div></div>
+    <div class="main">
+    <h2>放克没死，它换了壳活到今天</h2>
+    
+    <p class="lead">两条主线：一是被嘻哈整段<strong>采样</strong>，借壳延续；二是 2010 年代的<strong>复兴潮</strong>把 funk 重新推回主流。</p>
+
+    <div class="grouptitle">经典奠基曲</div>
+    <p>James Brown《Papa's Got a Brand New Bag》(1965)、《Cold Sweat》(1967) 确立范式；Sly &amp; The Family Stone《Thank You》(1969) 里 Larry Graham 发明了 slap 拍弦贝斯；70 年代进入黄金期与分支——Stevie Wonder《Superstition》、Parliament-Funkadelic 的 P-Funk、Herbie Hancock《Chameleon》、Tower of Power《What Is Hip?》。</p>
+
+    <div class="grouptitle">现代典型</div>
+    <div class="songs" id="songs"></div>
+  
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot"><div class="wrap">
+  本页鼓点为抓特征的简化范式，非逐音符扒带——实际录音里的鬼音与 swing 会更细。
+</div></footer>
+
+<script>
+/* ---------- grooves ---------- */
+const STEPS=16;
+const G={
+ one:{name:"On the one",bpm:96,desc:"James Brown 范式 · 重音砸在第 1 拍，军鼓守 2/4 反拍",
+   H:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+   S:[0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0],
+   K:[2,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0]},
+ funky:{name:"Funky drummer (鬼音)",bpm:100,desc:"Clyde Stubblefield 风格 · 16 分鬼音填满缝隙，史上最常被采样的律动",
+   H:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+   S:[0,0,1,0,2,0,1,1,0,1,0,0,2,0,1,0],
+   K:[2,0,0,1,0,0,1,0,1,0,0,0,1,0,1,0]},
+ nola:{name:"New Orleans second line",bpm:92,desc:"The Meters 风格 · 切分更松、带摇摆，源自街头游行鼓",
+   H:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],
+   S:[0,0,1,0,2,0,0,0,0,1,0,0,2,0,0,1],
+   K:[2,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0]},
+ modern:{name:"现代放克 (Uptown 风)",bpm:108,desc:"Bruno Mars / Vulfpeck 风格 · 干净紧凑，切分收得很准",
+   H:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+   S:[0,0,0,0,2,0,0,0,0,0,0,1,2,0,0,0],
+   K:[2,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0]}
+};
+const ROWS=[["H","hi-hat","#1D9E75","#1D9E75"],["S","军鼓","#D85A30","#F0997B"],["K","底鼓","#6B5BD6","#AFA9EC"]];
+const NUMS=['1','e','&','a','2','e','&','a','3','e','&','a','4','e','&','a'];
+let cur="one", playing=false, timer=null, col=0;
+
+function chips(){const c=document.getElementById('chips');c.innerHTML='';Object.keys(G).forEach(k=>{const b=document.createElement('button');b.className='chip'+(k===cur?' on':'');b.textContent=G[k].name;b.onclick=()=>{cur=k;document.getElementById('bpm').value=G[k].bpm;document.getElementById('bpmval').textContent=G[k].bpm;col=0;chips();render();if(playing)loop();};c.appendChild(b);});}
+
+function render(){
+ const g=G[cur];document.getElementById('gdesc').textContent=g.desc;
+ const grid=document.getElementById('grid');grid.innerHTML='';
+ const head=document.createElement('div');head.className='grow';
+ head.innerHTML='<div></div>'+NUMS.map((n,i)=>`<div class="beatnum${i%4===0?' strong':''}">${n}</div>`).join('');
+ grid.appendChild(head);
+ ROWS.forEach(([key,label,acc,ghost])=>{
+   const row=document.createElement('div');row.className='grow';
+   let html=`<div class="glabel">${label}</div>`;
+   for(let i=0;i<16;i++){const v=g[key][i];const beat=i%4===0;let st='';if(v===2)st=`background:${acc};border-color:${acc};`;else if(v===1)st=`background:${ghost};border-color:${ghost};`;
+     html+=`<div class="cell${beat&&!v?' beat':''}" data-col="${i}" style="${st}"></div>`;}
+   row.innerHTML=html;grid.appendChild(row);
+ });
+}
+
+/* ---------- audio ---------- */
+let actx;
+function AC(){actx=actx||new (window.AudioContext||window.webkitAudioContext)();return actx;}
+function kick(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(50,t+0.11);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.17);o.start(t);o.stop(t+0.18);}
+function noise(t,v,freq,dur){const c=AC(),b=c.createBuffer(1,Math.floor(c.sampleRate*dur),c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type='highpass';f.frequency.value=freq;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);s.start(t);s.stop(t+dur+0.02);}
+function step(){const g=G[cur],c=AC(),t=c.currentTime+0.02;
+ if(g.K[col]) kick(t,g.K[col]===2?0.95:0.5);
+ if(g.S[col]) noise(t,g.S[col]===2?0.8:0.28,1600,0.16);
+ if(g.H[col]) noise(t,col%4===0?0.32:0.2,7000,0.04);
+ document.querySelectorAll('.cell').forEach(e=>{e.classList.toggle('play',+e.dataset.col===col);});
+ col=(col+1)%STEPS;}
+function loop(){const bpm=+document.getElementById('bpm').value;const ms=60000/bpm/4;clearInterval(timer);step();timer=setInterval(step,ms);}
+function toggle(){playing=!playing;const lbl=document.getElementById('plbl'),ic=document.getElementById('pic');if(playing){col=0;const c=AC();c.resume&&c.resume();loop();lbl.textContent='停止';ic.textContent='■';}else{clearInterval(timer);lbl.textContent='播放';ic.textContent='▶';document.querySelectorAll('.cell').forEach(e=>e.classList.remove('play'));}}
+document.getElementById('play').onclick=toggle;
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmval').textContent=this.value;if(playing)loop();};
+
+/* ---------- modern songs ---------- */
+const SONGS=[
+ {yr:"2014",t:"Uptown Funk",a:"Mark Ronson ft. Bruno Mars",d:"复兴潮的引爆点。Minneapolis funk 的紧实 backbeat + 铜管 riff + 拍弦贝斯，把 70 年代的 groove 几乎原样搬进流行榜首，也是大多数人重新认识 funk 的入口。"},
+ {yr:"2016",t:"24K Magic",a:"Bruno Mars",d:"整张专辑都在复刻 80 年代 new jack swing / funk。合成器 bass 和切分军鼓做得极干净，是「现代录音室放克」最标准的样本。"},
+ {yr:"2013",t:"Get Lucky",a:"Daft Punk ft. Pharrell & Nile Rodgers",d:"disco-funk 元老 Nile Rodgers 亲自弹那条标志性的切分吉他 chop。电子与放克的嫁接，证明 funk 的 groove 放进任何时代都成立。"},
+ {yr:"2016",t:"Dean Town",a:"Vulfpeck",d:"现代放克乐队的代表。Joe Dart 的拍弦贝斯近乎教科书，留白和 pocket 玩到极致——想听「少敲但敲得准」是什么样，听这首。"},
+ {yr:"2017",t:"Them Changes",a:"Thundercat",d:"贝斯手主导的 neo-funk。复杂和声 + 慵懒 pocket，把 funk 往 jazz/灵魂乐方向拉，现代 bedroom funk 的标杆。"},
+ {yr:"2021",t:"Leave the Door Open",a:"Silk Sonic (Bruno Mars & Anderson .Paak)",d:"复古灵魂放克的回潮。Anderson .Paak 本身是鼓手出身，这个组合把 70 年代 soul-funk 的 pocket 还原得几乎乱真。"},
+ {yr:"2019",t:"Juice",a:"Lizzo",d:"funk-pop 的流行化样本。明亮的 backbeat、合唱 hook 和 disco-funk 吉他，说明 funk 元素仍是当代流行的常用调味。"},
+ {yr:"1996",t:"Virtual Insanity",a:"Jamiroquai",d:"acid jazz / funk 的桥梁人物。把放克的 groove 和电子、灵魂乐融合，影响了后来一整代复兴乐队，至今仍是 groove 教材。"},
+];
+const sc=document.getElementById('songs');
+SONGS.forEach(s=>{
+ const q=encodeURIComponent(s.t+' '+s.a);
+ const el=document.createElement('div');el.className='song';
+ el.innerHTML=`<span class="yr">${s.yr}</span><h4>${s.t}</h4><p class="artist">${s.a}</p><p>${s.d}</p>
+   <span style="display:flex;gap:16px;flex-wrap:wrap;"><a class="listen" href="https://music.163.com/#/search/m/?s=${q}" target="_blank" rel="noopener">☁ 网易云</a><a class="listen" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">● Spotify</a></span>`;
+ sc.appendChild(el);
+});
+
+chips();render();
+</script>
+</body>
+</html>

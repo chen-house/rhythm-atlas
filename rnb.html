@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R&B · 节奏图鉴</title>
+<meta name="description" content="R&B 节奏：从 Motown 到 neo-soul 的可播放演示、军鼓 2、4 拍核心与年代骨架变迁，以及历史与现代代表作。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="--accent:#993556;--accent-soft:#FBEAF0">
+
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Rhythm · 节奏图鉴</a>
+  <nav class="tnav">
+    <a href="map.html">节奏地图</a>
+    <a href="method.html">怎么学</a>
+    <a href="directory.html">← 返回目录</a>
+  </nav>
+</div></header>
+
+<section class="hero"><div class="wrap"><div class="frame"></div></div></section>
+
+<main class="wrap">
+
+  <div class="pagehead">
+    <div class="attr">1940s · Jump Blues</div>
+    <h1>R&B</h1>
+  </div>
+
+  <section class="section poster" id="demo">
+    <div class="rail"><div class="tab"><span class="no">01</span><span class="kind">听</span></div></div>
+    <div class="main">
+    <h2>四个年代，点开就能听</h2>
+    
+<p class="lead">四种律动 = 四个年代的骨架。军鼓位置不变,变的是细分、音色和 pocket 的深浅。切到 new jack 后拖「摇摆量」滑杆:0% 是直八,30–40% 就听见"直里带跩"的 16 分 swing——这是 swing/shuffle 的"每拍分 3"往下细一层的版本。neo-soul 的醉拍是另一回事(整体拖后,不是规律摇摆),那个仍要去原曲用耳朵找。</p>
+
+    <div class="player">
+      <div class="chips" id="chips"></div>
+      <div class="controls">
+        <button class="play-btn" id="play"><span id="pic">▶</span><span id="plbl">播放</span></button>
+        <div class="tempo">
+          <span>速度</span>
+          <input id="bpm" type="range" min="55" max="140" value="120">
+          <span id="bpmval">120</span> BPM
+        </div>
+        <div class="tempo">
+          <span>摇摆量</span>
+          <input id="sw" type="range" min="0" max="60" value="0">
+          <span id="swval">0</span>%
+        </div>
+      </div>
+      <div class="gdesc" id="gdesc"></div>
+      <div class="gridrows" id="grid"></div>
+      <div class="legend">
+        <span><i style="background:#993556;"></i>镲/铃鼓 重</span>
+        <span><i style="background:#ED93B1;"></i>镲/铃鼓 轻</span>
+        <span><i style="background:#D85A30;"></i>军鼓 重</span>
+        <span><i style="background:#F0997B;"></i>军鼓 鬼音</span>
+        <span><i style="background:#6B5BD6;"></i>底鼓</span>
+      </div>
+      </div>
+  
+    </div>
+  </section>
+  <section class="section poster" id="learn">
+    <div class="rail"><div class="tab"><span class="no">02</span><span class="kind">读</span></div></div>
+    <div class="main">
+    <h2>一部换骨架不换心脏的历史</h2>
+    
+<p>R&B 最好按"不变量 + 变量"来理解。不变量只有三条:军鼓(或拍手、鼓机)钉死在 <span class="hl">2、4 拍</span>;中慢速、<span class="hl">pocket</span> 极深;人声永远是主角,节奏组一切为人声服务。变量是每个年代的骨架:</p>
+
+      <p style="font-size:14px;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:12px 14px;">💡 <b>pocket(口袋)</b>=鼓和贝斯咬合得极稳、极舒服的那个"槽位"。它不是某个音符,而是一种时间上的对齐状态:底鼓和贝斯落在同一个微秒级的位置上,整条 groove 像扣进凹槽,不赶不拖,让人不自觉点头。"深 pocket"就是这种舒服感特别强。R&B/funk 最看重它——技术炫不炫是其次,能不能<b>坐进 pocket</b> 才是分水岭。</p>
+
+      <table class="eras">
+        <tr><th>年代</th><th>骨架</th><th>听什么</th></tr>
+        <tr><td>1950s</td><td>jump blues / shuffle 底盘</td><td>三连音走路感,萨克斯当主角——摇滚从这里分家</td></tr>
+        <tr><td>1960s</td><td>Motown / Stax 的 soul 流水线</td><td>铃鼓叠军鼓、有时四拍全砸,清亮向前;James Jamerson 的贝斯切分在底下暗涌</td></tr>
+        <tr><td>1970s</td><td>funk 化 / Philly soul</td><td>16 分细分进场,鬼音变密;弦乐铺底,groove 变"浸"</td></tr>
+        <tr><td>1980s-90s</td><td>new jack swing / slow jam</td><td>鼓机 + swing 感 16 分;慢歌里 hi-hat 织细网,军鼓一声定音</td></tr>
+        <tr><td>2000s-今</td><td>neo-soul / alternative R&B</td><td>J Dilla 式"醉拍"——音符故意拖后,松而不散;合成器氛围包住人声</td></tr>
+      </table>
+
+      <h3>① 军鼓 2、4 拍：不变的核心</h3>
+      <p>从教堂拍手继承的 2、4 拍,是 R&B 唯一不许动的东西。你可以换音色(军鼓/拍手采样/鼓机 clap)、换力度(Motown 的脆亮 vs slow jam 的一声闷响),但位置一动,歌就不姓 R&B 了。</p>
+
+      <h3>② Pocket 与鬼音:和 funk 的亲缘</h3>
+      <p>R&B 和 funk 共享 16 分鬼音的语汇,差别在气质:funk 把切分<span class="hl">炸开</span>(重音突出、棱角分明),R&B 把切分<span class="hl">浸开</span>(鬼音藏进音色里,只留水面微澜)。同一套词汇,一个说书,一个耳语。给鼓手的实用换算:funk 的鬼音练习直接搬到 R&B,只需整体降两档力度、军鼓换成更闷的音色。</p>
+
+      <h3>③ 醉拍(drunk feel):故意不准的艺术</h3>
+      <p>neo-soul 的招牌。J Dilla 用 MPC 采样器把鼓点<span class="hl">故意错开网格</span>——军鼓微拖、底鼓微抢,松松垮垮却稳得反常。D'Angelo《Voodoo》整张专辑是这套美学的圣经(鼓手 Questlove 形容为"喝醉但走得回家")。<b>注意:这个味道 16 分网格画不出来</b>——演示区的 neo-soul 只能给你骨架,拖拽的感觉必须去原曲里用耳朵找。</p>
+
+      <div class="callout"><strong>给鼓手的一句话:</strong>R&B 是"力度的艺术"甚于"音符的艺术"——同一个谱面,力度层次对了就是 R&B,力度平了就是口水歌。练法:拿你 funk 页的鬼音练习,整体压到极轻,军鼓 backbeat 也只用半力,让人声(哪怕是想象中的)永远浮在最上面。</div>
+  
+    </div>
+  </section>
+  <section class="section poster" id="modern">
+    <div class="rail"><div class="tab"><span class="no">03</span><span class="kind">再听</span></div></div>
+    <div class="main">
+    <h2>从 Ray Charles 到 SZA</h2>
+    
+<p class="lead">历史一列按年代走完五副骨架;现代一列是 neo-soul 之后的 R&B。每张卡先介绍音乐家,再说听点。</p>
+
+    <div class="grouptitle">历史典型</div>
+    <div class="songs" id="hist"></div>
+
+    <div class="grouptitle">现代典型</div>
+    <div class="songs" id="modernlist"></div>
+  
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot"><div class="wrap">本页鼓点为抓特征的简化范式，非逐音符扒带——尤其醉拍的拖拽感网格无法表达。</div></footer>
+
+<script>
+/* ---------- grooves ---------- */
+const G={
+ motown:{name:"Motown（60s soul）",bpm:120,steps:8,div:2,sw:0,
+   desc:"铃鼓摇八分、军鼓四拍全砸的流水线律动 · 清亮向前（示意）",
+   H:[1,1,2,1,1,1,2,1],
+   S:[2,0,2,0,2,0,2,0],
+   K:[2,0,0,0,2,0,0,0]},
+ slowjam:{name:"90s slow jam",bpm:66,steps:16,div:4,sw:0,
+   desc:"hi-hat 织 16 分细网,军鼓一声定音 · R&B 慢歌的默认档",
+   H:[2,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1],
+   S:[0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0],
+   K:[2,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0]},
+ newjack:{name:"New jack swing",bpm:108,steps:16,div:4,sw:35,
+   desc:"鼓机时代的招牌 · 把每组 16 分的第 2、4 个(e、a)往后挪,做出'直里带跩'的长-短。拖「摇摆量」到 0% 是直八,30–40% 就是《My Prerogative》的味道",
+   H:[2,0,1,1,1,0,1,1,2,0,1,1,1,0,1,1],
+   S:[0,0,0,0,2,0,0,1,0,1,0,0,2,0,0,0],
+   K:[2,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0]},
+ neosoul:{name:"Neo-soul（醉拍骨架）",bpm:76,steps:16,div:4,sw:0,
+   desc:"J Dilla 式拖拽的骨架版 · 拖后的感觉网格表达不了,听《Voodoo》用耳朵找",
+   H:[2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1],
+   S:[0,0,0,0,2,0,0,0,0,0,1,0,2,0,0,0],
+   K:[2,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0]}
+};
+const ROWS=[["H","镲/铃鼓","#993556","#ED93B1"],["S","军鼓","#D85A30","#F0997B"],["K","底鼓","#6B5BD6","#AFA9EC"]];
+function labels(steps,div){const beats=steps/div;const out=[];for(let b=1;b<=beats;b++){if(div===3){out.push(String(b),"t","l");}else if(div===4){out.push(String(b),"e","&","a");}else{out.push(String(b),"&");}}return out;}
+let cur="motown", playing=false, timer=null, col=0;
+
+function chips(){const c=document.getElementById('chips');c.innerHTML='';Object.keys(G).forEach(k=>{const b=document.createElement('button');b.className='chip'+(k===cur?' on':'');b.textContent=G[k].name;b.onclick=()=>{cur=k;document.getElementById('bpm').value=G[k].bpm;document.getElementById('bpmval').textContent=G[k].bpm;const sw=G[k].sw||0;document.getElementById('sw').value=sw;document.getElementById('swval').textContent=sw;col=0;chips();render();if(playing)loop();};c.appendChild(b);});}
+
+function render(){
+ const g=G[cur];document.getElementById('gdesc').textContent=g.desc;
+ const grid=document.getElementById('grid');grid.innerHTML='';
+ const cols=`54px repeat(${g.steps},minmax(16px,1fr))`;
+ const head=document.createElement('div');head.className='grow';head.style.gridTemplateColumns=cols;
+ head.innerHTML='<div></div>'+labels(g.steps,g.div).map((n,i)=>`<div class="beatnum${i%g.div===0?' strong':''}">${n}</div>`).join('');
+ grid.appendChild(head);
+ ROWS.forEach(([key,label,acc,ghost])=>{
+   const row=document.createElement('div');row.className='grow';row.style.gridTemplateColumns=cols;
+   let html=`<div class="glabel">${label}</div>`;
+   for(let i=0;i<g.steps;i++){const v=g[key][i];const beat=i%g.div===0;let st='';if(v===2)st=`background:${acc};border-color:${acc};`;else if(v===1)st=`background:${ghost};border-color:${ghost};`;
+     html+=`<div class="cell${beat&&!v?' beat':''}" data-col="${i}" style="${st}"></div>`;}
+   row.innerHTML=html;grid.appendChild(row);
+ });
+}
+
+/* ---------- audio ---------- */
+let actx;
+function AC(){actx=actx||new (window.AudioContext||window.webkitAudioContext)();return actx;}
+function kick(t,v){const c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.setValueAtTime(120,t);o.frequency.exponentialRampToValueAtTime(45,t+0.12);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.2);o.start(t);o.stop(t+0.21);}
+function noise(t,v,freq,dur){const c=AC(),b=c.createBuffer(1,Math.floor(c.sampleRate*dur),c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type='highpass';f.frequency.value=freq;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);s.start(t);s.stop(t+dur+0.02);}
+function step(){const g=G[cur],c=AC();
+ const bpm=+document.getElementById('bpm').value;const stepSec=60/bpm/g.div;
+ const sw=(+document.getElementById('sw').value)/100;
+ const off=(col%2===1)?sw*stepSec:0;   /* 摇摆：每对 16 分里第 2、4 个往后挪 */
+ const t=c.currentTime+0.02+off;
+ if(g.H[col]) noise(t,g.H[col]===2?0.32:0.18,7200,0.05);
+ if(g.S[col]) noise(t,g.S[col]===2?0.65:0.22,1400,0.16);
+ if(g.K[col]) kick(t,g.K[col]===2?0.9:0.45);
+ document.querySelectorAll('.cell').forEach(e=>{e.classList.toggle('play',+e.dataset.col===col);});
+ col=(col+1)%g.steps;}
+function loop(){const g=G[cur];const bpm=+document.getElementById('bpm').value;const ms=60000/bpm/g.div;clearInterval(timer);step();timer=setInterval(step,ms);}
+function toggle(){playing=!playing;const lbl=document.getElementById('plbl'),ic=document.getElementById('pic');if(playing){col=0;const c=AC();c.resume&&c.resume();loop();lbl.textContent='停止';ic.textContent='■';}else{clearInterval(timer);lbl.textContent='播放';ic.textContent='▶';document.querySelectorAll('.cell').forEach(e=>e.classList.remove('play'));}}
+document.getElementById('play').onclick=toggle;
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmval').textContent=this.value;if(playing)loop();};
+document.getElementById('sw').oninput=function(){document.getElementById('swval').textContent=this.value;};
+
+/* ---------- recommendations ---------- */
+const HIST=[
+ {yr:"1959",t:"What'd I Say",a:"Ray Charles",d:"'天才'Ray Charles 干的事很简单也很革命:把 gospel 的 call-and-response 和钢琴直接搬进通俗音乐。教堂震怒,流行乐狂喜——soul 就此出生。听他和和声之间的一呼一应。"},
+ {yr:"1964",t:"A Change Is Gonna Come",a:"Sam Cooke",d:"从福音团(你 gospel 页那首)走出来的'soul 之父',这首是民权运动的圣歌。听 gospel 唱法在通俗题材上的完全体:每个转音都是教堂练出来的。"},
+ {yr:"1971",t:"What's Going On",a:"Marvin Gaye",d:"Motown 出品但打破 Motown 流水线的艺术宣言。听两样:James Jamerson 传奇的贝斯切分(他躺在地上录的),和整张专辑把 R&B 从单曲机器变成专辑艺术的野心。"},
+ {yr:"1972",t:"Let's Stay Together",a:"Al Green",d:"Memphis 之声。鼓手 Al Jackson Jr. 把军鼓打得又闷又准,整首歌浸在 pocket 里——'浸开'而不是'炸开'的最好示范,R&B 力度美学的教科书。"},
+ {yr:"1988",t:"My Prerogative",a:"Bobby Brown / Teddy Riley 制作",d:"new jack swing 的代表作。制作人 Teddy Riley 把 swing 感的 16 分塞进鼓机,R&B 和 hip-hop 从此合流——把演示区 new jack 的「摇摆量」拖到 35% 就是这首的味道,这里是原版对照。"},
+];
+const MODERN=[
+ {yr:"1997",t:"On & On",a:"Erykah Badu",d:"neo-soul 的开门人之一。松弛的律动、爵士和声、慵懒到骨子里的唱腔——'新灵魂乐'从她和 D'Angelo 这批人开始,把 R&B 从鼓机时代拉回人的体温。"},
+ {yr:"2000",t:"Untitled (How Does It Feel)",a:"D'Angelo",d:"《Voodoo》——醉拍美学的圣经。鼓手 Questlove 把每件乐器错开网格微妙的距离,'喝醉但走得回家'。这张专辑值得反复听:它是网格教学的反面教材,也是 pocket 的最高级形态。"},
+ {yr:"2012",t:"Thinkin Bout You",a:"Frank Ocean",d:"alternative R&B 的定义之作。传统 backbeat 还在,但被氛围合成器和碎拍包裹,人声假声飘在最上层——R&B 进入'卧室制作'时代的标志。"},
+ {yr:"2017",t:"Best Part",a:"Daniel Caesar feat. H.E.R.",d:"新生代的复古路线:吉他 + 极简鼓组 + 二重唱,回到 soul 的教堂根源却用着当代的录音美学。听军鼓多轻——2、4 拍还在,只是声音小了。"},
+ {yr:"2022",t:"Snooze",a:"SZA",d:"当下 R&B 的顶流。碎拍、氛围、旋律说唱化,但骨子里仍是 2、4 拍的深 pocket——听完五十年代到今天,你会发现心脏从来没换过。"},
+];
+function card(list,el){
+ const sc=document.getElementById(el);
+ list.forEach(s=>{
+  const q=encodeURIComponent(s.t+' '+s.a.split('/')[0].split('feat.')[0].trim());
+  const d=document.createElement('div');d.className='song';
+  d.innerHTML=`<span class="yr">${s.yr}</span><h4>${s.t}</h4><p class="artist">${s.a}</p><p>${s.d}</p>
+    <span style="display:flex;gap:16px;flex-wrap:wrap;"><a class="listen" href="https://music.163.com/#/search/m/?s=${q}" target="_blank" rel="noopener">☁ 网易云</a><a class="listen" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">● Spotify</a></span>`;
+  sc.appendChild(d);
+ });
+}
+card(HIST,'hist');card(MODERN,'modernlist');
+
+chips();render();
+</script>
+</body>
+</html>
