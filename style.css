@@ -261,7 +261,11 @@ th{font-size:12px;letter-spacing:.16em;color:var(--ink3);font-weight:400;
 .tuned .panel .lede{font-size:16px;line-height:1.8;}
 .tuned .panel .sig{font-size:15px;line-height:1.7;}
 .tuned .src{font-size:12.5px;}
-.tuned .grouptitle{font-size:13px;}
+.tuned .grouptitle{font-family:var(--f);font-size:19px;font-weight:700;letter-spacing:.02em;
+  color:var(--ink);margin:48px 0 8px;display:flex;align-items:center;gap:10px;text-transform:none;}
+.tuned .grouptitle::before{content:"";flex:0 0 auto;width:17px;height:17px;background:var(--accent);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='6' fill='none' stroke='black' stroke-width='1.6'/><circle cx='8' cy='8' r='2.2' fill='black'/></svg>") center/contain no-repeat;
+  mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='6' fill='none' stroke='black' stroke-width='1.6'/><circle cx='8' cy='8' r='2.2' fill='black'/></svg>") center/contain no-repeat;}
 .tuned .song h4,.tuned .rec h4{font-size:19px;}
 .tuned .song .artist,.tuned .rec .artist{font-size:15px;}
 .tuned .song p,.tuned .rec .desc{font-size:15px;line-height:1.75;}
