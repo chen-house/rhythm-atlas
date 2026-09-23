@@ -247,3 +247,22 @@ th{font-size:12px;letter-spacing:.16em;color:var(--ink3);font-weight:400;
   .panel{min-height:0;}
 }
 @media(max-width:560px){ h1{font-size:44px;letter-spacing:-1px;} .hero .wrap{padding-top:40px;} }
+
+/* ================= 字号加大试验（先只作用于 soul body.tuned；认可后并入全局、去掉 .tuned） ================= */
+.tuned .dek{font-size:19px;}
+.tuned .poster .main>h2{font-size:37px;}
+.tuned .poster .main p,.tuned .poster .main .lead{font-size:17.5px;line-height:1.85;}
+.tuned .intro{font-size:18px;line-height:1.8;}
+.tuned h3{font-size:22px;}
+.tuned .callout{font-size:17px;line-height:1.8;}
+.tuned .panel{min-height:440px;}
+.tuned .panel .city{font-size:35px;}
+.tuned .panel .en{font-size:12.5px;}
+.tuned .panel .lede{font-size:16px;line-height:1.8;}
+.tuned .panel .sig{font-size:15px;line-height:1.7;}
+.tuned .src{font-size:12.5px;}
+.tuned .grouptitle{font-size:13px;}
+.tuned .song h4,.tuned .rec h4{font-size:19px;}
+.tuned .song .artist,.tuned .rec .artist{font-size:15px;}
+.tuned .song p,.tuned .rec .desc{font-size:15px;line-height:1.75;}
+.tuned .song .listen,.tuned .rec .listen{font-size:13px;}
