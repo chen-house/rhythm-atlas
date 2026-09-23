@@ -22,8 +22,8 @@
   --marker:#CFC3AE;
 
   /* 版心 */
-  --maxw:1180px;
-  --pad:48px;
+  --maxw:1440px;
+  --pad:56px;
   --measure:46em;
 
   --f:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
@@ -220,6 +220,12 @@ th{font-size:12px;letter-spacing:.16em;color:var(--ink3);font-weight:400;
 .panel .sig{margin-top:auto;padding-top:16px;border-top:1.5px solid var(--c);
   font-size:14px;line-height:1.6;color:var(--ink);max-width:none;}
 .panel .sig b{color:var(--c);}
+
+/* ── 行内来源标注（贴在内容旁，不列到结尾）── */
+.src{font-size:11.5px;color:var(--ink3);white-space:nowrap;}
+.src a{color:var(--ink3);text-decoration:underline;text-underline-offset:2px;}
+.src a:hover{color:var(--accent);}
+.panel .src{display:inline;}
 
 /* ── 大字收尾（.coda）：引言体，不是段落 ── */
 .coda{margin:52px 0 0;max-width:44em;}

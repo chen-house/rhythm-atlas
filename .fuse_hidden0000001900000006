@@ -45,9 +45,9 @@
   <section class="section poster" id="demo">
     <div class="rail"><div class="tab"><span class="no">01</span><span class="kind">听</span></div></div>
     <div class="main">
-    <h2>四种律动</h2>
+    <h2>四种律动，点开就能听</h2>
     
-<p class="lead">三座城，按登场先后排：<strong>底特律</strong>（Motown，1959）→ <strong>孟菲斯</strong>（Stax，1961）→ <strong>费城</strong>（PIR，1971），各一种打法；再加一首三城共通的 <strong>6/8 慢谣</strong>，和 soul 通往 funk 的那座<strong>桥</strong>。军鼓永远在 2、4——变的是干湿、松紧和细分。<span class="src">（厂牌年份：<a href="https://en.wikipedia.org/wiki/Motown" target="_blank" rel="noopener">Motown</a>／<a href="https://en.wikipedia.org/wiki/Stax_Records" target="_blank" rel="noopener">Stax</a>／<a href="https://en.wikipedia.org/wiki/Philadelphia_International_Records" target="_blank" rel="noopener">PIR</a> Wikipedia）</span></p>
+<p class="lead">三座城市各一种性格，外加 soul 通往 funk 的那座桥。军鼓永远在 2、4——变的是干湿、松紧和细分。</p>
 
     <div class="player">
       <div class="chips" id="chips"></div>
@@ -55,8 +55,8 @@
         <button class="play-btn" id="play"><span id="pic">▶</span><span id="plbl">播放</span></button>
         <div class="tempo">
           <span>速度</span>
-          <input id="bpm" type="range" min="48" max="130" value="120">
-          <span id="bpmval">120</span> BPM
+          <input id="bpm" type="range" min="48" max="130" value="96">
+          <span id="bpmval">96</span> BPM
         </div>
       </div>
       <div class="gdesc" id="gdesc"></div>
@@ -94,7 +94,6 @@
           <div class="city">底特律</div>
           <div class="en">MOTOWN · 摩城之声 · The Funk Brothers</div>
           <p class="lede">流水线的精密：铃鼓叠军鼓、常四拍全砸，清亮向前，为电台和舞池设计。表面欢快好记，底下是 James Jamerson 那条不断切分、暗涌的贝斯在推。</p>
-          <div class="src" style="margin-top:10px;">来源：<a href="https://en.wikipedia.org/wiki/Motown" target="_blank" rel="noopener">Motown · Wikipedia</a></div>
           <div class="sig"><b>招牌</b> · 把 soul 做成人人能跟唱的流行金曲机器。</div>
         </div>
         <!-- 孟菲斯 -->
@@ -112,7 +111,6 @@
           <div class="city">孟菲斯</div>
           <div class="en">STAX · 干拍 DRY BEAT · Booker T. &amp; the M.G.'s</div>
           <p class="lede">干、准、少。Al Jackson Jr. 的军鼓像钉子敲进木头，几乎不加花，靠位置说话。2、4 拍故意「晚到一丝」——《In the Midnight Hour》录音时制作人 Jerry Wexler 现场跳舞示范让全队把重拍延后，这一「懒」成了南方 soul 的签名，也是 neo-soul 醉拍（见 R&amp;B 页）的祖父。</p>
-          <div class="src" style="margin-top:10px;">来源：<a href="https://drummagazine.com/al-jackson-jr-the-sound-of-60s-soul/" target="_blank" rel="noopener">DRUM! · Al Jackson Jr.</a>、<a href="https://en.wikipedia.org/wiki/In_the_Midnight_Hour" target="_blank" rel="noopener">In the Midnight Hour · Wikipedia</a></div>
           <div class="sig"><b>招牌 · 靠后 backbeat</b> · 整首歌往后坐、从容深情。</div>
         </div>
         <!-- 费城 -->
@@ -128,17 +126,16 @@
           </svg></div>
           <div class="city">费城</div>
           <div class="en">PIR · 丝滑之声 SILK · MFSB</div>
-          <p class="lede">丝滑：16 分 hi-hat 织成细网、弦乐铺满整个背景、底鼓一步步走向四整拍。华丽、顺滑、为大编制而生。四踩底鼓正是 disco 的直接前身。</p>
-          <div class="src" style="margin-top:10px;">来源：<a href="https://en.wikipedia.org/wiki/Philadelphia_International_Records" target="_blank" rel="noopener">PIR · Wikipedia</a></div>
+          <p class="lede">丝滑：16 分 hi-hat 织成细网、弦乐铺满整个背景、底鼓一步步走向四整拍。华丽、顺滑、为大编制而生。</p>
           <div class="sig"><b>招牌</b> · 底鼓踩满四拍那刻，soul 滑进 disco。</div>
         </div>
       </div>
 
       <h3>三城共通的慢歌路子：6/8 深情谣</h3>
-      <p>不分城市，soul 的慢歌都爱用 <span class="hl">6/8（12/8）</span>：三连音像摇篮一样晃，《When a Man Loves a Woman》就是典型。它和 gospel 的 12/8 同一个底盘，但用途反过来——教堂用它把众人往上抬，soul 用它替一个人做告白。<span class="src">（《When a Man Loves a Woman》1966，录于阿拉巴马 Muscle Shoals 的 Norala 录音室：<a href="https://en.wikipedia.org/wiki/When_a_Man_Loves_a_Woman_(song)" target="_blank" rel="noopener">Wikipedia</a>）</span></p>
+      <p>不分城市，soul 的慢歌都爱用 <span class="hl">6/8（12/8）</span>：三连音像摇篮一样晃，《When a Man Loves a Woman》就是典型。它和 gospel 的 12/8 同一个底盘，但用途反过来——教堂用它把众人往上抬，soul 用它替一个人做告白。</p>
 
       <h3>两个出口：soul 裂变成 funk 与 disco</h3>
-      <p>soul 没有停在原地，它朝两个方向裂开。往<b>紧</b>走：James Brown 把最重的一下从 2、4 拍搬到第 1 拍、再把 8 分细分挤成 16 分——soul 拧成了 <b>funk</b>（1965 年《Papa's Got a Brand New Bag》名义上还是 soul 冠军，骨子里已是 funk 前夜；演示区最后一种「proto-funk 桥」就站在这扇门口）。往<b>滑</b>走：费城把 hi-hat 织密、底鼓踩满四拍——soul 淌成了 <b>disco</b>。</p>
+      <p>soul 没有停在原地，它朝两个方向裂开。往<b>紧</b>走：James Brown 把最重的一下从 2、4 拍搬到第 1 拍、再把 8 分细分挤成 16 分——soul 拧成了 <b>funk</b>（1965 年《Papa's Got a Brand New Bag》名义上还是 soul 冠军，骨子里已是 funk 前夜；演示区第 4 种「proto-funk 桥」就站在这扇门口）。往<b>滑</b>走：费城把 hi-hat 织密、底鼓踩满四拍——soul 淌成了 <b>disco</b>。你站里的 funk 页，接的就是左边这扇门。</p>
 
       <div class="callout"><strong>给鼓手的一句话:</strong>soul 是"位置的艺术"——同样的 2、4 拍,靠前一丝是流行,居中是摇滚,靠后一丝就是 soul。练法:节拍器开着,故意把军鼓打在"晚到但不迟到"的位置,录下来对比;能自由控制这"一丝"的人,funk 的炸和 R&B 的浸都在你手里了。</div>
   
@@ -167,26 +164,21 @@
 <script>
 /* ---------- grooves ---------- */
 const G={
- motown:{name:"底特律摩城（Motown ·1959）",bpm:120,steps:8,div:2,
-   desc:"铃鼓叠军鼓砸 2、4 拍、清亮向前 · Funk Brothers 范式（简化，非逐音符扒带）",
-   H:[1,1,2,1,1,1,2,1],
-   S:[0,0,2,0,0,0,2,0],
-   K:[2,0,1,0,2,0,0,1]},
- stax:{name:"孟菲斯干拍（Stax ·1961）",bpm:96,steps:8,div:2,
+ stax:{name:"孟菲斯干拍（Stax）",bpm:96,steps:8,div:2,
    desc:"Al Jackson Jr. 式:干、准、少 · 真实演奏 backbeat 微靠后,网格画不出那'一丝'",
    H:[2,1,2,1,2,1,2,1],
    S:[0,0,2,0,0,0,2,0],
    K:[2,0,0,1,2,0,0,0]},
- philly:{name:"费城丝滑之声（PIR ·1971）",bpm:112,steps:16,div:4,
+ ballad:{name:"6/8 深情谣",bpm:54,steps:12,div:3,
+   desc:"三连音摇篮 ·《When a Man Loves a Woman》这一路,一个人的告白",
+   H:[2,1,1,2,1,1,2,1,1,2,1,1],
+   S:[0,0,0,2,0,0,0,0,0,2,0,0],
+   K:[2,0,0,0,0,1,2,0,0,0,0,0]},
+ philly:{name:"费城丝滑之声",bpm:112,steps:16,div:4,
    desc:"16 分 hi-hat 细网 + 底鼓走向四踩 · disco 前夜的滑行感",
    H:[2,1,1,1,2,1,1,1,2,1,1,1,2,1,1,1],
    S:[0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0],
    K:[2,0,0,0,2,0,0,0,2,0,0,0,2,0,0,0]},
- ballad:{name:"6/8 深情谣（三城共通）",bpm:54,steps:12,div:3,
-   desc:"三连音摇篮 ·《When a Man Loves a Woman》这一路,一个人的告白 · 不属某一城",
-   H:[2,1,1,2,1,1,2,1,1,2,1,1],
-   S:[0,0,0,2,0,0,0,0,0,2,0,0],
-   K:[2,0,0,0,0,1,2,0,0,0,0,0]},
  protofunk:{name:"Proto-funk 桥",bpm:104,steps:16,div:4,
    desc:"重心开始滑向第 1 拍、16 分挤进来 · soul 拧紧成 funk 的门口（示意）",
    H:[2,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1],
@@ -195,7 +187,7 @@ const G={
 };
 const ROWS=[["H","镲/铃鼓","#993C1D","#F0997B"],["S","军鼓","#D85A30","#F5C4B3"],["K","底鼓","#6B5BD6","#AFA9EC"]];
 function labels(steps,div){const beats=steps/div;const out=[];for(let b=1;b<=beats;b++){if(div===3){out.push(String(b),"t","l");}else if(div===4){out.push(String(b),"e","&","a");}else{out.push(String(b),"&");}}return out;}
-let cur="motown", playing=false, timer=null, col=0;
+let cur="stax", playing=false, timer=null, col=0;
 
 function chips(){const c=document.getElementById('chips');c.innerHTML='';Object.keys(G).forEach(k=>{const b=document.createElement('button');b.className='chip'+(k===cur?' on':'');b.textContent=G[k].name;b.onclick=()=>{cur=k;document.getElementById('bpm').value=G[k].bpm;document.getElementById('bpmval').textContent=G[k].bpm;col=0;chips();render();if(playing)loop();};c.appendChild(b);});}
 
