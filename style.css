@@ -22,9 +22,9 @@
   --marker:#CFC3AE;
 
   /* 版心 */
-  --maxw:1040px;
-  --pad:40px;
-  --measure:38em;
+  --maxw:1180px;
+  --pad:48px;
+  --measure:46em;
 
   --f:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   --m:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -197,6 +197,15 @@ th{font-size:12px;letter-spacing:.16em;color:var(--ink3);font-weight:400;
 .poster .tab .kind{display:block;font-size:13px;letter-spacing:.22em;margin-top:8px;}
 .poster .main>h2{font-size:34px;line-height:1.2;font-weight:800;letter-spacing:-.8px;color:var(--ink);margin:2px 0 14px;border:0;padding:0;}
 .poster .main .lead,.poster .main .intro{margin-top:0;}
+/* 正文铺满主栏（宽屏不再半空）*/
+.poster .main p,.poster .main .lead,.poster .main .intro,
+.poster .main .callout,.poster .main table{max-width:none;}
+/* 书签：竖脊 + 页签，像贴在内容左缘的书签 */
+.section.poster{position:relative;}
+.poster .rail{align-self:stretch;position:relative;}
+.poster .rail .tab{position:relative;z-index:1;background:var(--paper);}
+.poster .rail::after{content:"";position:absolute;left:34px;top:62px;bottom:8px;width:2px;
+  border-radius:2px;background:var(--accent);opacity:.18;}
 .intro{font-size:16.5px;line-height:1.7;color:var(--ink2);max-width:40em;margin:0 0 32px;}
 
 /* ── 三联画（.tri/.panel）：多分支流派的并排色块 ── */
@@ -224,6 +233,7 @@ th{font-size:12px;letter-spacing:.16em;color:var(--ink3);font-weight:400;
   .section.poster{grid-template-columns:1fr;gap:14px;}
   .poster .tab{display:inline-flex;gap:10px;align-items:baseline;padding:6px 12px;}
   .poster .tab .kind{margin-top:0;}
+  .poster .rail::after{display:none;}
   .hero .row{grid-template-columns:1fr;gap:24px;}
   .hero .art{height:200px;}
   h1{font-size:52px;letter-spacing:-1.5px;}
