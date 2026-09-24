@@ -3,3 +3,12 @@ del/
 node_modules/
 .DS_Store
 *.asd
+# 参考素材与草稿（不发布到公开站）
+demo-*.html
+soul-v2.html
+WePresent*
+daniel_lievano_gifs/
+listening_birds_imgs/
+东北的秋天.jpg
+ref_style.jpg
+*.fuse_hidden*
