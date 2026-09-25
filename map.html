@@ -217,123 +217,166 @@
     <div class="main article"><h2>巴西这支</h2>
 <p>注意：<b>巴西音乐没有古巴那种结构铁律的 clave</b>，所谓"bossa clave"只是参考线 <span class="src">(<a href="https://www.thejazzpianosite.com/jazz-piano-lessons/jazz-genres/how-to-play-bossa-nova/" target="_blank" rel="noopener">The Jazz Piano Site</a>)</span>。巴西这支的核心是"in 2 的呼吸"——感觉落在每小节两个强拍上。</p>
 <div class="variant"><h4>Samba</h4><div class="layer"><span class="lbl base">基础</span><div class="ly"><p>感觉在"2"上，底层 surdo 大鼓锚住拍 2，上面一堆 16 分抢在拍前。桑巴乐队 bateria 是按"频段分工"叠出来的厚墙——底层 surdo 铺低音心跳、中层 caixa 沙沙滚奏 + repinique 指挥、高层一堆金属小鼓织出闪闪的切分。</p></div></div><div class="layer"><span class="lbl hist">历史典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Aquarela%20do%20Brasil%20Jo%C3%A3o%20Gilberto" target="_blank" rel="noopener">Aquarela do Brasil（João Gilberto）</a>——samba 经典里的经典。</p></div></div><div class="layer"><span class="lbl modern">现代典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Burguesinha%20Seu%20Jorge" target="_blank" rel="noopener">Burguesinha（Seu Jorge）</a>、<a href="https://music.163.com/#/search/m/?s=Deixa%20a%20Vida%20Me%20Levar%20Zeca%20Pagodinho" target="_blank" rel="noopener">Deixa a Vida Me Levar（Zeca Pagodinho）</a>(pagode)——samba 在当代街头与流行里的延续。</p></div></div></div>
-<figure>
-<svg viewBox="0 0 960 660" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC','Noto Sans CJK SC',sans-serif" role="img">
-<title>桑巴 bateria 八件打击乐手绘图鉴</title>
+<p>桑巴的厚墙不是一件乐器,是一支<b>乐队(bateria)</b>按频段分工叠出来的。下面这台是<b>可播放的 bateria</b>——点播放听整体,或点某件的"独奏"单独听它在整片声音里的位置:</p>
 <style>
-.b4ink{fill:none;stroke:#2C2C2A;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.b4thin{fill:none;stroke:#444441;stroke-width:1.6;stroke-linecap:round}
-.b4fw{fill:#F1EFE8;stroke:#2C2C2A;stroke-width:2.4;stroke-linejoin:round}
-.b4nm{font-size:13px;font-weight:700;fill:#2C2C2A}
-.b4lb{font-size:10.3px;fill:#5F5E5A}
-.b4chip{font-size:10px;font-weight:700;fill:#fff}
+.bat{--low:#C0562A;--mid:#7A6FE0;--high:#1D9E75;--paper:#FBF3E7;--line:#E4D9C4;--ink:#3A332A;--ink3:#9a8f7e;--f:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;}
+.bat,.bat *{box-sizing:border-box}
+.bat{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;max-width:1120px;margin:0 auto;}
+.bat-top{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.bat-play{display:inline-flex;align-items:center;gap:8px;background:none;border:1.5px solid var(--low);color:var(--low);
+  font-family:inherit;font-size:16px;font-weight:700;padding:10px 20px;border-radius:12px;cursor:pointer;}
+.bat-play.on{background:var(--low);color:#fff;}
+.bat-tempo{display:flex;align-items:center;gap:8px;color:var(--ink3);font-size:14px;}
+.bat-tempo input{width:150px;accent-color:var(--low);}
+.bat-tempo b{color:var(--ink);font-size:16px;font-variant-numeric:tabular-nums;}
+.bat-btn{margin-left:0;background:none;border:1px solid var(--line);color:var(--ink);font-family:inherit;font-size:13.5px;
+  padding:9px 14px;border-radius:10px;cursor:pointer;}
+.bat-btn:hover{border-color:var(--ink3);}
+.bat-all{margin-left:auto;}
+.bat-grid{margin:22px 0 6px;position:relative;}
+.bat .lane{display:grid;grid-template-columns:132px 1fr;align-items:center;height:50px;}
+.bat .lane .name{display:flex;align-items:center;gap:9px;font-size:15px;color:var(--ink);}
+.bat .lane .ico{width:24px;height:24px;flex:0 0 auto;opacity:.85;display:inline-flex;}
+.bat .lane .ico svg{width:24px;height:24px;stroke-width:1.6;}
+.bat .lane.mut .name, .bat .lane.mut .track{opacity:.28;}
+.bat .track{position:relative;height:100%;}
+.bat .track .rule{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line);}
+.bat .cell{background:none;border:0;position:absolute;top:0;height:100%;display:flex;align-items:center;justify-content:center;}
+.bat .mk{width:12px;height:12px;}
+.bat .mk.low{border-radius:50%;background:var(--low);}
+.bat .mk.low.acc{width:17px;height:17px;}
+.bat .mk.mid{width:9px;height:16px;border-radius:50%;background:var(--mid);}
+.bat .mk.mid.acc{width:12px;height:20px;}
+.bat .mk.high{width:14px;height:14px;background:var(--high);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g stroke='black' stroke-width='2.6' stroke-linecap='round'><line x1='12' y1='3' x2='12' y2='21'/><line x1='4' y1='7' x2='20' y2='17'/><line x1='20' y1='7' x2='4' y2='17'/></g></svg>") center/contain no-repeat;
+  mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g stroke='black' stroke-width='2.6' stroke-linecap='round'><line x1='12' y1='3' x2='12' y2='21'/><line x1='4' y1='7' x2='20' y2='17'/><line x1='20' y1='7' x2='4' y2='17'/></g></svg>") center/contain no-repeat;}
+.bat .mk.high.acc{width:19px;height:19px;}
+.bat .playhead{position:absolute;top:0;bottom:0;width:36px;background:rgba(224,150,40,.16);border-radius:8px;
+  pointer-events:none;transition:left .04s linear;left:-999px;}
+.bat .ruler{display:grid;grid-template-columns:132px 1fr;height:22px;margin-bottom:2px;}
+.bat .ruler .beats{position:relative;}
+.bat .ruler .bn{position:absolute;top:0;transform:translateX(-50%);font-size:11px;color:var(--ink3);font-variant-numeric:tabular-nums;}
+.bat .ruler.hide{display:none;}
+.bat-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px;}
+.bat .pill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:14px;color:var(--ink);}
+.bat .pill .dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto;}
+.bat .pill .solo{margin-left:auto;font-size:12px;color:var(--ink3);border:1px solid var(--line);border-radius:7px;padding:3px 9px;cursor:pointer;background:none;font-family:inherit;}
+.bat .pill .solo.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+@media(max-width:820px){}
+.bat .lane{grid-template-columns:104px 1fr;}
 </style>
-<text x="20" y="30" font-size="18" font-weight="700" fill="#2C2C2A">桑巴乐队 bateria · 灵魂画手图鉴</text>
-<text x="20" y="51" font-size="12" fill="#5F5E5A">标准 escola de samba 游行编制的 8 件主力 — 谁管低/中/高、怎么打、什么声</text>
-<g>
-<rect x="640" y="16" width="44" height="19" rx="9" fill="#D85A30"/><text x="662" y="29" text-anchor="middle" class="b4chip">低音</text>
-<rect x="690" y="16" width="44" height="19" rx="9" fill="#7F77DD"/><text x="712" y="29" text-anchor="middle" class="b4chip">中音</text>
-<rect x="740" y="16" width="44" height="19" rx="9" fill="#1D9E75"/><text x="762" y="29" text-anchor="middle" class="b4chip">高音</text>
-</g>
-<line x1="20" y1="64" x2="940" y2="64" stroke="#EFEDE6" stroke-width="1"/>
-<g transform="translate(10,74)">
-<rect x="148" y="6" width="58" height="20" rx="10" fill="#D85A30"/><text x="177" y="20" text-anchor="middle" class="b4chip">低音</text>
-<path class="b4thin" d="M55,52 L92,86"/>
-<rect class="b4fw" x="82" y="46" width="64" height="80" rx="8"/>
-<ellipse class="b4fw" cx="114" cy="46" rx="32" ry="11"/>
-<ellipse class="b4thin" cx="114" cy="126" rx="32" ry="9"/>
-<line class="b4thin" x1="96" y1="50" x2="96" y2="122"/><line class="b4thin" x1="132" y1="50" x2="132" y2="122"/>
-<line class="b4ink" x1="40" y1="42" x2="96" y2="50"/><circle cx="40" cy="42" r="8" fill="#D85A30" stroke="#2C2C2A" stroke-width="2"/>
-<text x="12" y="178" class="b4nm">Surdo 大鼓</text>
-<text x="12" y="200" class="b4lb">打法：软头槌敲 + 另一手按皮</text>
-<text x="12" y="220" class="b4lb">音色：沉闷"咚"，乐队心跳，</text>
-<text x="12" y="236" class="b4lb">锚在拍 2 上</text>
-</g>
-<g transform="translate(250,74)">
-<rect x="148" y="6" width="58" height="20" rx="10" fill="#7F77DD"/><text x="177" y="20" text-anchor="middle" class="b4chip">中音</text>
-<rect class="b4fw" x="58" y="64" width="112" height="38" rx="5"/>
-<ellipse class="b4fw" cx="114" cy="64" rx="56" ry="13"/>
-<path class="b4ink" d="M64,38 L150,86"/><path class="b4ink" d="M150,38 L64,86"/>
-<path class="b4thin" d="M62,104 q12,8 24,0 q12,8 24,0 q12,8 24,0 q12,8 24,0"/>
-<text x="12" y="178" class="b4nm">Caixa 响弦鼓</text>
-<text x="12" y="200" class="b4lb">打法：双槌，军鼓式滚奏</text>
-<text x="12" y="220" class="b4lb">音色：连续"嚓嚓"沙沙声，</text>
-<text x="12" y="236" class="b4lb">铺底层律动</text>
-</g>
-<g transform="translate(490,74)">
-<rect x="148" y="6" width="58" height="20" rx="10" fill="#7F77DD"/><text x="177" y="20" text-anchor="middle" class="b4chip">中音</text>
-<rect class="b4fw" x="82" y="48" width="62" height="72" rx="6"/>
-<ellipse class="b4fw" cx="113" cy="48" rx="31" ry="11"/>
-<ellipse class="b4thin" cx="113" cy="120" rx="31" ry="8"/>
-<line class="b4ink" x1="158" y1="28" x2="125" y2="46"/>
-<path class="b4ink" d="M70,44 q-10,2 -12,9 q6,2 11,-1"/>
-<text x="12" y="178" class="b4nm">Repinique 领奏鼓</text>
-<text x="12" y="200" class="b4lb">打法：一手槌、一手拍</text>
-<text x="12" y="220" class="b4lb">音色：尖锐穿透，发号施令</text>
-<text x="12" y="236" class="b4lb">（起拍 / break / 停）</text>
-</g>
-<g transform="translate(730,74)">
-<rect x="148" y="6" width="58" height="20" rx="10" fill="#1D9E75"/><text x="177" y="20" text-anchor="middle" class="b4chip">高音</text>
-<circle class="b4fw" cx="96" cy="74" r="32"/>
-<circle class="b4thin" cx="96" cy="74" r="25"/>
-<path class="b4ink" d="M168,52 q-26,8 -44,20"/>
-<path class="b4ink" d="M124,72 l-12,-3 M124,72 l-11,3 M124,72 l-13,-9"/>
-<path class="b4thin" d="M64,74 q-12,0 -14,8"/>
-<text x="12" y="178" class="b4nm">Tamborim 手鼓</text>
-<text x="12" y="200" class="b4lb">打法：软鞭状小槌抽打</text>
-<text x="12" y="220" class="b4lb">音色：清脆"嗒"，打 teleco-</text>
-<text x="12" y="236" class="b4lb">teco，咬住歌词重音</text>
-</g>
-<line x1="20" y1="345" x2="940" y2="345" stroke="#EFEDE6" stroke-width="1"/>
-<g transform="translate(10,360)">
-<rect x="148" y="6" width="58" height="20" rx="10" fill="#1D9E75"/><text x="177" y="20" text-anchor="middle" class="b4chip">高音</text>
-<rect class="b4fw" x="104" y="20" width="14" height="22" rx="3"/>
-<rect class="b4fw" x="68" y="42" width="86" height="74" rx="4"/>
-<g class="b4thin"><line x1="74" y1="60" x2="148" y2="60"/><line x1="74" y1="79" x2="148" y2="79"/><line x1="74" y1="98" x2="148" y2="98"/></g>
-<g fill="#2C2C2A"><circle cx="88" cy="60" r="3.4"/><circle cx="111" cy="60" r="3.4"/><circle cx="134" cy="60" r="3.4"/><circle cx="88" cy="79" r="3.4"/><circle cx="111" cy="79" r="3.4"/><circle cx="134" cy="79" r="3.4"/><circle cx="88" cy="98" r="3.4"/><circle cx="111" cy="98" r="3.4"/><circle cx="134" cy="98" r="3.4"/></g>
-<text x="12" y="178" class="b4nm">Chocalho 摇铃</text>
-<text x="12" y="200" class="b4lb">打法：前后推拉、整排摇</text>
-<text x="12" y="220" class="b4lb">音色：一片"唰—唰"，</text>
-<text x="12" y="236" class="b4lb">负责制造摇摆感</text>
-</g>
-<g transform="translate(250,360)">
-<rect x="148" y="6" width="58" height="20" rx="10" fill="#1D9E75"/><text x="177" y="20" text-anchor="middle" class="b4chip">高音</text>
-<path class="b4ink" d="M86,40 q22,-14 44,0"/>
-<path class="b4fw" d="M80,44 q6,40 14,58 q12,-10 14,-54 q-14,-8 -28,-4 Z"/>
-<path class="b4fw" d="M124,40 q4,32 12,46 q10,-8 12,-42 q-12,-8 -24,-4 Z"/>
-<line class="b4ink" x1="160" y1="34" x2="132" y2="52"/>
-<text x="12" y="178" class="b4nm">Agogô 双音铃</text>
-<text x="12" y="200" class="b4lb">打法：铁棒敲两个钟口</text>
-<text x="12" y="220" class="b4lb">音色：叮-咚两个音高，</text>
-<text x="12" y="236" class="b4lb">乐队里唯一带旋律的金属</text>
-</g>
-<g transform="translate(490,360)">
-<rect x="148" y="6" width="58" height="20" rx="10" fill="#1D9E75"/><text x="177" y="20" text-anchor="middle" class="b4chip">高音</text>
-<rect class="b4fw" x="82" y="58" width="62" height="62" rx="6"/>
-<ellipse class="b4fw" cx="113" cy="58" rx="31" ry="11"/>
-<line class="b4ink" x1="113" y1="58" x2="113" y2="22"/>
-<path class="b4thin" d="M113,40 q-12,-2 -16,4 q8,4 16,1"/>
-<path class="b4thin" d="M150,30 q10,-6 16,2 M154,40 q11,-5 17,3" stroke="#1D9E75"/>
-<text x="12" y="178" class="b4nm">Cuíca 摩擦鼓</text>
-<text x="12" y="200" class="b4lb">打法：湿布上下搓内插的杆</text>
-<text x="12" y="220" class="b4lb">音色：像人哭 / 猴叫的"呜-呃"，</text>
-<text x="12" y="236" class="b4lb">即兴搞怪担当</text>
-</g>
-<g transform="translate(730,360)">
-<rect x="148" y="6" width="58" height="20" rx="10" fill="#1D9E75"/><text x="177" y="20" text-anchor="middle" class="b4chip">高音</text>
-<rect class="b4fw" x="50" y="72" width="116" height="28" rx="14"/>
-<g class="b4thin"><line x1="66" y1="74" x2="66" y2="98"/><line x1="80" y1="74" x2="80" y2="98"/><line x1="94" y1="74" x2="94" y2="98"/><line x1="108" y1="74" x2="108" y2="98"/><line x1="122" y1="74" x2="122" y2="98"/><line x1="136" y1="74" x2="136" y2="98"/><line x1="150" y1="74" x2="150" y2="98"/></g>
-<line class="b4ink" x1="92" y1="50" x2="128" y2="108"/>
-<text x="12" y="178" class="b4nm">Reco-reco 刮器</text>
-<text x="12" y="200" class="b4lb">打法：木棒来回刮钢条</text>
-<text x="12" y="220" class="b4lb">音色："咔啦—咔啦"刮擦，</text>
-<text x="12" y="236" class="b4lb">垫在每个正拍之前</text>
-</g>
-<line x1="20" y1="632" x2="940" y2="632" stroke="#EFEDE6" stroke-width="1"/>
-<text x="20" y="652" font-size="10.3" fill="#888780">灵魂画手版，求神似别求形准。下面文字再补几件常见乐器。</text>
-</svg>
-<figcaption>桑巴 bateria 八件主力 · 来源 <a href="https://en.wikipedia.org/wiki/Bateria">Bateria, Wikipedia</a></figcaption>
-</figure>
+<div class="bat" id="bat">
+  <div class="bat-top">
+    <button class="bat-play" id="play">▶ 桑巴乐队 Bateria</button>
+    <div class="bat-tempo">速度 <input type="range" id="bpm" min="60" max="120" value="88"> <b id="bpmv">88</b> BPM</div>
+    <button class="bat-btn bat-view" id="view">▦ 切到谱面</button>
+    <button class="bat-btn bat-all" id="allon">全部开</button>
+  </div>
+  <div class="ruler hide" id="ruler"><div></div><div class="beats" id="beats"></div></div>
+  <div class="bat-grid" id="grid"></div>
+  <div class="bat-legend" id="legend"></div>
+</div>
+<script>
+const STEPS=16, DIV=4;
+// pat: 0 off · 1 普通 · 2 重音
+const INST=[
+ {id:'surdo', name:'surdo',    zh:'大鼓',   grp:'low',  col:'#C0562A', pat:[1,0,0,0, 2,0,0,0, 1,0,0,0, 2,0,0,0]},
+ {id:'caixa', name:'caixa',    zh:'响弦',   grp:'mid',  col:'#7A6FE0', pat:[1,1,2,1, 1,1,2,1, 1,1,2,1, 1,1,2,1]},
+ {id:'repi',  name:'repinique',zh:'领奏',   grp:'mid',  col:'#7A6FE0', pat:[2,0,1,1, 0,0,1,0, 2,0,1,1, 0,0,1,0]},
+ {id:'tamb',  name:'tamborim', zh:'手鼓',   grp:'high', col:'#1D9E75', pat:[1,0,1,1, 0,1,1,0, 1,0,1,1, 0,1,1,0]},
+ {id:'choc',  name:'chocalho', zh:'摇铃',   grp:'high', col:'#1D9E75', pat:[1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1]},
+ {id:'agogo', name:'agogô',    zh:'双音铃', grp:'high', col:'#1D9E75', pat:[2,0,1,0, 1,0,2,0, 2,0,1,0, 1,0,2,0]},
+ {id:'cuica', name:'cuíca',    zh:'摩擦鼓', grp:'high', col:'#1D9E75', pat:[0,0,2,0, 0,0,0,0, 0,0,2,0, 0,0,1,0]},
+ {id:'reco',  name:'reco-reco',zh:'刮器',   grp:'high', col:'#1D9E75', pat:[1,0,0,1, 0,0,1,0, 1,0,0,1, 0,0,1,0]},
+];
+const ICON={
+ surdo:'<svg viewBox="0 0 24 24" fill="none" stroke="%C"><ellipse cx="12" cy="7" rx="8" ry="3.2"/><path d="M4 7v9c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V7"/></svg>',
+ caixa:'<svg viewBox="0 0 24 24" fill="none" stroke="%C"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M4 9l16 6M20 9L4 15"/></svg>',
+ repi:'<svg viewBox="0 0 24 24" fill="none" stroke="%C"><ellipse cx="12" cy="7" rx="7" ry="2.8"/><path d="M5 7v8c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8V7"/></svg>',
+ tamb:'<svg viewBox="0 0 24 24" fill="none" stroke="%C"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg>',
+ choc:'<svg viewBox="0 0 24 24" fill="none" stroke="%C"><rect x="6" y="4" width="12" height="10" rx="2"/><path d="M11 14v6M13 14v6"/></svg>',
+ agogo:'<svg viewBox="0 0 24 24" fill="none" stroke="%C"><path d="M8 5c-2 3-2 8 0 12M16 7c-1.5 2-1.5 6 0 8"/></svg>',
+ cuica:'<svg viewBox="0 0 24 24" fill="none" stroke="%C"><ellipse cx="12" cy="8" rx="7" ry="3"/><path d="M5 8v7c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8V8M12 5V2"/></svg>',
+ reco:'<svg viewBox="0 0 24 24" fill="none" stroke="%C"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M6 9v6M9 9v6M12 9v6M15 9v6M18 9v6"/></svg>',
+};
+function icon(i){return ICON[i.id].replace(/%C/g,i.col);}
+const grid=document.getElementById('grid'), legend=document.getElementById('legend'), beats=document.getElementById('beats');
+let solo=null;
+function stepX(i){return `calc(${(i+0.5)/STEPS*100}% )`;}
+function build(){
+  grid.innerHTML='';
+  INST.forEach(inst=>{
+    const lane=document.createElement('div');lane.className='lane';lane.dataset.id=inst.id;
+    lane.innerHTML=`<div class="name"><span class="ico">${icon(inst)}</span>${inst.name}</div><div class="track"><div class="rule"></div></div>`;
+    const track=lane.querySelector('.track');
+    inst.pat.forEach((v,i)=>{ if(!v)return;
+      const c=document.createElement('div');c.className='cell';c.style.left=`${i/STEPS*100}%`;c.style.width=`${100/STEPS}%`;
+      c.innerHTML=`<span class="mk ${inst.grp}${v===2?' acc':''}"></span>`;
+      track.appendChild(c);
+    });
+    const ph=document.createElement('div');ph.className='playhead';ph.dataset.for=inst.id;track.appendChild(ph);
+    grid.appendChild(lane);
+  });
+  // legend
+  legend.innerHTML='';
+  INST.forEach(inst=>{
+    const p=document.createElement('div');p.className='pill';
+    p.innerHTML=`<span class="dot" style="background:${inst.col}"></span>${inst.name} ${inst.zh}<button class="solo" data-id="${inst.id}">独奏</button>`;
+    legend.appendChild(p);
+  });
+  // ruler
+  let bh='';for(let b=0;b<STEPS/DIV;b++){bh+=`<span class="bn" style="left:${(b*DIV+0.5)/STEPS*100}%">${b+1}</span>`;}
+  beats.innerHTML=bh;
+}
+build();
+// playhead band across grid
+const gridPH=document.createElement('div');gridPH.className='playhead';gridPH.style.top='0';gridPH.style.bottom='0';
+grid.style.position='relative';grid.appendChild(gridPH);
+function movePH(step){
+  const first=grid.querySelector('.track');
+  if(!first)return;
+  const r=first.getBoundingClientRect(), g=grid.getBoundingClientRect();
+  const x=(r.left-g.left)+ (step/STEPS)*r.width;
+  gridPH.style.left=x+'px';gridPH.style.width=(r.width/STEPS)+'px';
+}
+/* ---------- audio ---------- */
+let AC;const ac=()=>AC||(AC=new (window.AudioContext||window.webkitAudioContext)());
+function env(g,t,a,d,pk){g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(pk,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d);}
+function tone(t,f,f2,dur,pk,type){const c=ac(),o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+dur);o.connect(g);g.connect(c.destination);env(g,t,.002,dur,pk);o.start(t);o.stop(t+dur+.03);}
+function noise(t,dur,pk,hp,lp){const c=ac(),n=Math.floor(c.sampleRate*dur),b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=hp;f.Q.value=lp||1;const g=c.createGain();s.connect(f);f.connect(g);g.connect(c.destination);env(g,t,.001,dur,pk);s.start(t);s.stop(t+dur+.02);}
+function hit(id,v,t){const pk=v===2?1:0.5;
+  switch(id){
+   case'surdo': tone(t,v===2?95:130, v===2?55:80, v===2?.32:.14, pk*0.9,'sine');break;
+   case'caixa': noise(t,.05,pk*0.5,2400,1.2);break;
+   case'repi':  noise(t,.06,pk*0.55,1400,2.2);tone(t,320,220,.05,pk*0.2,'triangle');break;
+   case'tamb':  noise(t,.03,pk*0.5,4200,3);break;
+   case'choc':  noise(t,.04,pk*0.32,7000,1.5);break;
+   case'agogo': tone(t,v===2?880:660,null,.14,pk*0.4,'square');break;
+   case'cuica': tone(t,v===2?520:300, v===2?900:520,.18,pk*0.5,'sawtooth');break;
+   case'reco':  noise(t,.05,pk*0.4,2000,0.6);break;
+  }
+}
+/* ---------- transport ---------- */
+let playing=false,step=0,timer=null;
+function audibleFor(id){ return solo? (id===solo) : !document.querySelector(`.lane[data-id="${id}"]`).classList.contains('mut'); }
+function tick(){
+  movePH(step);
+  const t=ac().currentTime+0.02;
+  INST.forEach(inst=>{const v=inst.pat[step]; if(v && audibleFor(inst.id)) hit(inst.id,v,t);});
+  step=(step+1)%STEPS;
+}
+function loop(){const bpm=+document.getElementById('bpm').value;const ms=60000/bpm/DIV;clearInterval(timer);tick();timer=setInterval(tick,ms);}
+const playBtn=document.getElementById('play');
+playBtn.onclick=()=>{playing=!playing;if(playing){step=0;ac().resume&&ac().resume();loop();playBtn.classList.add('on');playBtn.textContent='■ 停止';}else{clearInterval(timer);playBtn.classList.remove('on');playBtn.textContent='▶ 桑巴乐队 Bateria';gridPH.style.left='-999px';}};
+document.getElementById('bpm').oninput=function(){document.getElementById('bpmv').textContent=this.value;if(playing)loop();};
+document.getElementById('view').onclick=function(){const r=document.getElementById('ruler');r.classList.toggle('hide');this.textContent=r.classList.contains('hide')?'▦ 切到谱面':'▦ 切到图标';};
+document.getElementById('allon').onclick=function(){solo=null;document.querySelectorAll('.lane').forEach(l=>l.classList.remove('mut'));document.querySelectorAll('.solo').forEach(s=>s.classList.remove('on'));};
+legend.addEventListener('click',e=>{const b=e.target.closest('.solo');if(!b)return;const id=b.dataset.id;
+  if(solo===id){solo=null;}else{solo=id;}
+  document.querySelectorAll('.solo').forEach(s=>s.classList.toggle('on',solo&&s.dataset.id===solo));
+  document.querySelectorAll('.lane').forEach(l=>l.classList.toggle('mut', solo&&l.dataset.id!==solo));
+});
+</script>
 <div class="variant"><h4>Bossa nova</h4><div class="layer"><span class="lbl base">基础</span><div class="ly"><p>João Gilberto 把整个 samba 打击乐团<b>浓缩进一把吉他</b>(拇指当 surdo，手指当 tamborim)，再大幅减负、留白给和声。是"samba 的轻声版"，清冷、私密、苦甜的 saudade。</p></div></div><div class="layer"><span class="lbl hist">历史典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Garota%20de%20Ipanema%20%28The%20Girl%20from%20Ipanema%29%20Jobim%20/%20Jo%C3%A3o%20Gilberto" target="_blank" rel="noopener">Garota de Ipanema (The Girl from Ipanema)（Jobim / João Gilberto）</a>——把 bossa 带向全世界的那一首。</p></div></div><div class="layer"><span class="lbl modern">现代典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=From%20the%20Start%20Laufey" target="_blank" rel="noopener">From the Start（Laufey）</a>(bossa-pop)——Z 世代重新爱上 bossa 的入口；小野リサ 则把无数标准曲唱成温柔的 bossa 版。</p></div></div></div>
 <div class="variant"><h4>Baião</h4><div class="layer"><span class="lbl base">基础</span><div class="ly"><p>巴西东北部(Pernambuco)的手风琴主导乡土节奏，唱旱灾与思乡。</p></div></div><div class="layer"><span class="lbl hist">历史典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Asa%20Branca%20Luiz%20Gonzaga" target="_blank" rel="noopener">Asa Branca（Luiz Gonzaga）</a>——国歌级的 baião。</p></div></div><div class="layer"><span class="lbl modern">现代典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Eu%20S%C3%B3%20Quero%20um%20Xod%C3%B3%20Gilberto%20Gil" target="_blank" rel="noopener">Eu Só Quero um Xodó（Gilberto Gil）</a>——baião 进入当代流行的样子。</p></div></div></div>
 <div class="variant"><h4>Partido alto</h4><div class="layer"><span class="lbl base">基础</span><div class="ly"><p>samba 的一个支系，即兴对唱、众人喊和声的"高手过招"。</p></div></div><div class="layer"><span class="lbl hist">历史典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Rumo%20Dos%20Ventos%20Paulinho%20da%20Viola" target="_blank" rel="noopener">Rumo Dos Ventos（Paulinho da Viola）</a>——partido alto 的代表笔触。</p></div></div><div class="layer"><span class="lbl modern">现代典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Deixa%20a%20Vida%20Me%20Levar%20Zeca%20Pagodinho" target="_blank" rel="noopener">Deixa a Vida Me Levar（Zeca Pagodinho）</a> 一脉的 pagode，把 partido alto 的即兴感带进大众卡拉。</p></div></div></div>
