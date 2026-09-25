@@ -217,7 +217,7 @@
     <div class="main article"><h2>巴西这支</h2>
 <p>注意：<b>巴西音乐没有古巴那种结构铁律的 clave</b>，所谓"bossa clave"只是参考线 <span class="src">(<a href="https://www.thejazzpianosite.com/jazz-piano-lessons/jazz-genres/how-to-play-bossa-nova/" target="_blank" rel="noopener">The Jazz Piano Site</a>)</span>。巴西这支的核心是"in 2 的呼吸"——感觉落在每小节两个强拍上。</p>
 <div class="variant"><h4>Samba</h4><div class="layer"><span class="lbl base">基础</span><div class="ly"><p>感觉在"2"上，底层 surdo 大鼓锚住拍 2，上面一堆 16 分抢在拍前。桑巴乐队 bateria 是按"频段分工"叠出来的厚墙——底层 surdo 铺低音心跳、中层 caixa 沙沙滚奏 + repinique 指挥、高层一堆金属小鼓织出闪闪的切分。</p></div></div><div class="layer"><span class="lbl hist">历史典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Aquarela%20do%20Brasil%20Jo%C3%A3o%20Gilberto" target="_blank" rel="noopener">Aquarela do Brasil（João Gilberto）</a>——samba 经典里的经典。</p></div></div><div class="layer"><span class="lbl modern">现代典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Burguesinha%20Seu%20Jorge" target="_blank" rel="noopener">Burguesinha（Seu Jorge）</a>、<a href="https://music.163.com/#/search/m/?s=Deixa%20a%20Vida%20Me%20Levar%20Zeca%20Pagodinho" target="_blank" rel="noopener">Deixa a Vida Me Levar（Zeca Pagodinho）</a>(pagode)——samba 在当代街头与流行里的延续。</p></div></div></div>
-<p>桑巴的厚墙不是一件乐器,是一支<b>乐队(bateria)</b>按频段分工叠出来的。下面这台是<b>可播放的 bateria</b>——点播放听整体,或点某件的"独奏"单独听它在整片声音里的位置:</p>
+<p>桑巴的厚墙不是一件乐器,是一支<b>乐队(bateria)</b>按频段分工叠出来的。下面这台是<b>可播放的 bateria</b>——点播放听整体,点某件乐器可单独把它<b>静音 / 打开</b>(响 ↔ 静音),听清每件在整片声音里的位置:</p>
 <style>
 .bat{--low:#C0562A;--mid:#7A6FE0;--high:#1D9E75;--paper:#FBF3E7;--line:#E4D9C4;--ink:#3A332A;--ink3:#9a8f7e;--f:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;}
 .bat,.bat *{box-sizing:border-box}
@@ -261,6 +261,8 @@
 .bat .pill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:14px;color:var(--ink);}
 .bat .pill .dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto;}
 .bat .pill .solo{margin-left:auto;font-size:12px;color:var(--ink3);border:1px solid var(--line);border-radius:7px;padding:3px 9px;cursor:pointer;background:none;font-family:inherit;}
+.bat .pill{cursor:pointer;}
+.bat .pill.off{opacity:.42;}
 .bat .pill .solo.on{background:var(--ink);color:#fff;border-color:var(--ink);}
 @media(max-width:820px){}
 .bat .lane{grid-template-columns:104px 1fr;}
@@ -321,7 +323,7 @@ function build(){
   legend.innerHTML='';
   INST.forEach(inst=>{
     const p=document.createElement('div');p.className='pill';
-    p.innerHTML=`<span class="dot" style="background:${inst.col}"></span>${inst.name} ${inst.zh}<button class="solo" data-id="${inst.id}">独奏</button>`;
+    p.innerHTML=`<span class="dot" style="background:${inst.col}"></span>${inst.name} ${inst.zh}<button class="solo" data-id="${inst.id}">响</button>`;
     legend.appendChild(p);
   });
   // ruler
@@ -358,7 +360,7 @@ function hit(id,v,t){const pk=v===2?1:0.5;
 }
 /* ---------- transport ---------- */
 let playing=false,step=0,timer=null;
-function audibleFor(id){ return solo? (id===solo) : !document.querySelector(`.lane[data-id="${id}"]`).classList.contains('mut'); }
+function audibleFor(id){ return !document.querySelector(`.lane[data-id="${id}"]`).classList.contains('mut'); }
 function tick(){
   movePH(step);
   const t=ac().currentTime+0.02;
@@ -370,11 +372,10 @@ const playBtn=document.getElementById('play');
 playBtn.onclick=()=>{playing=!playing;if(playing){step=0;ac().resume&&ac().resume();loop();playBtn.classList.add('on');playBtn.textContent='■ 停止';}else{clearInterval(timer);playBtn.classList.remove('on');playBtn.textContent='▶ 桑巴乐队 Bateria';gridPH.style.left='-999px';}};
 document.getElementById('bpm').oninput=function(){document.getElementById('bpmv').textContent=this.value;if(playing)loop();};
 document.getElementById('view').onclick=function(){const r=document.getElementById('ruler');r.classList.toggle('hide');this.textContent=r.classList.contains('hide')?'▦ 切到谱面':'▦ 切到图标';};
-document.getElementById('allon').onclick=function(){solo=null;document.querySelectorAll('.lane').forEach(l=>l.classList.remove('mut'));document.querySelectorAll('.solo').forEach(s=>s.classList.remove('on'));};
-legend.addEventListener('click',e=>{const b=e.target.closest('.solo');if(!b)return;const id=b.dataset.id;
-  if(solo===id){solo=null;}else{solo=id;}
-  document.querySelectorAll('.solo').forEach(s=>s.classList.toggle('on',solo&&s.dataset.id===solo));
-  document.querySelectorAll('.lane').forEach(l=>l.classList.toggle('mut', solo&&l.dataset.id!==solo));
+document.getElementById('allon').onclick=function(){document.querySelectorAll('.lane').forEach(l=>l.classList.remove('mut'));document.querySelectorAll('.pill').forEach(p=>p.classList.remove('off'));document.querySelectorAll('.solo').forEach(s=>s.textContent='响');};
+legend.addEventListener('click',e=>{const pill=e.target.closest('.pill');if(!pill)return;const b=pill.querySelector('.solo');const id=b.dataset.id;
+  const muted=document.querySelector(`.lane[data-id="${id}"]`).classList.toggle('mut');
+  pill.classList.toggle('off',muted); b.textContent=muted?'静音':'响';
 });
 </script>
 <div class="variant"><h4>Bossa nova</h4><div class="layer"><span class="lbl base">基础</span><div class="ly"><p>João Gilberto 把整个 samba 打击乐团<b>浓缩进一把吉他</b>(拇指当 surdo，手指当 tamborim)，再大幅减负、留白给和声。是"samba 的轻声版"，清冷、私密、苦甜的 saudade。</p></div></div><div class="layer"><span class="lbl hist">历史典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=Garota%20de%20Ipanema%20%28The%20Girl%20from%20Ipanema%29%20Jobim%20/%20Jo%C3%A3o%20Gilberto" target="_blank" rel="noopener">Garota de Ipanema (The Girl from Ipanema)（Jobim / João Gilberto）</a>——把 bossa 带向全世界的那一首。</p></div></div><div class="layer"><span class="lbl modern">现代典型</span><div class="ly"><p><a href="https://music.163.com/#/search/m/?s=From%20the%20Start%20Laufey" target="_blank" rel="noopener">From the Start（Laufey）</a>(bossa-pop)——Z 世代重新爱上 bossa 的入口；小野リサ 则把无数标准曲唱成温柔的 bossa 版。</p></div></div></div>
